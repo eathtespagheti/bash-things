@@ -46,6 +46,15 @@ function parse_git_dirty {
   fi
 }
 
+# get active docker machine
+function parse_docker_machine {
+  if [ "$MACHINE" = "" ]
+  then echo ""
+  else
+    echo "| ${MACHINE} "
+  fi
+}
+
 function apple_status {
   if [ "$?" -eq "0" ]
   then APPLE="🍏"
@@ -54,4 +63,4 @@ function apple_status {
   echo $APPLE
 }
 
-export PS1="${Cyan}\h\`apple_status\`\u ${Color_Off}| ${Green}\w ${Color_Off}| ${Yellow}\`parse_git_branch\`${Color_Off}:\n\\$ "
+export PS1="${Cyan}\h\`apple_status\`\u ${Color_Off}| ${Green}\w ${Color_Off}| ${Yellow}\`parse_git_branch\`${BIRed}\`parse_docker_machine\`${Color_Off}:\n\\$ "

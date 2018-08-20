@@ -1,5 +1,4 @@
 MACHINE=''
-HOME_PATH='/home'
 # get colors
 source $HOME_PATH/$USER/.bash_things/text/colors.sh
 # get fancy

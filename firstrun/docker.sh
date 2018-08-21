@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-gecho '--- DOCKER INSTALL ---'
+bgecho '--- DOCKER INSTALL ---'
 
 gecho 'Installing requirements'
 sudo apt install apt-transport-https ca-certificates curl software-properties-common

@@ -18,7 +18,7 @@ if [[ $ALLTRUE = true ]]; then
   echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bash_profile
 
   # Case insensitive autocomplete
-  $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/macOS/case-insensitive-autocomplete.sh
   # NVM
   $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
   # GIT superpush
@@ -43,7 +43,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/macOS/case-insensitive-autocomplete.sh
   fi
 
   # NVM

@@ -23,11 +23,11 @@ if [[ $ALLTRUE = true ]]; then
   echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bashrc
 
   # Gnome 3 hacks
-  $HOME_PATH/$USER/.bash_things/firstrun/gnome3.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/Linux/gnome3.sh
   # Docker
-  $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker.sh
   # docker-machine
-  $HOME_PATH/$USER/.bash_things/firstrun/docker-machine.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker-machine.sh
   # NVM
   $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
   # GIT superpush
@@ -52,7 +52,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/gnome3.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/Linux/gnome3.sh
   fi
 
   # Docker
@@ -61,7 +61,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker.sh
   fi
 
   # docker-machine
@@ -70,7 +70,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/docker-machine.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker-machine.sh
   fi
 
   # NVM

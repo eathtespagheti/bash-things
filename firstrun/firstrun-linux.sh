@@ -26,6 +26,8 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/gnome3.sh
   # Docker
   $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
+  # NVM
+  $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
 else
   # Enable bash_things
   read -p "Enable bash_things? [Y/n] " -n 1 -r
@@ -56,6 +58,15 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
+  fi
+
+  # NVM
+  read -p "Install NVM? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
   fi
 fi
 

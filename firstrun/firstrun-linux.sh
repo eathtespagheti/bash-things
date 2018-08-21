@@ -6,10 +6,13 @@ echo "# Customization" >> $HOME_PATH/$USER/.bashrc
 echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bashrc
 echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bashrc
 
+# Package update and upgrade
+echo 'Updating and upgrading packages...'
+sudo apt update
+sudo apt upgrade -y
 
-# Fix GNOME 3 workspaces
-echo 'Fixing GNOME 3 workspaces...'
-gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
+# Gnome 3 hacks
+.${HOME_PATH}/$USER/.bash_things/firstrun/gnome3.sh
 
 # echo Done
 echo 'Done!'

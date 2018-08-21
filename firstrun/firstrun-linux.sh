@@ -1,15 +1,8 @@
+#!/usr/bin/env bash
 # Colors
 Green='\033[0;32m'
 BGreen='\033[1;32m'
 Color_Off='\033[0m' # No Color
-
-# Green echo
-function gecho {
-  echo -e "${Green}$1${Color_Off}"
-}
-function bgecho {
-  echo -e "${BGreen}$1${Color_Off}"
-}
 
 # Enable bash_things
 HOME_PATH='/home'
@@ -25,10 +18,10 @@ sudo apt update
 sudo apt upgrade -y
 
 # Gnome 3 hacks
-sh $HOME_PATH/$USER/.bash_things/firstrun/gnome3.sh
+$HOME_PATH/$USER/.bash_things/firstrun/gnome3.sh
 
 # Docker
-sh $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
+$HOME_PATH/$USER/.bash_things/firstrun/docker.sh
 
 # echo Done
 bgecho 'Done!'

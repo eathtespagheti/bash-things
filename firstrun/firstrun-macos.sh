@@ -23,6 +23,8 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
   # GIT superpush
   $HOME_PATH/$USER/.bash_things/firstrun/git.sh
+  # docker-machine autocomplete
+  $HOME_PATH/$USER/.bash_things/firstrun/macOS/docker-machine.sh
 else
   # Enable bash_things
   read -p "Enable bash_things? [Y/n] " -n 1 -r
@@ -62,6 +64,15 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/git.sh
+  fi
+
+  # docker-machine autocomplete
+  read -p "Enable docker-machine autocomplete? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/macOS/docker-machine.sh
   fi
 fi
 

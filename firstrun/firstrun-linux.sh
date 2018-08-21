@@ -28,6 +28,8 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
   # NVM
   $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
+  # GIT superpush
+  $HOME_PATH/$USER/.bash_things/firstrun/git.sh
 else
   # Enable bash_things
   read -p "Enable bash_things? [Y/n] " -n 1 -r
@@ -67,6 +69,15 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
+  fi
+
+  # GIT superpush
+  read -p "Enable GIT superpush? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/git.sh
   fi
 fi
 

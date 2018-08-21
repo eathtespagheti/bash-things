@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
+HOME_PATH='/home'
 
-# Colors
-Green='\033[0;32m'
-BGreen='\033[1;32m'
-Color_Off='\033[0m' # No Color
+# Loading echo functions
+source $HOME_PATH/$USER/.bash_things/firstrun/echo.sh
 
 # Enable bash_things
-HOME_PATH='/home'
 bgecho 'Enable bash_things in .bashrc'
 echo >> $HOME_PATH/$USER/.bashrc
 echo "# Customization" >> $HOME_PATH/$USER/.bashrc

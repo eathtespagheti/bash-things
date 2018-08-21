@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Loading echo functions
+source $HOME_PATH/$USER/.bash_things/firstrun/echo.sh
+
 echo
 bgecho '--- GNOME 3 Tweaks ---'
 

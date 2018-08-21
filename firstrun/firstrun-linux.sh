@@ -31,4 +31,4 @@ sh $HOME_PATH/$USER/.bash_things/firstrun/gnome3.sh
 sh $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
 
 # echo Done
-gecho 'Done!'
+bgecho 'Done!'

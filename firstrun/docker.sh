@@ -28,3 +28,7 @@ echo
 gecho 'Enable Docker at startup'
 sudo systemctl enable docker
 echo 'OK'
+
+echo
+gecho 'Installing docker-compose'
+pip install docker-compose

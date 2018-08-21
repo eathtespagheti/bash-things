@@ -32,9 +32,9 @@ else
   else
     bgecho 'Enable bash_things in .bash_profile'
     echo >> $HOME_PATH/$USER/.bashrc
-    echo "# Customization" >> $HOME_PATH/$USER/.bashrc
-    echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bashrc
-    echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bashrc
+    echo "# Customization" >> $HOME_PATH/$USER/.bash_profile
+    echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bash_profile
+    echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bash_profile
   fi
 
   # Case insensitive autocomplete

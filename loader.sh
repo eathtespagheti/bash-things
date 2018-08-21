@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 MACHINE=''
 # get colors
 source $HOME_PATH/$USER/.bash_things/text/colors.sh

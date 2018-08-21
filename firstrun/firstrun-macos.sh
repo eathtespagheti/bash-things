@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Enable bash_things
 echo 'Enable bash_things in .bashrc...'
 HOME_PATH='/User'

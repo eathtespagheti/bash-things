@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # custom .bashrc
 # get current branch in git repo
 function parse_git_branch() {

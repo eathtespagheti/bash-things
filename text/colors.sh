@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #######################################################################################################
 
 #  Customize BASH PS1 prompt to show current GIT repository and branch.

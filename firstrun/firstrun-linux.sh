@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Colors
 Green='\033[0;32m'
 BGreen='\033[1;32m'

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo
 bgecho '--- GNOME 3 Tweaks ---'
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Colors
-Green='\033[0;32m'
-BGreen='\033[1;32m'
-Color_Off='\033[0m' # No Color
+export Green='\033[0;32m'
+export BGreen='\033[1;32m'
+export Color_Off='\033[0m' # No Color
 
 # Green echo
 function gecho {
@@ -12,3 +12,7 @@ function gecho {
 function bgecho {
   echo -e "${BGreen}$1${Color_Off}"
 }
+
+bgecho '--- EXPORTING ECHO FUNCTIONS ---'
+export -f gecho
+export -f bgecho

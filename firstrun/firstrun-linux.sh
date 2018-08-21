@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-HOME_PATH='/home'
+export HOME_PATH='/home'
 
 # Loading echo functions
 source $HOME_PATH/$USER/.bash_things/firstrun/echo.sh

@@ -26,6 +26,8 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/gnome3.sh
   # Docker
   $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
+  # docker-machine
+  $HOME_PATH/$USER/.bash_things/firstrun/docker-machine.sh
   # NVM
   $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
   # GIT superpush
@@ -60,6 +62,15 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/docker.sh
+  fi
+
+  # docker-machine
+  read -p "Install docker-machine? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/docker-machine.sh
   fi
 
   # NVM

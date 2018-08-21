@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export HOME_PATH='/User'
+export HOME_PATH='/Users'
 ALLTRUE=false
 
 if [[ $1 = '--alltrue' ]]; then
@@ -30,7 +30,7 @@ else
   then
     echo
   else
-    bgecho 'Enable bash_things in .bashrc'
+    bgecho 'Enable bash_things in .bash_profile'
     echo >> $HOME_PATH/$USER/.bashrc
     echo "# Customization" >> $HOME_PATH/$USER/.bashrc
     echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bashrc

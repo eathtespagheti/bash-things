@@ -68,4 +68,4 @@ function apple_status {
 # docker-machine PS1
 # $(__docker_machine_ps1)
 
-export PS1="${Cyan}\h\`apple_status\`\u ${Color_Off}| ${Green}\w ${Color_Off}| ${Yellow}\`parse_git_branch\`${BIRed}\`parse_docker_machine\`${Color_Off}$(__docker_machine_ps1):\n\\$ "
+export PS1="${Cyan}\h\`apple_status\`\u ${Color_Off}| ${Green}\w ${Color_Off}| ${Yellow}\`parse_git_branch\`${BIRed}\`parse_docker_machine\`${Color_Off}:\n\\$ "

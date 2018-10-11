@@ -73,6 +73,15 @@ else
     $HOME_PATH/$USER/.bash_things/firstrun/Linux/gnome3.sh
   fi
 
+  # BCM43142A0 Bluetooth Fix
+  read -p "Fix BCM43142A0 Bluetooth? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/Linux/bluetooth-fix.sh
+  fi
+
   # Docker
   read -p "Install Docker? [Y/n] " -n 1 -r
   if [[ $REPLY =~ ^[Nn]$ ]]

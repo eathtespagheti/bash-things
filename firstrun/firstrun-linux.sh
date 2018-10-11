@@ -46,6 +46,15 @@ else
     echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bashrc
   fi
 
+  # Improved Graphic Drivers
+  read -p "Enable Improved Graphic Drivers? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/Linux/mesa.sh
+  fi
+
   # Gnome 3 hacks
   read -p "Enable Gnome 3 Hacks? [Y/n] " -n 1 -r
   if [[ $REPLY =~ ^[Nn]$ ]]

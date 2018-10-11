@@ -55,6 +55,15 @@ else
     $HOME_PATH/$USER/.bash_things/firstrun/Linux/mesa.sh
   fi
 
+  # Dev-Tools
+  read -p "Install Dev-Tools? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/Linux/dev-tools.sh
+  fi
+
   # Gnome 3 hacks
   read -p "Enable Gnome 3 Hacks? [Y/n] " -n 1 -r
   if [[ $REPLY =~ ^[Nn]$ ]]

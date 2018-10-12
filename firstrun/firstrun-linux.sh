@@ -22,8 +22,14 @@ if [[ $ALLTRUE = true ]]; then
   echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bashrc
   echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bashrc
 
+  # Improved Graphic Drivers
+  $HOME_PATH/$USER/.bash_things/firstrun/Linux/mesa.sh
+  # Dev-Tools
+  $HOME_PATH/$USER/.bash_things/firstrun/Linux/dev-tools.sh
   # Gnome 3 hacks
   $HOME_PATH/$USER/.bash_things/firstrun/Linux/gnome3.sh
+  # BCM43142A0 Bluetooth Fix
+  $HOME_PATH/$USER/.bash_things/firstrun/Linux/bluetooth-fix.sh
   # Docker
   $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker.sh
   # docker-machine

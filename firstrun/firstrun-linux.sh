@@ -28,8 +28,8 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/Linux/dev-tools.sh
   # Gnome 3 hacks
   $HOME_PATH/$USER/.bash_things/firstrun/Linux/gnome3.sh
-  # BCM43142A0 Bluetooth Fix
-  $HOME_PATH/$USER/.bash_things/firstrun/Linux/bluetooth-fix.sh
+  # BCM43142 Drivers
+  $HOME_PATH/$USER/.bash_things/firstrun/Linux/BMC43142.sh
   # Docker
   $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker.sh
   # docker-machine
@@ -79,13 +79,13 @@ else
     $HOME_PATH/$USER/.bash_things/firstrun/Linux/gnome3.sh
   fi
 
-  # BCM43142A0 Bluetooth Fix
-  read -p "Fix BCM43142A0 Bluetooth? [Y/n] " -n 1 -r
+  # BCM43142 Drivers
+  read -p "Install BCM43142 Drivers? [Y/n] " -n 1 -r
   if [[ $REPLY =~ ^[Nn]$ ]]
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/Linux/bluetooth-fix.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/Linux/BMC43142.sh
   fi
 
   # Docker

@@ -4,7 +4,7 @@ echo
 bgecho '--- DOCKER INSTALL ---'
 
 gecho 'Installing requirements'
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 
 gecho 'Adding PGP key'
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -

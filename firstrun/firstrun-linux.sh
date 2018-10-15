@@ -138,3 +138,12 @@ fi
 
 # echo Done
 bgecho 'Done!'
+
+# Final reboot
+read -p "Reboot system now? [Y/n] " -n 1 -r
+if [[ $REPLY =~ ^[Nn]$ ]]
+then
+  echo
+else
+  sudo reboot
+fi

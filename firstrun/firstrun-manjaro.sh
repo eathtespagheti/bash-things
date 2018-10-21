@@ -29,8 +29,6 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/mesa.sh
   # Dev-Tools
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/dev-tools.sh
-  # Gnome 3 hacks
-  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/gnome3.sh
   # exfat drivers
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/exfat.sh
   # BCM43142 Drivers
@@ -73,15 +71,6 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/dev-tools.sh
-  fi
-
-  # Gnome 3 hacks
-  read -p "Enable Gnome 3 Hacks? [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
-    echo
-  else
-    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/gnome3.sh
   fi
 
   # exfat drivers

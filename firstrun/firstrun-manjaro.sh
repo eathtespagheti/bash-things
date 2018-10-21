@@ -1,4 +1,5 @@
 DISTRO='Manjaro'
+AUTOYES='--noconfirm'
 #!/usr/bin/env bash
 export HOME_PATH='/home'
 ALLTRUE=false
@@ -13,7 +14,7 @@ source $HOME_PATH/$USER/.bash_things/firstrun/echo.sh
 # Package update and upgrade
 gecho 'Updating and upgrading packages'
 sudo pacman-mirrors --fasttrack
-sudo pacman -Syyu --noconfirm
+sudo pacman -Syyu $AUTOYES
 
 if [[ $ALLTRUE = true ]]; then
   # Enable bash_things

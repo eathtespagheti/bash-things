@@ -29,8 +29,6 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/mesa.sh
   # Dev-Tools
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/dev-tools.sh
-  # exfat drivers
-  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/exfat.sh
   # BCM43142 Drivers
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/BMC43142.sh
   # Docker
@@ -71,15 +69,6 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/dev-tools.sh
-  fi
-
-  # exfat drivers
-  read -p "Install exfat drivers? [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
-    echo
-  else
-    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/exfat.sh
   fi
 
   # BCM43142 Drivers

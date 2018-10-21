@@ -14,8 +14,11 @@ source $HOME_PATH/$USER/.bash_things/firstrun/echo.sh
 
 # Package update and upgrade
 gecho 'Updating and upgrading packages'
-sudo pacman-mirrors --fasttrack
+sudo pacman-mirrors --fasttrack 10
 sudo pacman -Syyu $AUTOYES
+
+gecho 'Install yaourt'
+sudo pacman -S yaourt $AUTOYES
 
 if [[ $ALLTRUE = true ]]; then
   # Enable bash_things

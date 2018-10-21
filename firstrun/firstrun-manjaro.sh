@@ -1,5 +1,6 @@
 DISTRO='Manjaro'
 AUTOYES='--noconfirm'
+PACKAGE_INSTALL='yaourt -S'
 #!/usr/bin/env bash
 export HOME_PATH='/home'
 ALLTRUE=false

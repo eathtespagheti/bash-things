@@ -30,7 +30,7 @@ if [[ $ALLTRUE = true ]]; then
   # Dev-Tools
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/dev-tools.sh
   # BCM43142 Drivers
-  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/BMC43142.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/broadcom.sh
   # Docker
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/docker.sh
   # docker-machine
@@ -71,13 +71,13 @@ else
     $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/dev-tools.sh
   fi
 
-  # BCM43142 Drivers
-  read -p "Install BCM43142 Drivers? [Y/n] " -n 1 -r
+  # Broadcom WiFi
+  read -p "Install Broadcom WiFi Drivers? [Y/n] " -n 1 -r
   if [[ $REPLY =~ ^[Nn]$ ]]
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/BMC43142.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/broadcom.sh
   fi
 
   # Docker

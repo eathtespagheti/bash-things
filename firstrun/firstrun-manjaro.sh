@@ -1,3 +1,4 @@
+DISTRO='Manjaro'
 #!/usr/bin/env bash
 export HOME_PATH='/home'
 ALLTRUE=false
@@ -23,19 +24,19 @@ if [[ $ALLTRUE = true ]]; then
   echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bashrc
 
   # Improved Graphic Drivers
-  $HOME_PATH/$USER/.bash_things/firstrun/Linux/mesa.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/mesa.sh
   # Dev-Tools
-  $HOME_PATH/$USER/.bash_things/firstrun/Linux/dev-tools.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/dev-tools.sh
   # Gnome 3 hacks
-  $HOME_PATH/$USER/.bash_things/firstrun/Linux/gnome3.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/gnome3.sh
   # exfat drivers
-  $HOME_PATH/$USER/.bash_things/firstrun/Linux/exfat.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/exfat.sh
   # BCM43142 Drivers
-  $HOME_PATH/$USER/.bash_things/firstrun/Linux/BMC43142.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/BMC43142.sh
   # Docker
-  $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/docker.sh
   # docker-machine
-  $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker-machine.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/docker-machine.sh
   # NVM
   $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
   # GIT superpush
@@ -60,7 +61,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/Linux/mesa.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/mesa.sh
   fi
 
   # Dev-Tools
@@ -69,7 +70,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/Linux/dev-tools.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/dev-tools.sh
   fi
 
   # Gnome 3 hacks
@@ -78,7 +79,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/Linux/gnome3.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/gnome3.sh
   fi
 
   # exfat drivers
@@ -87,7 +88,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/Linux/exfat.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/exfat.sh
   fi
 
   # BCM43142 Drivers
@@ -96,7 +97,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/Linux/BMC43142.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/BMC43142.sh
   fi
 
   # Docker
@@ -105,7 +106,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/docker.sh
   fi
 
   # docker-machine
@@ -114,7 +115,7 @@ else
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/Linux/docker-machine.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/docker-machine.sh
   fi
 
   # NVM

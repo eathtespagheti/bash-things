@@ -29,6 +29,8 @@ if [[ $ALLTRUE = true ]]; then
   echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bashrc
   echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bashrc
 
+  # Case insensitive autocomplete
+  $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
   # Improved Graphic Drivers
   $HOME_PATH/$USER/.bash_things/firstrun/$DISTRO/mesa.sh
   # Dev-Tools
@@ -44,6 +46,7 @@ if [[ $ALLTRUE = true ]]; then
   # GIT superpush
   $HOME_PATH/$USER/.bash_things/firstrun/git.sh
 else
+
   # Enable bash_things
   read -p "Enable bash_things? [Y/n] " -n 1 -r
   if [[ $REPLY =~ ^[Nn]$ ]]
@@ -55,6 +58,15 @@ else
     echo "# Customization" >> $HOME_PATH/$USER/.bashrc
     echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bashrc
     echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bashrc
+  fi
+
+  # Case insensitive autocomplete
+  read -p "Enable case insensitive autocomplete? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
   fi
 
   # Improved Graphic Drivers

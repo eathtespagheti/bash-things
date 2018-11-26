@@ -19,8 +19,10 @@ if [[ $ALLTRUE = true ]]; then
 
   # Case insensitive autocomplete
   $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
-  # NVM
+  # Homebrew
   $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew.sh
+  # bash-completion
+  $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-completion.sh
   # NVM
   $HOME_PATH/$USER/.bash_things/firstrun/macOS/nvm.sh
   # GIT superpush
@@ -57,6 +59,15 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew.sh
+  fi
+
+  # bash-completion
+  read -p "Install bash-completion? (requires homebrew installed) [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-completion.sh
   fi
 
   # NVM

@@ -25,6 +25,8 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-upgrade.sh
   # bash-completion
   $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-completion.sh
+  # brew-git
+  $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew-git.sh
   # NVM
   $HOME_PATH/$USER/.bash_things/firstrun/macOS/nvm.sh
   # GIT superpush
@@ -79,6 +81,15 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-completion.sh
+  fi
+
+  # brew-git
+  read -p "Reinstall git via brew? (requires homebrew installed) [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew-git.sh
   fi
 
   # NVM

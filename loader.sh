@@ -7,3 +7,6 @@ source $HOME_PATH/$USER/.bash_things/text/colors.sh
 source $HOME_PATH/$USER/.bash_things/text/bash_string.sh
 # get smart
 source $HOME_PATH/$USER/.bash_things/functions/docker.sh
+
+# use nano
+export EDITOR=nano

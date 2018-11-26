@@ -20,7 +20,9 @@ if [[ $ALLTRUE = true ]]; then
   # Case insensitive autocomplete
   $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
   # NVM
-  $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
+  $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew.sh
+  # NVM
+  $HOME_PATH/$USER/.bash_things/firstrun/macOS/nvm.sh
   # GIT superpush
   $HOME_PATH/$USER/.bash_things/firstrun/git.sh
   # docker-machine autocomplete
@@ -48,13 +50,22 @@ else
     $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
   fi
 
+  # Homebrew
+  read -p "Install Homebrew? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew.sh
+  fi
+
   # NVM
   read -p "Install NVM? [Y/n] " -n 1 -r
   if [[ $REPLY =~ ^[Nn]$ ]]
   then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/nvm.sh
+    $HOME_PATH/$USER/.bash_things/firstrun/macOS/nvm.sh
   fi
 
   # GIT superpush

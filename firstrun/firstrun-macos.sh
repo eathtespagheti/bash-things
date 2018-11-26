@@ -21,6 +21,8 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
   # Homebrew
   $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew.sh
+  # Bash upgrade
+  $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-upgrade.sh
   # bash-completion
   $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-completion.sh
   # NVM
@@ -59,6 +61,15 @@ else
     echo
   else
     $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew.sh
+  fi
+
+  # Bash upgrade
+  read -p "Upgrade bash? (requires homebrew installed) [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-upgrade.sh
   fi
 
   # bash-completion

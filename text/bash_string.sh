@@ -59,8 +59,8 @@ function parse_docker_machine {
 
 function apple_status {
   if [ "$?" -eq "0" ]
-  then APPLE="🍏"
-  else APPLE="🍎"
+  then APPLE="👽"
+  else APPLE="✝"
   fi
   echo $APPLE
 }

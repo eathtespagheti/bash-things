@@ -22,6 +22,8 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg
 sudo pacman -U $AUTOYES
+cd ..
+rm -rf yay
 
 if [[ $ALLTRUE = true ]]; then
   # Enable bash_things

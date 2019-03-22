@@ -50,6 +50,8 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH/.bash_things/firstrun/$DISTRO/nvm.sh
   # GIT superpush
   $HOME_PATH/.bash_things/firstrun/git.sh
+  # screen-sleep
+  $HOME_PATH/.bash_things/firstrun/$DISTRO/screen-sleep.sh
 else
 
   # Enable bash_things
@@ -144,6 +146,15 @@ else
     echo
   else
     $HOME_PATH/.bash_things/firstrun/git.sh
+  fi
+
+  # screen-sleep
+  read -p "Install screen-sleep? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH/.bash_things/firstrun/$DISTRO/screen-sleep.sh
   fi
 fi
 

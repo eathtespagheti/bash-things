@@ -42,7 +42,7 @@ if [[ $ALLTRUE = true ]]; then
   # Broadcom WiFi
   $HOME_PATH.bash_things/firstrun/$DISTRO/broadcom.sh
   # BMC43142 Bluetooth fix
-  $HOME_PATH.bash_things/firstrun/Linux/BMC43142.sh
+  $HOME_PATH.bash_things/firstrun/BMC43142.sh
   # Docker
   $HOME_PATH.bash_things/firstrun/$DISTRO/docker.sh
   # docker-machine
@@ -108,7 +108,7 @@ else
   then
     echo
   else
-    $HOME_PATH.bash_things/firstrun/Linux/BMC43142.sh
+    $HOME_PATH.bash_things/firstrun/BMC43142.sh
   fi
 
   # Docker

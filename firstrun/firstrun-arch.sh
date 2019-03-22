@@ -39,8 +39,10 @@ if [[ $ALLTRUE = true ]]; then
   $HOME_PATH.bash_things/firstrun/$DISTRO/mesa.sh
   # Dev-Tools
   $HOME_PATH.bash_things/firstrun/$DISTRO/dev-tools.sh
-  # BCM43142 Drivers
+  # Broadcom WiFi
   $HOME_PATH.bash_things/firstrun/$DISTRO/broadcom.sh
+  # BMC43142 Bluetooth fix
+  $HOME_PATH.bash_things/firstrun/Linux/BMC43142.sh
   # Docker
   $HOME_PATH.bash_things/firstrun/$DISTRO/docker.sh
   # docker-machine
@@ -98,6 +100,15 @@ else
     echo
   else
     $HOME_PATH.bash_things/firstrun/$DISTRO/broadcom.sh
+  fi
+
+  # BMC43142 Bluetooth fix
+  read -p "Fix Broadcom BMC43142 Bluetooth? [Y/n] " -n 1 -r
+  if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo
+  else
+    $HOME_PATH.bash_things/firstrun/Linux/BMC43142.sh
   fi
 
   # Docker

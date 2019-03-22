@@ -46,7 +46,7 @@ if [[ $ALLTRUE = true ]]; then
   # docker-machine
   $HOME_PATH.bash_things/firstrun/$DISTRO/docker-machine.sh
   # NVM
-  $HOME_PATH.bash_things/firstrun/nvm.sh
+  $HOME_PATH.bash_things/firstrun/$DISTRO/nvm.sh
   # GIT superpush
   $HOME_PATH.bash_things/firstrun/git.sh
 else
@@ -124,7 +124,7 @@ else
   then
     echo
   else
-    $HOME_PATH.bash_things/firstrun/nvm.sh
+    $HOME_PATH.bash_things/firstrun/$DISTRO/nvm.sh
   fi
 
   # GIT superpush

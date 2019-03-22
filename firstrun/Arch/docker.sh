@@ -22,4 +22,4 @@ echo 'OK'
 
 echo
 gecho 'Installing docker-compose'
-pip install docker-compose
+$PACKAGE_INSTALL docker-compose $AUTOYES

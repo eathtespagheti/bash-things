@@ -10,3 +10,6 @@ source $HOME_PATH/.bash_things/functions/docker.sh
 
 # use nano
 export EDITOR=nano
+
+# set default make jobs
+export MAKEFLAGS='-j12'

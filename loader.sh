@@ -12,4 +12,7 @@ source $HOME_PATH/.bash_things/functions/docker.sh
 export EDITOR=nano
 
 # set default make jobs
-export MAKEFLAGS='-j12'
+export MAKEFLAGS='-j8'
+
+# add python user bin to path
+export PATH=$PATH:~/.local/bin

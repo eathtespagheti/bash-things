@@ -12,7 +12,7 @@ MACHINE=''
 export EDITOR=nano
 
 # set default make jobs
-export MAKEFLAGS='-j8'
+export MAKEFLAGS='-j12'
 
 # add python user bin to path
 export PATH=$PATH:~/.local/bin

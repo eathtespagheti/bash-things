@@ -6,7 +6,7 @@ MACHINE=''
 # get fancy
 # source $HOME_PATH/.bash_things/text/bash_string.sh
 # get smart
-# source $HOME_PATH/.bash_things/functions/docker.sh
+source $HOME_PATH/.bash_things/functions/docker.sh
 
 # use nano
 export EDITOR=nano

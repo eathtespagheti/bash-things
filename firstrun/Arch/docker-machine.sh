@@ -12,6 +12,8 @@ do
   sudo wget "$base/contrib/completion/bash/${i}" -P /etc/bash_completion.d
 done
 echo 'OK'
-gecho 'Sourcing docker-machine prompt'
-source /etc/bash_completion.d/docker-machine-prompt.bash
+gecho 'Enable docker-machine prompt'
+echo > ../functions/docker.sh
+echo "# Docker Machine sourcing" > ../functions/docker.sh
+echo "source /etc/bash_completion.d/docker-machine-prompt.bash" > ../functions/docker.sh
 echo 'OK'

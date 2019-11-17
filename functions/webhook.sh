@@ -53,6 +53,12 @@ FILENAME="${HOME_PATH}/.webhook/requestResult"
 echo "Turning $COMMAND $DEVICE with key $KEY"
 
 wget -O $FILENAME $REQUEST >/dev/null 2>&1 # Make web request and suppress output
-cat $FILENAME                              # Print request result
-echo
-rm $FILENAME # Remove request result
+requestResult=$(cat $FILENAME)             # Print request result on a variable
+rm $FILENAME                               # Remove request result
+
+if [ -z "$requestResult" ]; then # if request result it's empty
+    echo "ERROR firing the event: Invalid KEY"
+    exit 4
+fi
+echo $requestResult
+exit 0

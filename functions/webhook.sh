@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+HOME_PATH=$(getent passwd $USER | cut -d: -f6)
+
 function checkKey() {
     if [ -z "$1" ]; then # Check if the KEY parameter exist
         echo "No KEY provided, using the default one..."

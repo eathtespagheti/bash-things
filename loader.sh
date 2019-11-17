@@ -17,8 +17,9 @@ export MAKEFLAGS='-j12'
 # add python user bin to path
 export PATH=$PATH:~/.local/bin
 
-# custom yay alias
+# custom alias
 alias yy="yay -Syyu --noconfirm"
+alias suspend="systemctl suspend"
 
 # trueline settings
 source $HOME_PATH/.bash_things/trueline-settings.sh

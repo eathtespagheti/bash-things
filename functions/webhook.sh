@@ -48,10 +48,11 @@ fi
 
 MESSAGE="turn_${COMMAND}_${DEVICE}"
 REQUEST="https://maker.ifttt.com/trigger/${MESSAGE}/with/key/${KEY}"
+FILENAME="${HOME_PATH}/.webhook/requestResult"
 
 echo "Turning $COMMAND $DEVICE with key $KEY"
 
-wget -O result $REQUEST >/dev/null 2>&1 # Make web request and suppress output
-cat result                              # Print request result
+wget -O $FILENAME $REQUEST >/dev/null 2>&1 # Make web request and suppress output
+cat $FILENAME                              # Print request result
 echo
-rm result # Remove request result
+rm $FILENAME # Remove request result

@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then # Check turn status
+    echo "No action provided"
+    echo "Usage: webhook.sh [0/1] [DEVICE] [KEY]"
+    echo "If no key it's provided the default will be used"
+    exit 1
+elif [ -z "$2" ]; then # Check if the DEVICE parameter exist
+    SUBMISSION_NUMBER=$1
+    echo "No DEVICE provided"
+    echo "Usage: webhook.sh [0/1] [DEVICE] [KEY]"
+    echo "If no key it's provided the default will be used"
+    exit 1
+elif [ -z "$3" ]; then # Check if the KEY parameter exist
+    SUBMISSION_NUMBER=$1
+    echo "No KEY provided, using the default one"
+    COMMAND=$1
+    DEVICE=$2
+else
+    COMMAND=$1
+    DEVICE=$2
+    KEY=$3
+fi
+
+if [ "$COMMAND" = "1" ]; then
+     COMMAND="on"
+elif [ "$COMMAND" = "0" ]; then
+     COMMAND="off"
+else
+    echo "Wrong command provided"
+    echo "Valid values are: 0 ; 1"
+    exit 1
+fi
+
+
+MESSAGE="turn_${COMMAND}_${DEVICE}"
+REQUEST="https://maker.ifttt.com/trigger/${MESSAGE}/with/key/${KEY}"
+
+echo "Turning $COMMAND $DEVICE with key $KEY"
+
+wget -O result $REQUEST > /dev/null 2>&1 # Make web request and suppress output
+cat result # Print request result
+echo
+rm result # Remove request result

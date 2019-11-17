@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-function docker-connect(){
-    eval $(docker-machine env "$1")
-    MACHINE=$(docker-machine active)
-}
+# docker-machine
+source /etc/bash_completion.d/docker-machine-prompt.bash

@@ -1,5 +1,5 @@
 declare -a TRUELINE_SEGMENTS=(
-    'working_dir,special_grey,orange'
+    'working_dir,special_grey,light_blue,italic'
     'git,special_grey,green'
     'exit_status,white,special_grey'
     'time,white,black'

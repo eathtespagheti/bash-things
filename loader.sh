@@ -20,7 +20,7 @@ export PATH=$PATH:~/.local/bin
 # custom alias
 alias yy="yay -Syyu --noconfirm"
 alias suspend="systemctl suspend"
-alias webhook=$HOME_PATH".bash_things/functions/webhook.sh"
+alias webhook=$HOME_PATH"/.bash_things/functions/webhook.sh"
 
 # trueline settings
 source $HOME_PATH/.bash_things/trueline-settings.sh

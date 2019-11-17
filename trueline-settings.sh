@@ -1,5 +1,12 @@
+# Change color based on machine name
+machineName=`uname -n`
+bgColor="light_blue"
+if [ "$machineName" = "AMD-Stark-Portable" ]; then
+    bgColor="orange"
+fi
+
 declare -a TRUELINE_SEGMENTS=(
-    'working_dir,special_grey,light_blue,italic'
+    'working_dir,special_grey,'$bgColor',italic'
     'git,special_grey,green'
     'exit_status,white,special_grey'
     'time,white,black'

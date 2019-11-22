@@ -24,4 +24,4 @@ alias webhook=$HOME_PATH"/.bash_things/functions/webhook.sh"
 
 # trueline settings
 source $HOME_PATH/.bash_things/trueline-settings.sh
-source $HOME_PATH/.bash_things/trueline.sh
+source $HOME_PATH/.bash_things/trueline/trueline.sh

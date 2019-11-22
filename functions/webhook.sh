@@ -2,11 +2,20 @@
 
 HOME_PATH=$(getent passwd $USER | cut -d: -f6)
 
+function generateDelayRequest() { # Return the request for a delayed call, input parameters are message, mins, key
+    REQUEST="http://lab.grapeot.me/ifttt/delay?event=$1&t=$2&key=$3"
+}
+
+function generateRequest() {
+    REQUEST="https://maker.ifttt.com/trigger/$1/with/key/$2"
+}
+
+function generateMessage() {
+    MESSAGE="turn_$1_$2"
+}
+
 function checkKey() {
-    if [ -z "$1" ]; then # Check if the KEY parameter exist
-        echo "No KEY provided, using the default one..."
-        source $HOME_PATH/.webhook/config
-    fi
+    source $HOME_PATH/.webhook/config # Sourcing the key file
     if [ -z "$KEY" ]; then # Check if the KEY parameter exist
         echo "No KEY configured in the configuration file"
         echo "Write your KEY as a bash variable inside" $HOME_PATH"/.webhook/config"
@@ -14,28 +23,35 @@ function checkKey() {
     fi
 }
 
+function makeWebRequest() { # Make the web request
+    FILENAME="${HOME_PATH}/.webhook/requestResult"
+
+    wget -O $FILENAME $REQUEST >/dev/null 2>&1 # Make web request and suppress output
+    requestResult=$(cat $FILENAME)             # Print request result on a variable
+    rm $FILENAME                               # Remove request result
+
+    if [ -z "$requestResult" ]; then # if request result it's empty
+        echo "ERROR firing the event: Invalid KEY"
+        exit 4
+    fi
+    echo $requestResult
+    exit 0
+}
+
 if [ -z "$1" ]; then # Check turn status
     echo "No action provided"
-    echo "Usage: webhook.sh [0/1] [DEVICE] [KEY]"
-    echo "If no key it's provided the default will be used"
+    echo "Usage: webhook.sh [0/1] [DEVICE] optional[DELAY]"
     exit 1
 elif [ -z "$2" ]; then # Check if the DEVICE parameter exist
-    SUBMISSION_NUMBER=$1
     echo "No DEVICE provided"
-    echo "Usage: webhook.sh [0/1] [DEVICE] [KEY]"
-    echo "If no key it's provided the default will be used"
+    echo "Usage: webhook.sh [0/1] [DEVICE] optional[DELAY]"
     exit 2
-elif [ -z "$3" ]; then # Check if the KEY parameter exist
-    SUBMISSION_NUMBER=$1
-    checkKey $3
-    COMMAND=$1
-    DEVICE=$2
-else
-    COMMAND=$1
-    DEVICE=$2
-    KEY=$3
 fi
+checkKey
 
+# MESSAGE GENERATION
+COMMAND=$1
+DEVICE=$2
 if [ "$COMMAND" = "1" ]; then
     COMMAND="on"
 elif [ "$COMMAND" = "0" ]; then
@@ -45,20 +61,13 @@ else
     echo "Valid values are: 0 ; 1"
     exit 1
 fi
+generateMessage $COMMAND $DEVICE
 
-MESSAGE="turn_${COMMAND}_${DEVICE}"
-REQUEST="https://maker.ifttt.com/trigger/${MESSAGE}/with/key/${KEY}"
-FILENAME="${HOME_PATH}/.webhook/requestResult"
+if [ -z "$3" ]; then # Check if delay parameter exist
+    generateRequest $MESSAGE $KEY
+else
+    generateDelayRequest $MESSAGE $3 $KEY
+fi
 
 echo "Turning $COMMAND $DEVICE with key $KEY"
-
-wget -O $FILENAME $REQUEST >/dev/null 2>&1 # Make web request and suppress output
-requestResult=$(cat $FILENAME)             # Print request result on a variable
-rm $FILENAME                               # Remove request result
-
-if [ -z "$requestResult" ]; then # if request result it's empty
-    echo "ERROR firing the event: Invalid KEY"
-    exit 4
-fi
-echo $requestResult
-exit 0
+makeWebRequest

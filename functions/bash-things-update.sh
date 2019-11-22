@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-echo "Upgrading bash-things"
+echo "Updating bash-things"
 git -C $HOME/.bash_things pull
 
-echo "Upgrading trueline"
+echo "Updating trueline"
 git -C $HOME/.bash_things/trueline pull

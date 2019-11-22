@@ -3,7 +3,7 @@
 HOME_PATH=$(getent passwd $USER | cut -d: -f6)
 
 function generateDelayRequest() { # Return the request for a delayed call, input parameters are message, mins, key
-    REQUEST="http://lab.grapeot.me/ifttt/delay?event=$1&t=$2&key=$3"
+    REQUEST="https://script.google.com/macros/s/AKfycbx0hWSQlfMuJ47xgYqHO5O2fAfRXb5p8e66in8A7mmFmHpEATU/exec?action=$1&mins=$2&key=$3"
 }
 
 function generateRequest() {

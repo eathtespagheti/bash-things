@@ -2,6 +2,10 @@
 
 A collection of .bashrc setups and bash functions/scripts I often use for configuring and managing my machines (for both Linux and macOS)
 
+## Updating
+
+You can update bash-things with the update script found in `functions/bash-things-update.sh` or just using the alias `bash-things-update`
+
 ## webhook
 It's a bash script for toggling on and off smart devices via IFTTT webhooks, to use it you need to configure some webhooks in your IFTTT
 account using this scheme:

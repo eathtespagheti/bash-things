@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-HOME_PATH=$(getent passwd $USER | cut -d: -f6)
-
 function generateDelayRequest() { # Return the request for a delayed call, input parameters are message, mins, key
     REQUEST="https://script.google.com/macros/s/AKfycbx0hWSQlfMuJ47xgYqHO5O2fAfRXb5p8e66in8A7mmFmHpEATU/exec?action=$1&mins=$2&key=$3"
 }
@@ -15,16 +13,16 @@ function generateMessage() {
 }
 
 function checkKey() {
-    source $HOME_PATH/.webhook/config # Sourcing the key file
+    source $HOME/.webhook/config # Sourcing the key file
     if [ -z "$KEY" ]; then # Check if the KEY parameter exist
         echo "No KEY configured in the configuration file"
-        echo "Write your KEY as a bash variable inside" $HOME_PATH"/.webhook/config"
+        echo "Write your KEY as a bash variable inside" $HOME"/.webhook/config"
         exit 3
     fi
 }
 
 function makeWebRequest() { # Make the web request
-    FILENAME="${HOME_PATH}/.webhook/requestResult"
+    FILENAME="$HOME/.webhook/requestResult"
 
     wget -O $FILENAME $REQUEST >/dev/null 2>&1 # Make web request and suppress output
     requestResult=$(cat $FILENAME)             # Print request result on a variable

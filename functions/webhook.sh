@@ -36,20 +36,20 @@ function makeWebRequest() { # Make the web request
     exit 0
 }
 
-if [ -z "$1" ]; then # Check turn status
-    echo "No action provided"
-    echo "Usage: webhook.sh [0/1] [DEVICE] optional[DELAY]"
-    exit 1
-elif [ -z "$2" ]; then # Check if the DEVICE parameter exist
+if [ -z "$1" ]; then # Check if the DEVICE parameter exist
     echo "No DEVICE provided"
-    echo "Usage: webhook.sh [0/1] [DEVICE] optional[DELAY]"
+    echo "Usage: webhook.sh [DEVICE] [0/1] optional[DELAY]"
+    exit 1
+elif [ -z "$2" ]; then # Check turn status
+    echo "No action provided"
+    echo "Usage: webhook.sh [DEVICE] [0/1] optional[DELAY]"
     exit 2
 fi
 checkKey
 
 # MESSAGE GENERATION
-COMMAND=$1
-DEVICE=$2
+COMMAND=$2
+DEVICE=$1
 if [ "$COMMAND" = "1" ]; then
     COMMAND="on"
 elif [ "$COMMAND" = "0" ]; then

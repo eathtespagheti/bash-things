@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Loading variables
-source $bashthingsFolder/scripts/variables.sh
+source $HOME/.bash_things/scripts/variables.sh
 DISTRO='Arch'
 bashthingsFirstrun=$bashthingsFirstrun
 bashthingsFirstrunSpecific=$bashthingsFirstrunSpecific

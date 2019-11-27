@@ -1,3 +1,7 @@
 [submodule "trueline"]
 	path = trueline
 	url = https://github.com/petobens/trueline.git
+
+[submodule "webhook"]
+	path = scripts/webhook
+	url = https://gitlab.com/Fabi0Z/webhook.git

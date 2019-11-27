@@ -22,6 +22,7 @@ alias yy="yay -Syyu --noconfirm"
 alias suspend="systemctl suspend"
 alias webhook=$HOME_PATH"/.bash_things/functions/webhook.sh"
 alias bash-things-update=$HOME_PATH"/.bash_things/functions/bash-things-update.sh"
+alias cat=lolcat
 
 # trueline settings
 source $HOME_PATH/.bash_things/trueline-settings.sh

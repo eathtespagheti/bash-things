@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-MACHINE=''
 # get colors
 # source $HOME_PATH/.bash_things/text/colors.sh
-# get fancy
-# source $HOME_PATH/.bash_things/text/bash_string.sh
-# get smart
-source $HOME_PATH/.bash_things/functions/docker.sh
+
+# load variables
+source $HOME/.bash_things/scripts/variables.sh 
+
+# docker configuration
+source $bashthingsScripts/docker.sh
 
 # use nano
 export EDITOR=nano
@@ -20,10 +21,10 @@ export PATH=$PATH:~/.local/bin
 # custom alias
 alias yy="yay -Syyu --noconfirm"
 alias suspend="systemctl suspend"
-alias webhook=$HOME_PATH"/.bash_things/functions/webhook.sh"
-alias bash-things-update=$HOME_PATH"/.bash_things/functions/bash-things-update.sh"
+alias webhook=$bashthingsScripts/webhook.sh
+alias bash-things-update=$bashthingsScripts/bash-things-update.sh
 alias cat=lolcat
 
 # trueline settings
-source $HOME_PATH/.bash_things/trueline-settings.sh
-source $HOME_PATH/.bash_things/trueline/trueline.sh
+source $bashthingsFolder/trueline-settings.sh
+source $bashthingsFolder/trueline/trueline.sh

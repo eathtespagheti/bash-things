@@ -1,7 +1,9 @@
+#!/usr/bin/env bash
+
 # Change color based on machine name
-machineName=`uname -n`
+source $bashthingsFunctions/checkBigChameleon.sh
 bgColor="light_blue"
-if [ "$machineName" = "AMD-Stark-Portable" ]; then
+if [ !checkBigChameleon ]; then
     bgColor="orange"
 fi
 

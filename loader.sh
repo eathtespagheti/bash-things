@@ -7,7 +7,7 @@
 source $HOME/.bash_things/scripts/variables.sh 
 
 # docker configuration
-source $bashthingsScripts/docker.sh
+source $bashthingsModules/docker.sh
 
 # use nano
 export EDITOR=nano

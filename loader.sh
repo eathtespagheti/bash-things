@@ -19,11 +19,7 @@ export MAKEFLAGS='-j12'
 export PATH=$PATH:~/.local/bin
 
 # custom alias
-alias yy="yay -Syyu --noconfirm"
-alias suspend="systemctl suspend"
-alias webhook=$bashthingsScripts/webhook.sh
-alias bash-things-update=$bashthingsScripts/bash-things-update.sh
-alias cat=lolcat
+source $bashthingsModules/alias.sh
 
 # trueline settings
 source $bashthingsFolder/trueline-settings.sh

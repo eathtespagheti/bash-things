@@ -1,10 +1,10 @@
 # bash-things
 
-A collection of .bashrc setups and bash functions/scripts I often use for configuring and managing my machines (for both Linux and macOS)
+A collection of .bashrc setups and bash functions/scripts I often use for configuring and managing my machines (for both Arch Linux and macOS)
 
 ## Installing
 
-Just run one of these two commands from your home directory, the first one use **curl** and the othe **wget**
+Just run one of these two commands from your home directory, the first one use **curl** and the othe **wget**. The script will automatically find your Operating System and install the right things.
 
 *curl*
 ```bash
@@ -52,6 +52,3 @@ there's a preconfigured alias for this script named `webhook` in `loader.sh`
 
 ## trueline
 I'm using trueline by petobens on GitHub, for setting it up check [his project](https://github.com/petobens/trueline)
-
-## firstrun
-Just some interactive script for configuring and installing basic stuff when I do a fresh install on a machine

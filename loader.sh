@@ -13,7 +13,7 @@ source $bashthingsModules/docker.sh
 source $bashthingsModules/alias.sh
 
 # trueline settings
-source $bashthingsFolder/trueline-settings.sh
+source $bashthingsModules/trueline-settings.sh
 source $bashthingsFolder/trueline/trueline.sh
 
 # use nano

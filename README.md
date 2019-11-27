@@ -2,6 +2,20 @@
 
 A collection of .bashrc setups and bash functions/scripts I often use for configuring and managing my machines (for both Linux and macOS)
 
+## Installing
+
+Just run one of these two commands from your home directory, the first one use **curl** and the othe **wget**
+
+*curl*
+```bash
+curl -o- https://gitlab.com/Fabi0Z/bash-things/raw/master/install.sh | bash
+```
+
+*wget*
+```bash
+wget -qO- https://gitlab.com/Fabi0Z/bash-things/raw/master/install.sh | bash
+```
+
 ## Updating
 
 You can update bash-things with the update script found in `functions/bash-things-update.sh` or just using the alias `bash-things-update`

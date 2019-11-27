@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
+# Loading variables
+source $HOME/.bash_things/scripts/variables.sh
 DISTRO='Arch'
+bashthingsFirstrun=$bashthingsFolder/firstrun
+bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
 export AUTOYES='--noconfirm'
 export PACKAGE_INSTALL='yay -S'
-export HOME_PATH=$(getent passwd $USER | cut -d: -f6)
 ALLTRUE=false
+
+# Loading echo functions
+source $bashthingsFunctions/echo.sh
 
 if [[ $1 = '--alltrue' ]]; then
   ALLTRUE=true
 fi
-
-# Loading echo functions
-source $HOME_PATH/.bash_things/firstrun/echo.sh
 
 # Package update and upgrade
 gecho 'Updating and upgrading packages'
@@ -27,31 +30,31 @@ rm -rf yay
 if [[ $ALLTRUE = true ]]; then
   # Enable bash_things
   bgecho 'Enable bash_things in .bashrc'
-  echo >> $HOME_PATH/.bashrc
-  echo "# Customization" >> $HOME_PATH/.bashrc
-  echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/.bashrc
-  echo "source ${HOME_PATH}/.bash_things/loader.sh" >> $HOME_PATH/.bashrc
+  echo >> $HOME/.bashrc
+  echo "# Customization" >> $HOME/.bashrc
+  echo "HOME_PATH='${HOME_PATH}'" >> $HOME/.bashrc
+  echo "source ${HOME_PATH}/.bash_things/loader.sh" >> $HOME/.bashrc
 
   # Case insensitive autocomplete
-  $HOME_PATH/.bash_things/firstrun/case-insensitive-autocomplete.sh
+  $HOME/.bash_things/firstrun/case-insensitive-autocomplete.sh
   # Improved Graphic Drivers
-  $HOME_PATH/.bash_things/firstrun/$DISTRO/mesa.sh
+  $HOME/.bash_things/firstrun/$DISTRO/mesa.sh
   # Dev-Tools
-  $HOME_PATH/.bash_things/firstrun/$DISTRO/dev-tools.sh
+  $HOME/.bash_things/firstrun/$DISTRO/dev-tools.sh
   # Broadcom WiFi
-  $HOME_PATH/.bash_things/firstrun/$DISTRO/broadcom.sh
+  $HOME/.bash_things/firstrun/$DISTRO/broadcom.sh
   # BMC43142 Bluetooth fix
-  $HOME_PATH/.bash_things/firstrun/BMC43142.sh
+  $HOME/.bash_things/firstrun/BMC43142.sh
   # Docker
-  $HOME_PATH/.bash_things/firstrun/$DISTRO/docker.sh
+  $HOME/.bash_things/firstrun/$DISTRO/docker.sh
   # docker-machine
-  $HOME_PATH/.bash_things/firstrun/$DISTRO/docker-machine.sh
+  $HOME/.bash_things/firstrun/$DISTRO/docker-machine.sh
   # NVM
-  $HOME_PATH/.bash_things/firstrun/$DISTRO/nvm.sh
+  $HOME/.bash_things/firstrun/$DISTRO/nvm.sh
   # GIT superpush
-  $HOME_PATH/.bash_things/firstrun/git.sh
+  $HOME/.bash_things/firstrun/git.sh
   # screen-sleep
-  $HOME_PATH/.bash_things/firstrun/$DISTRO/screen-sleep.sh
+  $HOME/.bash_things/firstrun/$DISTRO/screen-sleep.sh
 else
 
   # Enable bash_things
@@ -61,10 +64,10 @@ else
     echo
   else
     bgecho 'Enable bash_things in .bashrc'
-    echo >> $HOME_PATH/.bashrc
-    echo "# Customization" >> $HOME_PATH/.bashrc
-    echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/.bashrc
-    echo "source ${HOME_PATH}/.bash_things/loader.sh" >> $HOME_PATH/.bashrc
+    echo >> $HOME/.bashrc
+    echo "# Customization" >> $HOME/.bashrc
+    echo "HOME_PATH='${HOME_PATH}'" >> $HOME/.bashrc
+    echo "source ${HOME_PATH}/.bash_things/loader.sh" >> $HOME/.bashrc
   fi
 
   # Case insensitive autocomplete
@@ -73,7 +76,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/case-insensitive-autocomplete.sh
+    $HOME/.bash_things/firstrun/case-insensitive-autocomplete.sh
   fi
 
   # Improved Graphic Drivers
@@ -82,7 +85,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/$DISTRO/mesa.sh
+    $HOME/.bash_things/firstrun/$DISTRO/mesa.sh
   fi
 
   # Dev-Tools
@@ -91,7 +94,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/$DISTRO/dev-tools.sh
+    $HOME/.bash_things/firstrun/$DISTRO/dev-tools.sh
   fi
 
   # Broadcom WiFi
@@ -100,7 +103,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/$DISTRO/broadcom.sh
+    $HOME/.bash_things/firstrun/$DISTRO/broadcom.sh
   fi
 
   # BMC43142 Bluetooth fix
@@ -109,7 +112,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/BMC43142.sh
+    $HOME/.bash_things/firstrun/BMC43142.sh
   fi
 
   # Docker
@@ -118,7 +121,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/$DISTRO/docker.sh
+    $HOME/.bash_things/firstrun/$DISTRO/docker.sh
   fi
 
   # docker-machine
@@ -127,7 +130,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/$DISTRO/docker-machine.sh
+    $HOME/.bash_things/firstrun/$DISTRO/docker-machine.sh
   fi
 
   # NVM
@@ -136,7 +139,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/$DISTRO/nvm.sh
+    $HOME/.bash_things/firstrun/$DISTRO/nvm.sh
   fi
 
   # GIT superpush
@@ -145,7 +148,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/git.sh
+    $HOME/.bash_things/firstrun/git.sh
   fi
 
   # screen-sleep
@@ -154,7 +157,7 @@ else
   then
     echo
   else
-    $HOME_PATH/.bash_things/firstrun/$DISTRO/screen-sleep.sh
+    $HOME/.bash_things/firstrun/$DISTRO/screen-sleep.sh
   fi
 fi
 

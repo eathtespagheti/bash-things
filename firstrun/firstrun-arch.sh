@@ -12,7 +12,7 @@ ALLTRUE=false
 # Loading echo functions
 source $bashthingsFunctions/echo.sh
 
-if [[ $1 == '--alltrue' ]]; then
+if [ "$1" = "--alltrue" ]; then
   ALLTRUE=true
 fi
 

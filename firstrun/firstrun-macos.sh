@@ -1,122 +1,116 @@
 #!/usr/bin/env bash
-export HOME_PATH='/Users'
-ALLTRUE=false
 
-if [[ $1 = '--alltrue' ]]; then
+# Loading variables
+source $HOME/.bash_things/scripts/variables.sh
+
+# Loading echo functions
+source $bashthingsFunctions/echo.sh
+bashthingsFirstrun=$bashthingsFolder/firstrun
+bashthingsFirstrunSpecific=$bashthingsFirstrunSpecific
+
+if [[ $1 == '--alltrue' ]]; then
   ALLTRUE=true
 fi
 
-# Loading echo functions
-source $HOME_PATH/$USER/.bash_things/firstrun/echo.sh
-
-if [[ $ALLTRUE = true ]]; then
+if [[ $ALLTRUE == true ]]; then
   # Enable bash_things
   bgecho 'Enable bash_things in .bash_profile'
-  echo >> $HOME_PATH/$USER/.bash_profile
-  echo "# Customization" >> $HOME_PATH/$USER/.bash_profile
-  echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bash_profile
-  echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bash_profile
+  echo >>$HOME/.bash_profile
+  echo "# Customization" >>$HOME/.bash_profile
+  echo "HOME_PATH='${HOME_PATH}'" >>$HOME/.bash_profile
+  echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >>$HOME/.bash_profile
 
   # Case insensitive autocomplete
-  $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
+  $bashthingsFirstrun/case-insensitive-autocomplete.sh
   # Homebrew
-  $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew.sh
+  $bashthingsFirstrunSpecific/brew.sh
   # Bash upgrade
-  $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-upgrade.sh
+  $bashthingsFirstrunSpecific/bash-upgrade.sh
   # bash-completion
-  $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-completion.sh
+  $bashthingsFirstrunSpecific/bash-completion.sh
   # brew-git
-  $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew-git.sh
+  $bashthingsFirstrunSpecific/brew-git.sh
   # NVM
-  $HOME_PATH/$USER/.bash_things/firstrun/macOS/nvm.sh
+  $bashthingsFirstrunSpecific/nvm.sh
   # GIT superpush
-  $HOME_PATH/$USER/.bash_things/firstrun/git.sh
+  $bashthingsFirstrun/git.sh
   # docker-machine autocomplete
-  $HOME_PATH/$USER/.bash_things/firstrun/macOS/docker-machine.sh
+  $bashthingsFirstrunSpecific/docker-machine.sh
 else
   # Enable bash_things
   read -p "Enable bash_things? [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
     bgecho 'Enable bash_things in .bash_profile'
-    echo >> $HOME_PATH/$USER/.bashrc
-    echo "# Customization" >> $HOME_PATH/$USER/.bash_profile
-    echo "HOME_PATH='${HOME_PATH}'" >> $HOME_PATH/$USER/.bash_profile
-    echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >> $HOME_PATH/$USER/.bash_profile
+    echo >>$HOME/.bashrc
+    echo "# Customization" >>$HOME/.bash_profile
+    echo "HOME='${HOME}'" >>$HOME/.bash_profile
+    echo "source ${bashThingsFolder}/loader.sh" >>$HOME/.bash_profile
   fi
 
   # Case insensitive autocomplete
   read -p "Enable case insensitive autocomplete? [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/case-insensitive-autocomplete.sh
+    $bashthingsFirstrun/case-insensitive-autocomplete.sh
   fi
 
   # Homebrew
   read -p "Install Homebrew? [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew.sh
+    $bashthingsFirstrunSpecific/brew.sh
   fi
 
   # Bash upgrade
   read -p "Upgrade bash? (requires homebrew installed) [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-upgrade.sh
+    $bashthingsFirstrunSpecific/bash-upgrade.sh
   fi
 
   # bash-completion
   read -p "Install bash-completion? (requires homebrew installed) [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/macOS/bash-completion.sh
+    $bashthingsFirstrunSpecific/bash-completion.sh
   fi
 
   # brew-git
   read -p "Reinstall git via brew? (requires homebrew installed) [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/macOS/brew-git.sh
+    $bashthingsFirstrunSpecific/brew-git.sh
   fi
 
   # NVM
   read -p "Install NVM? [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/macOS/nvm.sh
+    $bashthingsFirstrunSpecific/nvm.sh
   fi
 
   # GIT superpush
   read -p "Enable GIT superpush? [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/git.sh
+    $bashthingsFirstrun/git.sh
   fi
 
   # docker-machine autocomplete
   read -p "Enable docker-machine autocomplete? [Y/n] " -n 1 -r
-  if [[ $REPLY =~ ^[Nn]$ ]]
-  then
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $HOME_PATH/$USER/.bash_things/firstrun/macOS/docker-machine.sh
+    $bashthingsFirstrunSpecific/docker-machine.sh
   fi
 fi
 

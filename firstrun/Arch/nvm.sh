@@ -4,7 +4,7 @@ bgecho '--- Node Version Manager ---'
 gecho 'Install NVM'
 $PACKAGE_INSTALL nvm $AUTOYES
 gecho 'Reloading .bashrc'
-source $HOME_PATH/$USER/.bashrc
+source $HOME/.bashrc
 echo 'OK'
 gecho 'Installing latest node'
 nvm install node

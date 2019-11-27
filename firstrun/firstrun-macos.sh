@@ -4,6 +4,7 @@
 HOME="/Users/${USER}"
 source $HOME/.bash_things/scripts/variables.sh
 DISTRO='macOS'
+ALLTRUE=false
 bashthingsFirstrun=$bashthingsFolder/firstrun
 bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
 
@@ -19,8 +20,8 @@ if [[ $ALLTRUE == true ]]; then
   bgecho 'Enable bash_things in .bash_profile'
   echo >>$HOME/.bash_profile
   echo "# Customization" >>$HOME/.bash_profile
-  echo "HOME_PATH='${HOME_PATH}'" >>$HOME/.bash_profile
-  echo "source ${HOME_PATH}/$USER/.bash_things/loader.sh" >>$HOME/.bash_profile
+  echo "HOME='${HOME}'" >>$HOME/.bash_profile
+  echo "source ${bashthingsFolder}/loader.sh" >>$HOME/.bash_profile
 
   # Case insensitive autocomplete
   $bashthingsFirstrun/case-insensitive-autocomplete.sh

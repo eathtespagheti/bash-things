@@ -18,11 +18,10 @@ function bgecho { # Bold Green echo
   echo -e "${F_BOLD}${C_GREEN}$1${C_NO_COLOR}"
 }
 
-function bgecho { # Bold Red echo
+function brecho { # Bold Red echo
   echo -e "${F_BOLD}${C_RED}$1${C_NO_COLOR}"
 }
 
-bgecho '--- EXPORTING ECHO FUNCTIONS ---'
 export -f gecho
 export -f recho
 export -f bgecho

@@ -15,7 +15,7 @@ function generateMessage() {
 function checkKey() {
     source $HOME/.webhook/config # Sourcing the key file
     if [ -z "$KEY" ]; then # Check if the KEY parameter exist
-        recho "No KEY configured in the configuration file"
+        brecho "No KEY configured in the configuration file"
         echo "Write your KEY as a bash variable inside" $HOME"/.webhook/config"
         exit 3
     fi
@@ -29,7 +29,7 @@ function makeWebRequest() { # Make the web request
     rm $FILENAME                               # Remove request result
 
     if [ -z "$requestResult" ]; then # if request result it's empty
-        recho "ERROR firing the event: Invalid KEY"
+        brecho "ERROR firing the event: Invalid KEY"
         exit 4
     fi
     echo $requestResult
@@ -37,11 +37,11 @@ function makeWebRequest() { # Make the web request
 }
 
 if [ -z "$1" ]; then # Check if the DEVICE parameter exist
-    recho "No DEVICE provided"
+    brecho "No DEVICE provided"
     echo "Usage: webhook.sh [DEVICE] [0/1] optional[DELAY]"
     exit 1
 elif [ -z "$2" ]; then # Check turn status
-    recho "No action provided"
+    brecho "No action provided"
     echo "Usage: webhook.sh [DEVICE] [0/1] optional[DELAY]"
     exit 2
 fi
@@ -55,7 +55,7 @@ if [ "$COMMAND" = "1" ]; then
 elif [ "$COMMAND" = "0" ]; then
     COMMAND="off"
 else
-    recho "Wrong command provided"
+    brecho "Wrong command provided"
     echo "Valid values are: 0 ; 1"
     exit 1
 fi
@@ -67,5 +67,5 @@ else
     generateDelayRequest $MESSAGE $3 $KEY
 fi
 
-bgecho "Turning $COMMAND $DEVICE with key $KEY"
+gecho "Turning $COMMAND $DEVICE with key $KEY"
 makeWebRequest

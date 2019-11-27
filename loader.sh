@@ -27,6 +27,6 @@ export PATH=$PATH:~/.local/bin
 
 # BigChameleon specific configuration
 source $bashthingsFunctions/checkBigChameleon.sh
-if [ checkBigChameleon ]; then
+if checkBigChameleon; then
     source $bashthingsModules/bigChameleon.sh
 fi

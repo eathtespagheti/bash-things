@@ -4,8 +4,8 @@
 function checkBigChameleon() {
     machineName=$(uname -n)
     if [ "$machineName" = "BigChameleon" ]; then
-        return 0 # True
+        true
     else
-        return 1 # False
+        false
     fi
 }

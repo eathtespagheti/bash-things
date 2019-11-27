@@ -6,6 +6,9 @@
 # load variables
 source $HOME/.bash_things/scripts/variables.sh
 
+# load custom echos
+source $bashthingsFunctions/echo.sh
+
 # docker configuration
 source $bashthingsModules/docker.sh
 

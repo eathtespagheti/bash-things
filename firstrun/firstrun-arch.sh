@@ -3,8 +3,8 @@
 # Loading variables
 source $HOME/.bash_things/scripts/variables.sh
 DISTRO='Arch'
-bashthingsFirstrun=$bashthingsFirstrun
-bashthingsFirstrunSpecific=$bashthingsFirstrunSpecific
+bashthingsFirstrun=$bashthingsFolder/firstrun
+bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
 export AUTOYES='--noconfirm'
 export PACKAGE_INSTALL='yay -S'
 ALLTRUE=false

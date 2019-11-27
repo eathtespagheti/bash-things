@@ -3,7 +3,7 @@
 # Change color based on machine name
 source $bashthingsFunctions/checkBigChameleon.sh
 bgColor="orange"
-if [ checkBigChameleon == 1 ]; then
+if [ checkBigChameleon ]; then
     bgColor="light_blue"
 fi
 

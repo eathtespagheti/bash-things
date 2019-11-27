@@ -54,6 +54,8 @@ if [[ $ALLTRUE == true ]]; then
   $bashthingsFirstrun/git.sh
   # screen-sleep
   $bashthingsFirstrunSpecific/screen-sleep.sh
+  # lolcat
+  $bashthingsFirstrunSpecific/lolcat.sh
 else
 
   # Enable bash_things
@@ -147,6 +149,9 @@ else
   else
     $bashthingsFirstrunSpecific/screen-sleep.sh
   fi
+
+  # lolcat
+  $bashthingsFirstrunSpecific/lolcat.sh
 fi
 
 # echo Done

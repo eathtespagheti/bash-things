@@ -39,6 +39,8 @@ if [[ $ALLTRUE == true ]]; then
   $bashthingsFirstrun/git.sh
   # docker-machine autocomplete
   $bashthingsFirstrunSpecific/docker-machine.sh
+  # lolcat
+  $bashthingsFirstrunSpecific/lolcat.sh
 else
   # Enable bash_things
   read -p "Enable bash_things? [Y/n] " -n 1 -r
@@ -115,6 +117,9 @@ else
   else
     $bashthingsFirstrunSpecific/docker-machine.sh
   fi
+
+  # lolcat
+  $bashthingsFirstrunSpecific/lolcat.sh
 fi
 
 # echo Done

@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
 # Loading variables
+HOME="/Users/${USER}"
 source $HOME/.bash_things/scripts/variables.sh
+DISTRO='macOS'
+bashthingsFirstrun=$bashthingsFolder/firstrun
+bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
 
 # Loading echo functions
 source $bashthingsFunctions/echo.sh
-bashthingsFirstrun=$bashthingsFolder/firstrun
-bashthingsFirstrunSpecific=$bashthingsFirstrunSpecific
 
 if [[ $1 == '--alltrue' ]]; then
   ALLTRUE=true

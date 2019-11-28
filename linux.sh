@@ -11,4 +11,4 @@ fi
 
 # trueline settings
 source $bashthingsModules/trueline-settings.sh
-source $bashthingsFolder/trueline/trueline.sh
+source $bashthingsModules/trueline/trueline.sh

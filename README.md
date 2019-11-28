@@ -18,7 +18,7 @@ wget -qO- https://gitlab.com/Fabi0Z/bash-things/raw/master/install.sh | bash
 
 ## Updating
 
-You can update bash-things with the update script found in `functions/bash-things-update.sh` or just using the alias `bash-things-update`
+You can update bash-things with the update script found in `scripts/bash-things-update.sh` or just using the alias `bash-things-update`
 
 ## webhook
 It's a bash script for toggling on and off smart devices via IFTTT webhooks, to use it check the [project on gitlab](https://gitlab.com/Fabi0Z/webhook.git).

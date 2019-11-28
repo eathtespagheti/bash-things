@@ -10,4 +10,4 @@ echo "Clone webhook"
 git clone https://gitlab.com/Fabi0Z/webhook.git .bash_things/scripts/webhook
 echo
 echo "Execute firstrun script"
-./.bash_things/firstrun.sh
+./.bash_things/firstrun/firstrun.sh

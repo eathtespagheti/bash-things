@@ -58,7 +58,7 @@ if [[ $ALLTRUE == true ]]; then
   $bashthingsFirstrunSpecific/lolcat.sh
 else
   # Enable bash_things
-  read secondyn -p "Enable bash_things? [Y/n] " -n 1 -r </dev/tty
+  read -p "Enable bash_things? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -70,7 +70,7 @@ else
   fi
 
   # Case insensitive autocomplete
-  read secondyn -p "Enable case insensitive autocomplete? [Y/n] " -n 1 -r </dev/tty
+  read -p "Enable case insensitive autocomplete? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -78,7 +78,7 @@ else
   fi
 
   # Improved Graphic Drivers
-  read secondyn -p "Enable Improved Graphic Drivers? [Y/n] " -n 1 -r </dev/tty
+  read -p "Enable Improved Graphic Drivers? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -86,7 +86,7 @@ else
   fi
 
   # Dev-Tools
-  read secondyn -p "Install Dev-Tools? [Y/n] " -n 1 -r </dev/tty
+  read -p "Install Dev-Tools? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -94,7 +94,7 @@ else
   fi
 
   # Broadcom WiFi
-  read secondyn -p "Install Broadcom WiFi Drivers? [Y/n] " -n 1 -r </dev/tty
+  read -p "Install Broadcom WiFi Drivers? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -102,7 +102,7 @@ else
   fi
 
   # BMC43142 Bluetooth fix
-  read secondyn -p "Fix Broadcom BMC43142 Bluetooth? [Y/n] " -n 1 -r </dev/tty
+  read -p "Fix Broadcom BMC43142 Bluetooth? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -110,7 +110,7 @@ else
   fi
 
   # Docker
-  read secondyn -p "Install Docker? [Y/n] " -n 1 -r </dev/tty
+  read -p "Install Docker? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -118,7 +118,7 @@ else
   fi
 
   # docker-machine
-  read secondyn -p "Install docker-machine? [Y/n] " -n 1 -r </dev/tty
+  read -p "Install docker-machine? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -126,7 +126,7 @@ else
   fi
 
   # NVM
-  read secondyn -p "Install NVM? [Y/n] " -n 1 -r </dev/tty
+  read -p "Install NVM? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -134,7 +134,7 @@ else
   fi
 
   # GIT superpush
-  read secondyn -p "Enable GIT superpush? [Y/n] " -n 1 -r </dev/tty
+  read -p "Enable GIT superpush? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -142,7 +142,7 @@ else
   fi
 
   # screen-sleep
-  read secondyn -p "Install screen-sleep? [Y/n] " -n 1 -r </dev/tty
+  read -p "Install screen-sleep? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -157,9 +157,9 @@ fi
 bgecho 'Done!'
 
 # Final reboot
-# read secondyn </dev/tty -p "Reboot system now? [Y/n] " -n 1 -r
-# if [[ $REPLY =~ ^[Nn]$ ]]; then
-#   echo
-# else
-#   sudo reboot
-# fi
+read -p "Reboot system now? [Y/n] " -n 1
+if [[ $REPLY =~ ^[Nn]$ ]]; then
+  echo
+else
+  sudo reboot
+fi

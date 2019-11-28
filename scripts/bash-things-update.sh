@@ -10,3 +10,6 @@ echo
 
 gecho "Updating trueline"
 git -C $bashthingsFolder/trueline pull
+
+gecho "Updating webhook"
+git -C $bashthingsScripts/webhook pull

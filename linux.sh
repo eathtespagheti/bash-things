@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # set default make jobs
-export MAKEFLAGS='-j4'
+threads=`lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l` # GET how much threads the CPU has
+export MAKEFLAGS="${MAKEFLAGS} -j${threads}"
 
 # BigChameleon specific configuration
 source $bashthingsFunctions/checkBigChameleon.sh

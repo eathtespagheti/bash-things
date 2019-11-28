@@ -43,7 +43,7 @@ if [[ $ALLTRUE == true ]]; then
   $bashthingsFirstrunSpecific/lolcat.sh
 else
   # Enable bash_things
-  read secondyn -p "Enable bash_things? [Y/n] " -n 1 -r </dev/tty
+  read -p "Enable bash_things? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -55,7 +55,7 @@ else
   fi
 
   # Case insensitive autocomplete
-  read secondyn -p "Enable case insensitive autocomplete? [Y/n] " -n 1 -r </dev/tty
+  read -p "Enable case insensitive autocomplete? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -63,7 +63,7 @@ else
   fi
 
   # Homebrew
-  read secondyn -p "Install Homebrew? [Y/n] " -n 1 -r </dev/tty
+  read -p "Install Homebrew? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -71,7 +71,7 @@ else
   fi
 
   # Bash upgrade
-  read secondyn -p "Upgrade bash? (requires homebrew installed) [Y/n] " -n 1 -r </dev/tty
+  read -p "Upgrade bash? (requires homebrew installed) [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -79,7 +79,7 @@ else
   fi
 
   # bash-completion
-  read secondyn -p "Install bash-completion? (requires homebrew installed) [Y/n] " -n 1 -r </dev/tty
+  read -p "Install bash-completion? (requires homebrew installed) [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -87,7 +87,7 @@ else
   fi
 
   # brew-git
-  read secondyn -p "Reinstall git via brew? (requires homebrew installed) [Y/n] " -n 1 -r </dev/tty
+  read -p "Reinstall git via brew? (requires homebrew installed) [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -95,7 +95,7 @@ else
   fi
 
   # NVM
-  read secondyn -p "Install NVM? [Y/n] " -n 1 -r </dev/tty
+  read -p "Install NVM? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -103,7 +103,7 @@ else
   fi
 
   # GIT superpush
-  read secondyn -p "Enable GIT superpush? [Y/n] " -n 1 -r </dev/tty
+  read -p "Enable GIT superpush? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
@@ -111,7 +111,7 @@ else
   fi
 
   # docker-machine autocomplete
-  read secondyn -p "Enable docker-machine autocomplete? [Y/n] " -n 1 -r </dev/tty
+  read -p "Enable docker-machine autocomplete? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else

@@ -1,5 +1,5 @@
 [submodule "trueline"]
-	path = trueline
+	path = modules/trueline
 	url = https://github.com/petobens/trueline.git
 
 [submodule "webhook"]

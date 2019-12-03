@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
-# trueline settings
-source $bashthingsModules/trueline-settings.sh
-source $bashthingsModules/trueline/trueline.sh
+# pure loading
+fpath+=("$bashthingsModules/pure")
+autoload -U promptinit
+promptinit
+prompt pure

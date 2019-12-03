@@ -34,8 +34,8 @@ if [[ $ALLTRUE == true ]]; then
   $bashthingsFirstrun/case-insensitive-autocomplete.sh
   # Bash upgrade
   $bashthingsFirstrunSpecific/bash-upgrade.sh
-  # bash-completion
-  $bashthingsFirstrunSpecific/bash-completion.sh
+  # zsh-completion
+  $bashthingsFirstrunSpecific/zsh-completion.sh
   # brew-git
   $bashthingsFirstrunSpecific/brew-git.sh
   # NVM
@@ -81,12 +81,12 @@ else
     $bashthingsFirstrunSpecific/bash-upgrade.sh
   fi
 
-  # bash-completion
-  read -p "Install bash-completion? (requires homebrew installed) [Y/n] " -n 1
+  # zsh-completion
+  read -p "Install zsh-completion? (requires homebrew installed) [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $bashthingsFirstrunSpecific/bash-completion.sh
+    $bashthingsFirstrunSpecific/zsh-completion.sh
   fi
 
   # brew-git

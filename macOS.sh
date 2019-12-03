@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
+# zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # pure loading
-fpath+=("$bashthingsModules/pure")
-autoload -U promptinit
-promptinit
-zstyle :prompt:pure:path color '#5BD4FF'
+source $bashthingsModules/pure.sh
 prompt pure

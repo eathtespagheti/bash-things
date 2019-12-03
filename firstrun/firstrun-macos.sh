@@ -10,8 +10,13 @@ bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
 export PACKAGE_INSTALL='brew install'
 rcFile='.zshrc'
 
-# Loading echo functions
+# Loading functions
 source $bashthingsFunctions/echo.sh
+source $bashthingsFunctions/installer.sh
+
+function fastInstall() { # Fast installing command
+  installer $PACKAGE_INSTALL $1 ' '
+}
 
 # Homebrew
 $bashthingsFirstrunSpecific/brew.sh
@@ -33,21 +38,23 @@ if [[ $ALLTRUE == true ]]; then
   # Case insensitive autocomplete
   $bashthingsFirstrun/case-insensitive-autocomplete.sh
   # Bash upgrade
-  $bashthingsFirstrunSpecific/bash-upgrade.sh
+  fastInstall bash
   # zsh-completion
-  $bashthingsFirstrunSpecific/zsh-completion.sh
+  fastInstall zsh-completion
   # brew-git
-  $bashthingsFirstrunSpecific/brew-git.sh
+  fastInstall git
   # NVM
   $bashthingsFirstrunSpecific/nvm.sh
   # GIT superpush
   $bashthingsFirstrun/git.sh
+  # docker
+  fastInstall docker
+  # docker-compose
+  fastInstall docker-compose
+  # docker-machine
+  fastInstall docker-machine
   # docker-machine autocomplete
   $bashthingsFirstrunSpecific/docker-machine.sh
-  # wget
-  $bashthingsFirstrunSpecific/wget.sh
-  # lolcat
-  $bashthingsFirstrunSpecific/lolcat.sh
 else
   # Enable bash_things
   read -p "Enable bash_things? [Y/n] " -n 1
@@ -74,27 +81,27 @@ else
   fi
 
   # Bash upgrade
-  read -p "Upgrade bash? (requires homebrew installed) [Y/n] " -n 1
+  read -p "Upgrade bash? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $bashthingsFirstrunSpecific/bash-upgrade.sh
+    fastInstall bash
   fi
 
   # zsh-completion
-  read -p "Install zsh-completion? (requires homebrew installed) [Y/n] " -n 1
+  read -p "Install zsh-completion? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $bashthingsFirstrunSpecific/zsh-completion.sh
+    fastInstall zsh-completion
   fi
 
   # brew-git
-  read -p "Reinstall git via brew? (requires homebrew installed) [Y/n] " -n 1
+  read -p "Reinstall git via brew? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    $bashthingsFirstrunSpecific/brew-git.sh
+    fastInstall git
   fi
 
   # NVM
@@ -113,6 +120,30 @@ else
     $bashthingsFirstrun/git.sh
   fi
 
+  # docker
+  read -p "Install docker? [Y/n] " -n 1
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
+    echo
+  else
+    fastInstall docker
+  fi
+
+  # docker-compose
+  read -p "Install docker-compose? [Y/n] " -n 1
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
+    echo
+  else
+    fastInstall docker-compose
+  fi
+
+  # docker-machine
+  read -p "Install docker-machine? [Y/n] " -n 1
+  if [[ $REPLY =~ ^[Nn]$ ]]; then
+    echo
+  else
+    fastInstall docker-machine
+  fi
+
   # docker-machine autocomplete
   read -p "Enable docker-machine autocomplete? [Y/n] " -n 1
   if [[ $REPLY =~ ^[Nn]$ ]]; then
@@ -120,13 +151,11 @@ else
   else
     $bashthingsFirstrunSpecific/docker-machine.sh
   fi
-
-  # wget
-  $bashthingsFirstrunSpecific/wget.sh
-
-  # lolcat
-  $bashthingsFirstrunSpecific/lolcat.sh
 fi
+
+fastInstall lolcat
+fastInstall wget
+fastInstall zsh-syntax-highlighting
 
 # echo Done
 bgecho 'Done!'

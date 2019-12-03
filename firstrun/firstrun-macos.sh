@@ -12,10 +12,10 @@ rcFile='.zshrc'
 
 # Loading functions
 source $bashthingsFunctions/echo.sh
-source $bashthingsFunctions/installer.sh
+source $bashthingsFunctions/customInstaller.sh
 
 function fastInstall() { # Fast installing command
-  installer $PACKAGE_INSTALL $1 ' '
+  customInstaller $PACKAGE_INSTALL $1 ' '
 }
 
 # Homebrew

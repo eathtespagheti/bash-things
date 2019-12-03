@@ -26,3 +26,6 @@ There's a preconfigured alias for this script named `webhook` in `modules/alias.
 
 ## trueline
 I'm using trueline by petobens on GitHub, for setting it up check [his project](https://github.com/petobens/trueline)
+
+## pure
+I'm using pure by @sindresorhus on GitHub, for setting it up check [his project](https://github.com/sindresorhus/pure)

@@ -13,3 +13,6 @@ git -C $bashthingsModules/trueline pull
 
 gecho "Updating webhook"
 git -C $bashthingsScripts/webhook pull
+
+gecho "Updating pure"
+git -C $bashthingsModules/pure pull

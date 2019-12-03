@@ -9,5 +9,8 @@ echo
 echo "Clone webhook"
 git clone https://gitlab.com/Fabi0Z/webhook.git .bash_things/scripts/webhook
 echo
+echo "Clone pure"
+git clone https://github.com/sindresorhus/pure.git .bash_things/modules/pure
+echo
 echo "Execute firstrun script"
 ./.bash_things/firstrun/firstrun.sh

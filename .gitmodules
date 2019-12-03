@@ -5,3 +5,7 @@
 [submodule "webhook"]
 	path = scripts/webhook
 	url = https://gitlab.com/Fabi0Z/webhook.git
+
+[submodule "webhook"]
+	path = modules/pure
+	url = https://github.com/sindresorhus/pure.git

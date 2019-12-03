@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 bgecho '--- Upgrading bash ---'
-brew install bash
+$PACKAGE_INSTALL bash
 echo 'OK'

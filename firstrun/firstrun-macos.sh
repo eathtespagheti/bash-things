@@ -7,10 +7,14 @@ DISTRO='macOS'
 ALLTRUE=false
 bashthingsFirstrun=$bashthingsFolder/firstrun
 bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
+export PACKAGE_INSTALL='brew install'
 rcFile='.zshrc'
 
 # Loading echo functions
 source $bashthingsFunctions/echo.sh
+
+# Homebrew
+$bashthingsFirstrunSpecific/brew.sh
 
 if [ "$1" = "--alltrue" ]; then
   ALLTRUE=true
@@ -28,8 +32,6 @@ if [[ $ALLTRUE == true ]]; then
 
   # Case insensitive autocomplete
   $bashthingsFirstrun/case-insensitive-autocomplete.sh
-  # Homebrew
-  $bashthingsFirstrunSpecific/brew.sh
   # Bash upgrade
   $bashthingsFirstrunSpecific/bash-upgrade.sh
   # bash-completion
@@ -42,6 +44,8 @@ if [[ $ALLTRUE == true ]]; then
   $bashthingsFirstrun/git.sh
   # docker-machine autocomplete
   $bashthingsFirstrunSpecific/docker-machine.sh
+  # wget
+  $bashthingsFirstrunSpecific/wget.sh
   # lolcat
   $bashthingsFirstrunSpecific/lolcat.sh
 else
@@ -67,14 +71,6 @@ else
     echo
   else
     $bashthingsFirstrun/case-insensitive-autocomplete.sh
-  fi
-
-  # Homebrew
-  read -p "Install Homebrew? [Y/n] " -n 1
-  if [[ $REPLY =~ ^[Nn]$ ]]; then
-    echo
-  else
-    $bashthingsFirstrunSpecific/brew.sh
   fi
 
   # Bash upgrade
@@ -124,6 +120,9 @@ else
   else
     $bashthingsFirstrunSpecific/docker-machine.sh
   fi
+
+  # wget
+  $bashthingsFirstrunSpecific/wget.sh
 
   # lolcat
   $bashthingsFirstrunSpecific/lolcat.sh

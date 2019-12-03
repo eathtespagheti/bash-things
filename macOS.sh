@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
 # zsh-completion
 fpath=(/usr/local/share/zsh-completions $fpath)
 

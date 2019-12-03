@@ -22,6 +22,8 @@ export PATH=$PATH:~/.local/bin
 source $bashthingsFunctions/checkOS.sh
 if [ "$machine" = "Linux" ]; then
     source $bashthingsFolder/linux.sh
+elif [ "$machine" = "Mac" ]; then
+    source $bashthingsFolder/macOS.sh
 else
     source $bashthingsFolder/basic.sh
 fi

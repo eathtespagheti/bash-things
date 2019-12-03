@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Loading variables
 HOME="/Users/${USER}"
@@ -7,6 +7,7 @@ DISTRO='macOS'
 ALLTRUE=false
 bashthingsFirstrun=$bashthingsFolder/firstrun
 bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
+rcFile='.zshrc'
 
 # Loading echo functions
 source $bashthingsFunctions/echo.sh
@@ -17,11 +18,13 @@ fi
 
 if [[ $ALLTRUE == true ]]; then
   # Enable bash_things
-  bgecho 'Enable bash_things in .bash_profile'
-  echo >>$HOME/.bash_profile
-  echo "# Customization" >>$HOME/.bash_profile
-  echo "HOME='${HOME}'" >>$HOME/.bash_profile
-  echo "source ${bashthingsFolder}/loader.sh" >>$HOME/.bash_profile
+  bgecho 'Backup old '$rcFile
+  mv $HOME/$rcFile $HOME/$rcFile.backup
+  touch $HOME/$rcFile
+  bgecho 'Enable bash_things in '$rcFile
+  echo "# Customization" >>$HOME/$rcFile
+  echo "HOME='${HOME}'" >>$HOME/$rcFile
+  echo "source ${bashthingsFolder}/loader.sh" >>$HOME/$rcFile
 
   # Case insensitive autocomplete
   $bashthingsFirstrun/case-insensitive-autocomplete.sh
@@ -47,11 +50,15 @@ else
   if [[ $REPLY =~ ^[Nn]$ ]]; then
     echo
   else
-    bgecho 'Enable bash_things in .bash_profile'
-    echo >>$HOME/.bashrc
-    echo "# Customization" >>$HOME/.bash_profile
-    echo "HOME='${HOME}'" >>$HOME/.bash_profile
-    echo "source ${bashThingsFolder}/loader.sh" >>$HOME/.bash_profile
+    # Enable bash_things
+    bgecho 'Backup old '$rcFile
+    mv $HOME/$rcFile $HOME/$rcFile.backup
+    touch $HOME/$rcFile
+    bgecho 'Enable bash_things in '$rcFile
+    echo >>$HOME/$rcFile
+    echo "# Customization" >>$HOME/$rcFile
+    echo "HOME='${HOME}'" >>$HOME/$rcFile
+    echo "source ${bashthingsFolder}/loader.sh" >>$HOME/$rcFile
   fi
 
   # Case insensitive autocomplete

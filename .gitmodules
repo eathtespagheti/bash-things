@@ -4,7 +4,7 @@
 
 [submodule "webhook"]
 	path = scripts/webhook
-	url = https://gitlab.com/Fabi0Z/webhook.git
+	url = https://gitlab.com/eathtespagheti/webhook.git
 
 [submodule "pure"]
 	path = modules/pure

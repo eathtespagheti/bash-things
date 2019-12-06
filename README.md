@@ -8,12 +8,12 @@ Just run one of these two commands from your home directory, the first one use *
 
 *curl*
 ```bash
-curl -o- https://gitlab.com/Fabi0Z/bash-things/raw/master/install.sh | bash
+curl -o- https://gitlab.com/eathtespagheti/bash-things/raw/master/install.sh | bash
 ```
 
 *wget*
 ```bash
-wget -qO- https://gitlab.com/Fabi0Z/bash-things/raw/master/install.sh | bash
+wget -qO- https://gitlab.com/eathtespagheti/bash-things/raw/master/install.sh | bash
 ```
 
 ## Updating
@@ -21,7 +21,7 @@ wget -qO- https://gitlab.com/Fabi0Z/bash-things/raw/master/install.sh | bash
 You can update bash-things with the update script found in `scripts/bash-things-update.sh` or just using the alias `bash-things-update`
 
 ## webhook
-It's a bash script for toggling on and off smart devices via IFTTT webhooks, to use it check the [project on gitlab](https://gitlab.com/Fabi0Z/webhook.git).
+It's a bash script for toggling on and off smart devices via IFTTT webhooks, to use it check the [project on gitlab](https://gitlab.com/eathtespagheti/webhook.git).
 There's a preconfigured alias for this script named `webhook` in `modules/alias.sh`
 
 ## trueline

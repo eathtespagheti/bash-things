@@ -5,4 +5,4 @@ alias suspend="systemctl suspend"
 alias webhook=$bashthingsScripts/webhook/webhook.sh
 alias bash-things-update=$bashthingsScripts/bash-things-update.sh
 alias cat=lolcat
-alias sucode="sudo code --user-data-dir=\"~/.vscode-root\""
+alias sucode="sudo code --user-data-dir=\"${HOME}/.vscode-root\""

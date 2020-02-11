@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+# enable globstar
+shopt -s globstar
+
 # set default make jobs
-threads=`lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l` # GET how much threads the CPU has
+threads=$(lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l) # GET how much threads the CPU has
 export MAKEFLAGS="${MAKEFLAGS} -j${threads}"
 
 # BigChameleon specific configuration

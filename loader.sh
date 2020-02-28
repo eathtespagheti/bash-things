@@ -12,9 +12,6 @@ source $bashthingsModules/docker.sh
 # custom alias
 source $bashthingsModules/alias.sh
 
-# webhook completion
-source $bashthingsScripts/webhook/webhook-completion.sh
-
 # use nano
 export EDITOR=nano
 

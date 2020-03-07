@@ -4,7 +4,11 @@
 source $bashthingsFunctions/checkBigChameleon.sh
 bgColor="orange"
 if checkBigChameleon; then
-    bgColor="light_blue"
+    if [ "$USER" = "steamuser" ]; then
+        bgColor="red"
+    else
+        bgColor="light_blue"
+    fi
 fi
 
 declare -a TRUELINE_SEGMENTS=(

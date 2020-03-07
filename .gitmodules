@@ -1,0 +1,9 @@
+[submodule "modules/trueline"]
+	path = modules/trueline
+	url = https://github.com/petobens/trueline.git
+[submodule "modules/pure"]
+	path = modules/pure
+	url = https://github.com/sindresorhus/pure.git
+[submodule "scripts/webhook"]
+	path = scripts/webhook
+	url = https://gitlab.com/eathtespagheti/webhook.git

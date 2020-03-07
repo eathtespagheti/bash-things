@@ -8,11 +8,14 @@ gecho "Last 5 commits were"
 git -C $bashthingsFolder log -n 5 --format=oneline
 echo
 
-gecho "Updating trueline"
-git -C $bashthingsModules/trueline pull
+gecho "Update submodules"
+git -C $bashthingsFolder submodule update --init --recursive
 
-gecho "Updating webhook"
-git -C $bashthingsScripts/webhook pull
+# gecho "Updating trueline"
+# git -C $bashthingsModules/trueline pull
 
-gecho "Updating pure"
-git -C $bashthingsModules/pure pull
+# gecho "Updating webhook"
+# git -C $bashthingsScripts/webhook pull
+
+# gecho "Updating pure"
+# git -C $bashthingsModules/pure pull

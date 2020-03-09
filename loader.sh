@@ -18,6 +18,9 @@ export EDITOR=nano
 # add python user bin to path
 export PATH=$PATH:~/.local/bin
 
+# Set up Node Version Manager
+source /usr/share/nvm/init-nvm.sh
+
 # Check OS
 source $bashthingsFunctions/checkOS.sh
 if [ "$machine" = "Linux" ]; then

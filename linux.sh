@@ -10,6 +10,9 @@ shopt -s globstar
 threads=$(lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l) # GET how much threads the CPU has
 export MAKEFLAGS="${MAKEFLAGS} -j${threads}"
 
+# load easymount
+source $bashthingsFunctions/easymount.sh
+
 # BigChameleon specific configuration
 source $bashthingsFunctions/checkBigChameleon.sh
 if checkBigChameleon; then

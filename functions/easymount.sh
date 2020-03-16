@@ -13,8 +13,15 @@ function easymount() {
 }
 
 function easyumount() {
-    local device="/dev/${1}"
-    sudo umount $device
+    if [ -n "$1" ]; then
+        local device="/dev/${1}"
+        sudo umount $device
+        return 0
+    fi
+
+    local tmpDirName="tmp"
+    local path="/run/media/${USER}/${tmpDirName}"
+    sudo umount $path
 }
 
 export -f easymount >/dev/null

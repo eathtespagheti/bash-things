@@ -21,6 +21,11 @@ export PATH=$PATH:~/.local/bin
 # Set up Node Version Manager
 source /usr/share/nvm/init-nvm.sh
 
+# Python virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects
+source $HOME/.local/bin/virtualenvwrapper.sh
+
 # Check OS
 source $bashthingsFunctions/checkOS.sh
 if [ "$machine" = "Linux" ]; then

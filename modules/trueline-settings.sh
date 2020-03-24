@@ -12,6 +12,7 @@ if checkBigChameleon; then
 fi
 
 declare -a TRUELINE_SEGMENTS=(
+    'virtualenv,black,purple'
     'working_dir,special_grey,'$bgColor',italic'
     'git,special_grey,green'
     'exit_status,white,special_grey'
@@ -49,6 +50,19 @@ _trueline_docker_machine_segment() {
         local font_style="$3"
         local segment="$(_trueline_separator)"
         segment+="$(_trueline_content "$fg_color" "$bg_color" "$font_style" " $docker_machine ")"
+        PS1+="$segment"
+        _last_color=$bg_color
+    fi
+}
+
+_trueline_virtualenv_segment() {
+    if [[ -n $(echo $VIRTUAL_ENV) ]]; then
+        local fg_color="$1"
+        local bg_color="$2"
+        local font_style="$3"
+        local segment="$(_trueline_separator)"
+        local venvname=$(basename $VIRTUAL_ENV)
+        segment+="$(_trueline_content "$fg_color" "$bg_color" "$font_style" " $venvname ")"
         PS1+="$segment"
         _last_color=$bg_color
     fi

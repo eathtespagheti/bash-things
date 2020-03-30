@@ -16,15 +16,16 @@ source $bashthingsModules/alias.sh
 export EDITOR=nano
 
 # add python user bin to path
-export PATH=$PATH:~/.local/bin
+PYTHON_USER_BIN_PATH=$HOME/.local/bin
+export PATH=$PATH:$PYTHON_USER_BIN_PATH
 
 # Set up Node Version Manager
-source /usr/share/nvm/init-nvm.sh
+INIT_NVM_PATH=/usr/share/nvm/init-nvm.sh
+[ -f "$INIT_NVM_PATH" ] && source $INIT_NVM_PATH
 
 # Python virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Projects
-source $HOME/.local/bin/virtualenvwrapper.sh
+VIRTUALENVWRAPPER_PATH=$PYTHON_USER_BIN_PATH/virtualenvwrapper.sh
+[ -f "$VIRTUALENVWRAPPER_PATH" ] && export WORKON_HOME=$HOME/.virtualenvs && export PROJECT_HOME=$HOME/Projects && source $VIRTUALENVWRAPPER_PATH
 
 # Check OS
 source $bashthingsFunctions/checkOS.sh

@@ -14,10 +14,7 @@ export MAKEFLAGS="${MAKEFLAGS} -j${threads}"
 source $bashthingsFunctions/easymount.sh
 
 # BigChameleon specific configuration
-source $bashthingsFunctions/checkBigChameleon.sh
-if checkBigChameleon; then
-    source $bashthingsModules/bigChameleon.sh
-fi
+[ $(uname -n) = "BigChameleon" ] && source $bashthingsModules/bigChameleon.sh
 
 # trueline settings
 source $bashthingsModules/trueline-settings.sh

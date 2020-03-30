@@ -16,7 +16,7 @@ declare -a TRUELINE_SEGMENTS=(
     'working_dir,special_grey,'$bgColor',italic'
     'git,special_grey,green'
     'exit_status,white,special_grey'
-    'time,white,black'
+    'bg_jobs,white,black'
     'docker_machine,white,red,bold'
     #'newline,white,special_grey'
 )

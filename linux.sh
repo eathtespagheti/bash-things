@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # webhook completion
-source $bashthingsScripts/webhook/webhook-completion.sh
+[ -f "$HOME/.webhook" ] && source $bashthingsScripts/webhook/webhook-completion.sh
 
 # enable globstar
 shopt -s globstar

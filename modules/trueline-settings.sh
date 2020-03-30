@@ -13,7 +13,8 @@ fi
 
 declare -a TRUELINE_SEGMENTS=(
     'venv,black,purple'
-    'working_dir,special_grey,'$bgColor',italic'
+    'user,black,'$bgColor',bold'
+    'working_dir,black,mono,italic'
     'git,special_grey,green'
     'exit_status,white,special_grey'
     'bg_jobs,white,black'

@@ -1,21 +1,22 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-export bashthingsFolder=$HOME/.bash_things
-export bashthingsFunctions=$bashthingsFolder/functions
-export bashthingsScripts=$bashthingsFolder/scripts
-export bashthingsModules=$bashthingsFolder/modules
-export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+export BASHTHINGS_FOLDER=$HOME/.bash_things
+export BASHTHINGS_FUNCTIONS=$BASHTHINGS_FOLDER/functions
+export BASHTHINGS_SCRIPTS=$BASHTHINGS_FOLDER/scripts
+export BASHTHINGS_MODULES=$BASHTHINGS_FOLDER/modules
+JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+[ -n "$JAVA_HOME" ] && export JAVA_HOME
 
 # Select the right console editor
-if [ $(command -v vim) ]; then
+if [ "$(command -v vim)" ]; then
     EDITOR_CONSOLE=vim
-elif [ $(command -v nano) ]; then
+elif [ "$(command -v nano)" ]; then
     EDITOR_CONSOLE=nano
 fi
 # Select the right GUI editor
-if [ $(command -v code-insiders) ]; then
+if [ "$(command -v code-insiders)" ]; then
     EDITOR_GUI=code-insiders
-elif [ $(command -v code) ]; then
+elif [ "$(command -v code)" ]; then
     EDITOR_GUI=code
 fi
 

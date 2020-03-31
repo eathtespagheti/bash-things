@@ -3,14 +3,14 @@
 # Loading variables
 source $HOME/.bash_things/scripts/variables.sh
 DISTRO='Arch'
-bashthingsFirstrun=$bashthingsFolder/firstrun
+bashthingsFirstrun=$BASHTHINGS_FOLDER/firstrun
 bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
 export AUTOYES='--noconfirm'
 export PACKAGE_INSTALL='yay -S'
 ALLTRUE=false
 
 # Loading echo functions
-source $bashthingsFunctions/echo.sh
+source $BASHTHINGS_FUNCTIONS/echo.sh
 
 if [ "$1" = "--alltrue" ]; then
   ALLTRUE=true
@@ -32,7 +32,7 @@ if [[ $ALLTRUE == true ]]; then
   bgecho 'Enable bash_things in .bashrc'
   echo >>$HOME/.bashrc
   echo "# Customization" >>$HOME/.bashrc
-  echo "source ${bashthingsFolder}/loader.sh" >>$HOME/.bashrc
+  echo "source ${BASHTHINGS_FOLDER}/loader.sh" >>$HOME/.bashrc
 
   # Case insensitive autocomplete
   $bashthingsFirstrun/case-insensitive-autocomplete.sh
@@ -66,7 +66,7 @@ else
     bgecho 'Enable bash_things in .bashrc'
     echo >>$HOME/.bashrc
     echo "# Customization" >>$HOME/.bashrc
-    echo "source ${bashthingsFolder}/loader.sh" >>$HOME/.bashrc
+    echo "source ${BASHTHINGS_FOLDER}/loader.sh" >>$HOME/.bashrc
   fi
 
   # Case insensitive autocomplete

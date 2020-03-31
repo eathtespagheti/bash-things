@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # get colors
-source $bashthingsModules/basic/colors.sh
+source $BASHTHINGS_MODULES/basic/colors.sh
 
 # custom prompt
-source $bashthingsModules/basic/bash_string.sh
+source $BASHTHINGS_MODULES/basic/bash_string.sh

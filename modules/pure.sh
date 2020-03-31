@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-fpath+=("$bashthingsModules/pure")
+fpath+=("$BASHTHINGS_MODULES/pure")
 autoload -U promptinit
 promptinit
 

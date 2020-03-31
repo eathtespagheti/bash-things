@@ -5,14 +5,14 @@ HOME="/Users/${USER}"
 source $HOME/.bash_things/scripts/variables.sh
 DISTRO='macOS'
 ALLTRUE=false
-bashthingsFirstrun=$bashthingsFolder/firstrun
+bashthingsFirstrun=$BASHTHINGS_FOLDER/firstrun
 bashthingsFirstrunSpecific=$bashthingsFirstrun/$DISTRO
 export PACKAGE_INSTALL='brew install'
 rcFile='.zshrc'
 
 # Loading functions
-source $bashthingsFunctions/echo.sh
-source $bashthingsFunctions/customInstaller.sh
+source $BASHTHINGS_FUNCTIONS/echo.sh
+source $BASHTHINGS_FUNCTIONS/customInstaller.sh
 
 function fastInstall() { # Fast installing command
   customInstaller $PACKAGE_INSTALL $1 ' '
@@ -33,7 +33,7 @@ if [[ $ALLTRUE == true ]]; then
   bgecho 'Enable bash_things in '$rcFile
   echo "# Customization" >>$HOME/$rcFile
   echo "HOME='${HOME}'" >>$HOME/$rcFile
-  echo "source ${bashthingsFolder}/loader.sh" >>$HOME/$rcFile
+  echo "source ${BASHTHINGS_FOLDER}/loader.sh" >>$HOME/$rcFile
 
   # Case insensitive autocomplete
   $bashthingsFirstrun/case-insensitive-autocomplete.sh
@@ -69,7 +69,7 @@ else
     echo >>$HOME/$rcFile
     echo "# Customization" >>$HOME/$rcFile
     echo "HOME='${HOME}'" >>$HOME/$rcFile
-    echo "source ${bashthingsFolder}/loader.sh" >>$HOME/$rcFile
+    echo "source ${BASHTHINGS_FOLDER}/loader.sh" >>$HOME/$rcFile
   fi
 
   # Case insensitive autocomplete

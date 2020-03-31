@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Return true if the machine it's BigChameleon
-function checkBigChameleon() {
-    [ $(uname -n) = "BigChameleon" ] && true || false
+checkBigChameleon() {
+    [ "$(uname -n)" = "BigChameleon" ] && true || false
 }

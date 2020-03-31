@@ -5,10 +5,10 @@
 . "$HOME"/.bash_things/scripts/variables.sh
 
 # load custom echos
-. "$BASHTHINGS_FUNCTIONS"/echo.sh
+. "$BASHTHINGS_FUNCTIONS"/echo.bash
 
 # docker configuration
-[ -f "/etc/bash_completion.d/docker-machine-prompt.bash" ] && "$BASHTHINGS_MODULES"/docker.sh
+[ -f "/etc/bash_completion.d/docker-machine-prompt.bash" ] && "$BASHTHINGS_MODULES"/docker.bash
 
 # custom alias
 . "$BASHTHINGS_MODULES"/alias.sh
@@ -21,9 +21,9 @@ export PATH=$PATH:$PYTHON_USER_BIN_PATH
 . "$BASHTHINGS_FUNCTIONS"/checkOS.sh
 # shellcheck disable=SC2154,SC2039
 if [ "$OSTYPE" = "linux-gnu" ]; then
-    . "$BASHTHINGS_FOLDER"/linux.sh
+    . "$BASHTHINGS_FOLDER"/linux.bash
 elif [ "$OSTYPE" = "darwin" ]; then
-    . "$BASHTHINGS_FOLDER"/macOS.sh
+    . "$BASHTHINGS_FOLDER"/macOS.zsh
 else
-    . "$BASHTHINGS_FOLDER"/basic.sh
+    . "$BASHTHINGS_FOLDER"/basic.bash
 fi

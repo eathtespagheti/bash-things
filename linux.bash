@@ -15,7 +15,7 @@ shopt -s globstar
 
 # load easymount
 # shellcheck disable=SC1090
-source "$BASHTHINGS_FUNCTIONS/easymount.sh"
+source "$BASHTHINGS_FUNCTIONS/easymount.bash"
 
 # BigChameleon specific configuration
 # shellcheck disable=SC1090
@@ -23,6 +23,6 @@ source "$BASHTHINGS_FUNCTIONS/easymount.sh"
 
 # trueline settings
 # shellcheck disable=SC1090
-source "$BASHTHINGS_MODULES/trueline-settings.sh"
+source "$BASHTHINGS_MODULES/trueline-settings.bash"
 # shellcheck disable=SC1090
 source "$BASHTHINGS_MODULES/trueline/trueline.sh"

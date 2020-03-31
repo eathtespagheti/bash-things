@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
 # Change color based on machine name
-source $bashthingsFunctions/checkBigChameleon.sh
-bgColor="orange"
-if checkBigChameleon; then
-    if [ "$USER" = "steamuser" ]; then
-        bgColor="red"
-    else
-        bgColor="light_blue"
-    fi
-fi
+[ $(uname -n) = "BigChameleon" ] && bgColor="light_blue" || bgColor="orange"
 
 declare -a TRUELINE_SEGMENTS=(
     'venv,black,purple'
@@ -24,24 +16,24 @@ declare -a TRUELINE_SEGMENTS=(
 
 declare -A TRUELINE_SYMBOLS=(
     [working_dir_home]='~'
-    [clock]='🕒'
+    # [clock]='🕒'
     [docker]='' # Docker logo
 )
 
 TRUELINE_GIT_MODIFIED_COLOR='black'
 TRUELINE_USER_SHOW_IP_SSH=true
 
-_trueline_time_segment() {
-    local prompt_time="${TRUELINE_SYMBOLS[clock]} \t"
-    if [[ -n "$prompt_time" ]]; then
-        local fg_color="$1"
-        local bg_color="$2"
-        local segment="$(_trueline_separator)"
-        segment+="$(_trueline_content "$fg_color" "$bg_color" normal " $prompt_time ")"
-        PS1+="$segment"
-        _last_color=$bg_color
-    fi
-}
+# _trueline_time_segment() {
+#     local prompt_time="${TRUELINE_SYMBOLS[clock]} \t"
+#     if [[ -n "$prompt_time" ]]; then
+#         local fg_color="$1"
+#         local bg_color="$2"
+#         local segment="$(_trueline_separator)"
+#         segment+="$(_trueline_content "$fg_color" "$bg_color" normal " $prompt_time ")"
+#         PS1+="$segment"
+#         _last_color=$bg_color
+#     fi
+# }
 
 _trueline_docker_machine_segment() {
     if [ -n "$DOCKER_MACHINE_WRAPPED" ]; then

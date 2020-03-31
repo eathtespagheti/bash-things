@@ -3,7 +3,7 @@
 function easymount() {
     local device="/dev/${1}"
     local tmpDirName="tmp"
-    local path="/run/media/${USER}/${tmpDirName}"
+    local path="/run/media/${USER}/tmp"
 
     if [ ! -d "${path}" ]; then
         sudo mkdir $path

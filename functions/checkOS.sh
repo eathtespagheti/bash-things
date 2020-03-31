@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-unameOut="$(uname -s)"
-case "${unameOut}" in
+case $(uname -s) in
     Linux*)     machine=Linux;;
     Darwin*)    machine=Mac;;
     CYGWIN*)    machine=Cygwin;;
     MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN:${unameOut}"
+    *)          machine="UNKNOWN DEVICE"
 esac

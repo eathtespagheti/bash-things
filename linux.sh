@@ -4,14 +4,13 @@
 [ $(command -v loadkeys) ] && loadkeys it
 
 # webhook completion
-[ -f "$HOME/.webhook" ] && source $bashthingsScripts/webhook/webhook-completion.sh
+[ -d "$HOME/.webhook" ] && source $bashthingsScripts/webhook/webhook-completion.sh
 
 # enable globstar
 shopt -s globstar
 
 # set default make jobs
-threads=$(lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l) # GET how much threads the CPU has
-export MAKEFLAGS="${MAKEFLAGS} -j${threads}"
+# export MAKEFLAGS="${MAKEFLAGS} -j$(lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l)"
 
 # load easymount
 source $bashthingsFunctions/easymount.sh

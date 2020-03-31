@@ -7,7 +7,7 @@ source $HOME/.bash_things/scripts/variables.sh
 source $bashthingsFunctions/echo.sh
 
 # docker configuration
-source $bashthingsModules/docker.sh
+[ -f "/etc/bash_completion.d/docker-machine-prompt.bash" ] && source $bashthingsModules/docker.sh
 
 # custom alias
 source $bashthingsModules/alias.sh
@@ -15,14 +15,6 @@ source $bashthingsModules/alias.sh
 # add python user bin to path
 PYTHON_USER_BIN_PATH=$HOME/.local/bin
 export PATH=$PATH:$PYTHON_USER_BIN_PATH
-
-# Set up Node Version Manager
-INIT_NVM_PATH=/usr/share/nvm/init-nvm.sh
-[ -f "$INIT_NVM_PATH" ] && source $INIT_NVM_PATH
-
-# Python virtualenvwrapper
-VIRTUALENVWRAPPER_PATH=$PYTHON_USER_BIN_PATH/virtualenvwrapper.sh
-[ -f "$VIRTUALENVWRAPPER_PATH" ] && export WORKON_HOME=$HOME/.virtualenvs && export PROJECT_HOME=$HOME/Projects && source $VIRTUALENVWRAPPER_PATH
 
 # Check OS
 source $bashthingsFunctions/checkOS.sh

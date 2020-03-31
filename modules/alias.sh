@@ -10,3 +10,5 @@ alias bash-things-update=$bashthingsScripts/bash-things-update.sh
 # alias fixtotem="allow_rgb10_configs=false totem"
 alias cps="rsync -ah --progress"
 alias editBashThings="${EDITOR} ${bashthingsFolder}"
+alias loadNVM="source /usr/share/nvm/init-nvm.sh"
+alias loadVirtualenvwrapper="source ${bashthingsModules}/virtualenvwrapper.sh"

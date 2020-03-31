@@ -6,22 +6,22 @@ function easymount() {
     local path="/run/media/${USER}/tmp"
 
     if [ ! -d "${path}" ]; then
-        sudo mkdir $path
+        sudo mkdir "$path"
     fi
 
-    sudo mount $device $path -o umask=000
+    sudo mount "$device" "$path" -o umask=000
 }
 
 function easyumount() {
     if [ -n "$1" ]; then
         local device="/dev/${1}"
-        sudo umount $device
+        sudo umount "$device"
         return 0
     fi
 
     local tmpDirName="tmp"
     local path="/run/media/${USER}/${tmpDirName}"
-    sudo umount $path
+    sudo umount "$path"
 }
 
 export -f easymount >/dev/null

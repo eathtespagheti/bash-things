@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 # Change color based on machine name
-[ $(uname -n) = "BigChameleon" ] && bgColor="light_blue" || bgColor="orange"
+[ "$(uname -n)" = "BigChameleon" ] && bgColor="light_blue" || bgColor="orange"
 
+# shellcheck disable=SC2034
 declare -a TRUELINE_SEGMENTS=(
     'venv,black,purple'
-    'user,black,'$bgColor',bold'
+    'user,black,'"$bgColor"',bold'
     'working_dir,black,mono,italic'
     'git,special_grey,green'
     'exit_status,white,special_grey'
@@ -20,8 +21,8 @@ declare -A TRUELINE_SYMBOLS=(
     [docker]='' # Docker logo
 )
 
-TRUELINE_GIT_MODIFIED_COLOR='black'
-TRUELINE_USER_SHOW_IP_SSH=true
+export TRUELINE_GIT_MODIFIED_COLOR='black'
+export TRUELINE_USER_SHOW_IP_SSH=true
 
 # _trueline_time_segment() {
 #     local prompt_time="${TRUELINE_SYMBOLS[clock]} \t"
@@ -41,11 +42,12 @@ _trueline_docker_machine_segment() {
             local fg_color="$1"
             local bg_color="$2"
             local font_style="$3"
-            local segment="$(_trueline_separator)"
+            # shellcheck disable=SC2155
+            local segment=$(_trueline_separator)
+            # shellcheck disable=SC2155
             local docker_machine="${TRUELINE_SYMBOLS[docker]} $(__docker_machine_ps1)"
             segment+="$(_trueline_content "$fg_color" "$bg_color" "$font_style" " $docker_machine ")"
             PS1+="$segment"
-            _last_color=$bg_color
         fi
     fi
 }

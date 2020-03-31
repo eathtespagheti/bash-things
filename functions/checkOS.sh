@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 case $(uname -s) in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    CYGWIN*)    machine=Cygwin;;
-    MINGW*)     machine=MinGw;;
-    *)          machine="UNKNOWN DEVICE"
+    Linux*)     export OSTYPE=linux-gnu;;
+    Darwin*)    export OSTYPE=darwin;;
+    CYGWIN*)    export OSTYPE=cygwin;;
+    MINGW*)     export OSTYPE=msys;;
+    *)          export OSTYPE=UNKNOWN
 esac

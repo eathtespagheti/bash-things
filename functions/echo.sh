@@ -1,25 +1,29 @@
 #!/usr/bin/env bash
 
 # Colors
-export C_GREEN='\033[38;5;40m'
-export C_RED="\033[38;5;9m"
-export F_BOLD="\033[1m"
-export C_NO_COLOR='\033[0m' # No Color
+C_GREEN='\033[38;5;40m'
+C_RED="\033[38;5;9m"
+F_BOLD="\033[1m"
+C_NO_COLOR='\033[0m' # No Color
 
-function gecho() { # Green echo
-  echo -e "${C_GREEN}$1${C_NO_COLOR}"
+gecho() { # Green echo
+  # shellcheck disable=SC2059
+  printf "${C_GREEN}$1${C_NO_COLOR}\n"
 }
 
-function recho() { # Red echo
-  echo -e "${C_RED}$1${C_NO_COLOR}"
+recho() { # Red echo
+  # shellcheck disable=SC2059
+  printf "${C_RED}$1${C_NO_COLOR}\n"
 }
 
-function bgecho() { # Bold Green echo
-  echo -e "${F_BOLD}${C_GREEN}$1${C_NO_COLOR}"
+bgecho() { # Bold Green echo
+  # shellcheck disable=SC2059
+  printf "${F_BOLD}${C_GREEN}$1${C_NO_COLOR}\n"
 }
 
-function brecho() { # Bold Red echo
-  echo -e "${F_BOLD}${C_RED}$1${C_NO_COLOR}"
+brecho() { # Bold Red echo
+  # shellcheck disable=SC2059
+  printf "${F_BOLD}${C_RED}$1${C_NO_COLOR}\n"
 }
 
 export -f gecho >/dev/null

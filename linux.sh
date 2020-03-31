@@ -5,7 +5,7 @@
 
 # webhook completion
 # shellcheck disable=SC1090
-[ -d "$HOME/.webhook" ] && source "$BASHTHINGS_SCRIPTS/webhook/webhook-completion.sh"
+[ -d "$HOME/.config/webhook" ] && source "$BASHTHINGS_SCRIPTS/webhook/webhook-completion.bash"
 
 # enable globstar
 shopt -s globstar

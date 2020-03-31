@@ -20,9 +20,9 @@ export PATH=$PATH:$PYTHON_USER_BIN_PATH
 # Check OS
 . "$BASHTHINGS_FUNCTIONS"/checkOS.sh
 # shellcheck disable=SC2154,SC2039
-if [ "$OSTYPE" = "Linux" ]; then
+if [ "$OSTYPE" = "linux-gnu" ]; then
     . "$BASHTHINGS_FOLDER"/linux.sh
-elif [ "$OSTYPE" = "Mac" ]; then
+elif [ "$OSTYPE" = "darwin" ]; then
     . "$BASHTHINGS_FOLDER"/macOS.sh
 else
     . "$BASHTHINGS_FOLDER"/basic.sh

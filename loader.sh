@@ -1,27 +1,29 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # load variables
-source $HOME/.bash_things/scripts/variables.sh
+# shellcheck disable=SC1090
+. "$HOME"/.bash_things/scripts/variables.sh
 
 # load custom echos
-source $bashthingsFunctions/echo.sh
+. "$BASHTHINGS_FUNCTIONS"/echo.sh
 
 # docker configuration
-[ -f "/etc/bash_completion.d/docker-machine-prompt.bash" ] && source $bashthingsModules/docker.sh
+[ -f "/etc/bash_completion.d/docker-machine-prompt.bash" ] && "$BASHTHINGS_MODULES"/docker.sh
 
 # custom alias
-source $bashthingsModules/alias.sh
+. "$BASHTHINGS_MODULES"/alias.sh
 
 # add python user bin to path
 PYTHON_USER_BIN_PATH=$HOME/.local/bin
 export PATH=$PATH:$PYTHON_USER_BIN_PATH
 
 # Check OS
-source $bashthingsFunctions/checkOS.sh
+. "$BASHTHINGS_FUNCTIONS"/checkOS.sh
+# shellcheck disable=SC2154
 if [ "$machine" = "Linux" ]; then
-    source $bashthingsFolder/linux.sh
+    . "$BASHTHINGS_FOLDER"/linux.sh
 elif [ "$machine" = "Mac" ]; then
-    source $bashthingsFolder/macOS.sh
+    . "$BASHTHINGS_FOLDER"/macOS.sh
 else
-    source $bashthingsFolder/basic.sh
+    . "$BASHTHINGS_FOLDER"/basic.sh
 fi

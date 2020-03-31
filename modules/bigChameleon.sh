@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 waitTime=3
 alias poweroff="webhook pc 0 ${waitTime} && systemctl poweroff"

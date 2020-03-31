@@ -12,9 +12,6 @@ source $bashthingsModules/docker.sh
 # custom alias
 source $bashthingsModules/alias.sh
 
-# use nano
-export EDITOR=nano
-
 # add python user bin to path
 PYTHON_USER_BIN_PATH=$HOME/.local/bin
 export PATH=$PATH:$PYTHON_USER_BIN_PATH

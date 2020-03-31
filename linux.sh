@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# loadkeys
+loadkeys it
+
 # webhook completion
 [ -f "$HOME/.webhook" ] && source $bashthingsScripts/webhook/webhook-completion.sh
 

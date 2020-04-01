@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 gecho "Updating bash-things"
 git -C "$BASHTHINGS_FOLDER" pull

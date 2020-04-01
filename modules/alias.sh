@@ -3,7 +3,7 @@
 alias yy="yay -Syu --noconfirm --sudoloop"
 alias suspend="systemctl suspend"
 alias webhook='$BASHTHINGS_SCRIPTS/webhook/webhook.sh'
-alias bash-things-update='$BASHTHINGS_SCRIPTS/bash-things-update.sh'
+alias bash-things-update='$BASHTHINGS_SCRIPTS/bash-things-update.bash'
 [ "$(command -v code)" ] && code='code'
 [ "$(command -v code-insiders)" ] && code='code-insiders'
 [ -n "$code" ] && alias sucode='$code --user-data-dir $XDG_CONFIG_HOME/vscode-root'

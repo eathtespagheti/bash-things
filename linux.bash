@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# load XDG paths
+# shellcheck disable=SC1090
+source "$BASHTHINGS_MODULES/XDG_PATHS.sh"
+
 # loadkeys
 [ "$(command -v loadkeys)" ] && loadkeys it
 

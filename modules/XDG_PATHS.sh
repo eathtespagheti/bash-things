@@ -10,7 +10,6 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export NVM_DIR="$XDG_DATA_HOME"/nvm
 
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-export HISTFILE="$XDG_CONFIG_HOME"/eclipse
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc

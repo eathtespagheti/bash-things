@@ -21,7 +21,7 @@ export PATH=$PATH:$PYTHON_USER_BIN_PATH
 . "$BASHTHINGS_FUNCTIONS"/checkOS.sh
 # shellcheck disable=SC2154,SC2039
 if [ "$OSTYPE" = "linux-gnu" ]; then
-    . "$BASHTHINGS_FOLDER"/linux.bash
+    . "$BASHTHINGS_FOLDER"/linux.sh
 elif [ "$OSTYPE" = "darwin" ]; then
     . "$BASHTHINGS_FOLDER"/macOS.zsh
 else

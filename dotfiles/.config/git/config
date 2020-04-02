@@ -1,0 +1,7 @@
+[alias]
+	cloner = clone --recurse-submodules
+	updater = submodule update --init --recursive
+	subadd = submodule add
+[user]
+	name = Fabio Sussarellu
+	email = sussarellu.fabio@gmail.com

@@ -24,3 +24,6 @@ export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 
 # Add bash things path
 export PATH="$PATH":"$BASHTHINGS_SCRIPTS"/bin
+
+# shellcheck disable=SC2155
+[ "$(command -v vivid)" ] && export LS_COLORS="$(vivid generate jellybeans)"

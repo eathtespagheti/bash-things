@@ -1,8 +1,14 @@
 #!/usr/bin/env sh
+# shellcheck disable=SC1090
+
+[ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME"/.config
+[ -z "$XDG_CONFIG_DIRS" ] && export XDG_CONFIG_DIRS="$XDG_CONFIG_HOME" || export XDG_CONFIG_DIRS=:"$XDG_CONFIG_HOME"
+[ -z "$XDG_DATA_HOME" ] && export XDG_DATA_HOME="$HOME"/.local/share
+[ -z "$XDG_CACHE_HOME" ] && export XDG_CACHE_HOME="$HOME"/.cache
 
 # load variables
-# shellcheck disable=SC1090
-. "$HOME"/.bash_things/scripts/variables.sh
+[ -z "$BASHTHINGS_FOLDER" ] && export BASHTHINGS_FOLDER="$XDG_CONFIG_HOME"/bash_things
+. "$BASHTHINGS_FOLDER"/modules/variables.sh
 
 # load custom echos
 . "$BASHTHINGS_FUNCTIONS"/echo.bash

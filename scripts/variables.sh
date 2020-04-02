@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export BASHTHINGS_FOLDER=$HOME/.bash_things
+[ -z "$BASHTHINGS_FOLDER" ] && export BASHTHINGS_FOLDER=$HOME/.bash_things
 export BASHTHINGS_FUNCTIONS=$BASHTHINGS_FOLDER/functions
 export BASHTHINGS_SCRIPTS=$BASHTHINGS_FOLDER/scripts
 export BASHTHINGS_MODULES=$BASHTHINGS_FOLDER/modules

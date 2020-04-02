@@ -15,6 +15,7 @@ alias suspend="systemctl suspend"
 alias cps="rsync -ah --progress"
 [ "$(command -v lolcat)" ] && alias cat='lolcat -l' && alias ocat='cat'
 alias ccat='highlight --out-format=ansi'
+alias ls='ls --color=auto'
 
 # Bash things specifics
 alias editBashThings='$EDITOR $BASHTHINGS_FOLDER'

@@ -21,3 +21,6 @@ fi
 
 [ -n "$EDITOR_GUI" ] && EDITOR=$EDITOR_GUI || EDITOR=$EDITOR_CONSOLE
 export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
+
+# Add bash things path
+export PATH="$PATH":"$BASHTHINGS_SCRIPTS"/bin

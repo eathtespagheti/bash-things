@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+# Colors
+C_GREEN='\033[38;5;40m'
+C_NO_COLOR='\033[0m' # No Color
+printf "${C_GREEN}$1${C_NO_COLOR}\n"

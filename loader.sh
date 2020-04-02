@@ -10,9 +10,6 @@
 [ -z "$BASHTHINGS_FOLDER" ] && export BASHTHINGS_FOLDER="$XDG_CONFIG_HOME"/bash_things
 . "$BASHTHINGS_FOLDER"/modules/variables.sh
 
-# load custom echos
-. "$BASHTHINGS_FUNCTIONS"/echo.bash
-
 # docker configuration
 [ -f "/etc/bash_completion.d/docker-machine-prompt.bash" ] && "$BASHTHINGS_MODULES"/docker.bash
 

@@ -13,6 +13,9 @@
 # webhook completion
 [ -d "$HOME/.config/webhook" ] && . "$BASHTHINGS_SCRIPTS/webhook/webhook-completion.bash"
 
+# load_themes completion
+. "$BASHTHINGS_SCRIPTS/load_themes/load_themes-completion.bash"
+
 # load easymount
 . "$BASHTHINGS_FUNCTIONS/easymount.bash"
 

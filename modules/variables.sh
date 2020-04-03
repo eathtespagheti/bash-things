@@ -23,9 +23,11 @@ fi
 [ -n "$EDITOR_GUI" ] && EDITOR=$EDITOR_GUI || EDITOR=$EDITOR_CONSOLE
 export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 
+# ls theme
+export LS_THEME=snazzy
+
 # Add bash things path
 export PATH="$PATH":"$BASHTHINGS_SCRIPTS"/bin
 
-# shellcheck disable=SC2155
-# [ "$(command -v vivid)" ] && export LS_COLORS="$(vivid generate jellybeans)"
-. "$BASHTHINGS_SCRIPTS"/jellybeans.sh
+# add local user bin to path
+export PATH="$PATH":"$HOME"/.local/bin

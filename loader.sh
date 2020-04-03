@@ -16,9 +16,8 @@
 # custom alias
 . "$BASHTHINGS_MODULES"/alias.sh
 
-# add python user bin to path
-PYTHON_USER_BIN_PATH=$HOME/.local/bin
-export PATH=$PATH:$PYTHON_USER_BIN_PATH
+# ls theme
+[ -n "$LS_THEME" ] && load_themes
 
 # Check OS
 . "$BASHTHINGS_FUNCTIONS"/checkOS.sh

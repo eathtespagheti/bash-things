@@ -21,3 +21,4 @@ alias ls='ls --color=auto'
 alias editBashThings='$EDITOR $BASHTHINGS_FOLDER'
 alias loadVirtualenvwrapper='source loadVirtualenvwrapper'
 alias loadNVM="source /usr/share/nvm/init-nvm.sh"
+alias load_themes=". load_themes"

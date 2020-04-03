@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# shellcheck disable=SC1090
 
 export BASHTHINGS_FUNCTIONS=$BASHTHINGS_FOLDER/functions
 export BASHTHINGS_SCRIPTS=$BASHTHINGS_FOLDER/scripts
@@ -26,4 +27,5 @@ export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 export PATH="$PATH":"$BASHTHINGS_SCRIPTS"/bin
 
 # shellcheck disable=SC2155
-[ "$(command -v vivid)" ] && export LS_COLORS="$(vivid generate jellybeans)"
+# [ "$(command -v vivid)" ] && export LS_COLORS="$(vivid generate jellybeans)"
+. "$BASHTHINGS_SCRIPTS"/jellybeans.sh

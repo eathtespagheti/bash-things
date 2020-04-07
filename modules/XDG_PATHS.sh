@@ -10,6 +10,7 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
 export DOCKERCOMPOSER_FOLDER="$XDG_CONFIG_HOME/dockercomposer"
+export COMPLETIONS_FOLDER="$BASHTHINGS_SCRIPTS/completions"
 
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history

@@ -10,11 +10,8 @@
 # loadkeys
 [ "$(command -v loadkeys)" ] && loadkeys it
 
-# webhook completion
-[ -d "$HOME/.config/webhook" ] && . "$BASHTHINGS_SCRIPTS/webhook/webhook-completion.bash"
-
-# load_themes completion
-. "$BASHTHINGS_SCRIPTS/load_themes/load_themes-completion.bash"
+# completions
+. "$BASHTHINGS_SCRIPTS/load_completions.sh"
 
 # load easymount
 . "$BASHTHINGS_FUNCTIONS/easymount.bash"

@@ -4,6 +4,7 @@
 export BASHTHINGS_FUNCTIONS=$BASHTHINGS_FOLDER/functions
 export BASHTHINGS_SCRIPTS=$BASHTHINGS_FOLDER/scripts
 export BASHTHINGS_MODULES=$BASHTHINGS_FOLDER/modules
+export BASHTHINGS_BIN=$BASHTHINGS_SCRIPTS/bin
 JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 [ -n "$JAVA_HOME" ] && export JAVA_HOME
 
@@ -27,7 +28,7 @@ export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 export LS_THEME=snazzy
 
 # Add bash things path
-export PATH="$PATH":"$BASHTHINGS_SCRIPTS"/bin
+export PATH="$PATH":"$BASHTHINGS_BIN"
 
 # add local user bin to path
 export PATH="$PATH":"$HOME"/.local/bin

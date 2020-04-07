@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC1090
+# shellcheck disable=SC1090,SC2231
 
 # Check completions folder
 [ -z "$COMPLETIONS_FOLDER" ] && COMPLETIONS_FOLDER="$BASHTHINGS_SCRIPTS/completions"

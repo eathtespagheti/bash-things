@@ -17,3 +17,9 @@ destination="$RAW_PICTURES_FOLDER/$1/"
 
 # Run rsync
 rsync -Pamruv --stats --human-readable --include='*.nef' --include='*.NEF' --include='*.ARW' --include='*.arw' --include='*/' --exclude='*' "$source" "$destination"
+
+# If user asked for disable automount
+[ "$2" = "-keep-mount" ] && exit 0
+
+# Umount the drive
+umount "$COPYRAW_BASEDIR/$1" && echo "You can now disconnect the drive"

@@ -6,8 +6,8 @@
 [ -z "$RAW_PICTURES_FOLDER" ] && RAW_PICTURES_FOLDER="$HOME/Pictures/DCIM/RAW"
 
 # Declare source and destination folder
-source="$COPYRAW_BASEDIR/$1/$COPYRAW_DCIM_FOLDER"
-destination="$RAW_PICTURES_FOLDER/$1"
+source="$COPYRAW_BASEDIR/$1/$COPYRAW_DCIM_FOLDER/"
+destination="$RAW_PICTURES_FOLDER/$1/"
 
 # Check if source DCIM folder exist
 [ ! -d "$source" ] && echo "Unable to find $source directory" && exit 1
@@ -16,4 +16,4 @@ destination="$RAW_PICTURES_FOLDER/$1"
 [ ! -d "$destination" ] && mkdir -p "$destination"
 
 # Run rsync
-rsync -amruv --include='*.nef' --include='*.NEF' --include='*.ARW' --include='*.arw' --include='*/' --exclude='*' "$source" "$destination"
+rsync -Pamruv --stats --human-readable --include='*.nef' --include='*.NEF' --include='*.ARW' --include='*.arw' --include='*/' --exclude='*' "$source" "$destination"

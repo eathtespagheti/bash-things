@@ -14,6 +14,7 @@ makeBackup() {
         outputFile="$1.$count.backup"
         count=$((count + 1))
     done
+    [ "$(command -v gecho)" ] && gecho "Backup $1 --> $outputFile" || echo "Backup $1 --> $outputFile"
     mv "$1" "$outputFile"
 }
 
@@ -26,18 +27,20 @@ delete() {
 deleteBackups() {
     # backups="$(ls "$outputFolder"/*.backup)"
     for backup in "$outputFolder"/*.backup; do
+        [ "$(command -v recho)" ] && recho "Removing $backup" || echo "Removing $backup"
         delete "$backup"
     done
 }
 
-[ "$1" = "-h" ] && echo "Run with -n to disable backups, run with -d to delete all backups file in folder at the end, run with -h to show this message" && exit 0
+[ "$1" = "-h" ] || [ "$1" = "--help" ] && echo "Run with -b to enable backups, run with -d to delete all backups file in folder at the end, run with -h to show this message" && exit 0
 
 for dotfile in $dotfiles; do
     outfile="$outputFolder"/"$dotfile"
     # If dotfile alreaxy exist in destination make a backup
-    [ -d "$outfile" ] || [ -f "$outfile" ] && ([ "$1" = "-n" ] && delete "$outfile" || makeBackup "$outfile")
+    [ -d "$outfile" ] || [ -f "$outfile" ] && ([ "$1" = "-b" ] || [ "$1" = "--backup" ] && makeBackup "$outfile" || delete "$outfile")
     # Make a link with the original folder
+    echo "Creating link for" "$dotfile" "-->" "$outputFolder"/"$dotfile"
     ln -s "$dotfilesFolder"/"$dotfile" "$outputFolder"/"$dotfile"
 done
 
-[ "$1" = "-d" ] && deleteBackups || exit 0
+[ "$1" = "-d" ] || [ "$1" = "--delete-backups" ] && echo && deleteBackups || exit 0

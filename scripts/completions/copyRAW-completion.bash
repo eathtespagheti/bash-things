@@ -2,7 +2,8 @@
 
 [ -z "$COPYRAW_BASEDIR" ] && export COPYRAW_BASEDIR="/run/media/$USER"
 _copyRAW_completions() {
-    if [ "${#COMP_WORDS[@]}" != "2" ]; then
+    # No other args
+    if [ "${#COMP_WORDS[@]}" -gt "2" ]; then
         return
     fi
 

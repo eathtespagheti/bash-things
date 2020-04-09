@@ -27,6 +27,9 @@ export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 # ls theme
 export LS_THEME=snazzy
 
+# EXIF data
+export EXIF_ARTIST="Fabio Sussarellu"
+
 # Add bash things path
 export PATH="$PATH":"$BASHTHINGS_BIN"
 

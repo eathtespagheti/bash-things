@@ -28,7 +28,8 @@ export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 export LS_THEME=snazzy
 
 # EXIF data
-export EXIF_ARTIST="Fabio Sussarellu"
+export EXIF_ARTIST="0x013b 0 Fabio Sussarellu"
+export EXIF_CONTACT="0x9286 EXIF sussarellu.fabio@gmail.com"
 
 # Add bash things path
 export PATH="$PATH":"$BASHTHINGS_BIN"

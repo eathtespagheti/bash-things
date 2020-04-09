@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+# shellcheck disable=SC2015,SC1087
 
 # Make a backup copy of the file and remove the original
 makeBackup() {

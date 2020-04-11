@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC1090
+# shellcheck disable=SC1090,SC2155
 
 # load XDG paths
 . "$BASHTHINGS_MODULES/XDG_PATHS.sh"
@@ -24,4 +24,4 @@
 . "$BASHTHINGS_MODULES/trueline/trueline.sh"
 
 # set default make jobs
-# export MAKEFLAGS="${MAKEFLAGS} -j$(lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l)"
+export MAKEFLAGS="${MAKEFLAGS} -j$(lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l)"

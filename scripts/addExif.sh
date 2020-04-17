@@ -17,16 +17,24 @@ backupAndWrite() {
     tag="$2"
     ifd="$3"
     value="$4"
-    # Backup picture
-    if makeBackup "$file"; then
-        exif --tag="$tag" --ifd="$ifd" --set-value="$value" --output="$file" "$file.backup" && rm "$file.backup" || mv "$file.backup" "$file"
-    else
-        echo "Error making picture backup, skipping..."
-    fi
+    # If the output folder isn't specified
+    [ -z "$EXIF_OUTPUT_FOLDER" ] && {
+        # Backup picture
+        if makeBackup "$file"; then
+            exif --tag="$tag" --ifd="$ifd" --set-value="$value" --output="$file" "$file.backup" && rm "$file.backup" || mv "$file.backup" "$file"
+        else
+            echo "Error making picture backup, skipping..."
+        fi
+    } && return 0
+    # If the output folder exist
+    exif --tag="$tag" --ifd="$ifd" --set-value="$value" --output="$EXIF_OUTPUT_FOLDER/$file" "$file" && echo "Replace original picture with the edited one" && cp "$EXIF_OUTPUT_FOLDER/$file" "$file" || cp "$file" "$EXIF_OUTPUT_FOLDER/$file"
 }
 
 # Add a exif tag in a jpeg file
 addExifTag() {
+    # If file doesn't exist
+    [ ! -f "$1" ] && echo "File $1 doesn't exist, skipping..." && return 1
+    # Obtain EXIF data
     tag="$(echo "$2" | awk '{print $1}')"
     ifd="$(echo "$2" | awk '{print $2}')"
     value="$(echo "$2" | sed "s/$tag[[:space:]]$ifd[[:space:]]//g")"
@@ -35,10 +43,11 @@ addExifTag() {
     # If value doesn't exist
     [ -z "$oldValue" ] && backupAndWrite "$1" "$tag" "$ifd" "$value" && return 0
     # If I'm working on copyright field
-    [ "$tag" = "0x8298" ] && return 0
+    [ "$tag" = "0x8298" ] && echo "Updating copyright" && return 0
     # If old value it's different than the given one and the preserve parameter it's disabled
-    [ "$oldValue" != "$value" ] && [ "$preserveData" = "false" ] && backupAndWrite "$1" "$tag" "$ifd" "$value" && return 0
-    return 0
+    [ "$oldValue" != "$value" ] && [ "$preserveData" = "false" ] && echo "Tag $tag already exist, but it's value it's incorrect, updating" && backupAndWrite "$1" "$tag" "$ifd" "$value" && return 0
+    # If output folder exist
+    [ -n "$EXIF_OUTPUT_FOLDER" ] && echo "Picture $1 doesn't need updates, copying directly to the output folder" && mv "$1" "$EXIF_OUTPUT_FOLDER/." && return 0
 }
 
 # Add an exif value to the exif value list
@@ -54,10 +63,12 @@ addExifValueToList() {
 inputs=""
 preserveData="false"
 exifValues=""
+editDetailsExtension="out.pp3"
 [ -z "$FULL_NAME" ] && FULL_NAME="Fabio Sussarellu"
 [ -z "$EXIF_ARTIST" ] && EXIF_ARTIST="0x013b 0 $FULL_NAME"
 [ -z "$EXIF_COPYRIGHT" ] && EXIF_COPYRIGHT="0x8298 0 Copyright $(date +%Y) $FULL_NAME, all rights reserved."
 [ -z "$EXIF_CONTACT" ] && EXIF_CONTACT="0x9286 EXIF sussarellu.fabio@gmail.com"
+[ -n "$EXIF_OUTPUT_FOLDER" ] && [ ! -d "$EXIF_OUTPUT_FOLDER" ] && mkdir -p "$EXIF_OUTPUT_FOLDER"
 
 # Parse input parameters
 for parameter in "$@"; do
@@ -89,9 +100,13 @@ addExifValueToList "$EXIF_COPYRIGHT"
 for picture in $inputs; do
     # Check if the file it's a JPEG image
     if [ "$(file "$picture" | awk '{print $2}')" = "JPEG" ]; then
+        echo "Working on picture $picture"
         printf %s "$exifValues" | while IFS= read -r valueString; do
             addExifTag "$picture" "$valueString"
         done
+        # If output folder exist and picture it's still in the original location
+        [ -n "$EXIF_OUTPUT_FOLDER" ] && [ -f "$picture" ] && echo "Deleting processed picture $picture" && rm "$picture" && [ -f "$picture.$editDetailsExtension" ] && echo "Moving editor info file $picture.$editDetailsExtension" && mv "$picture.$editDetailsExtension" "$EXIF_OUTPUT_FOLDER/."
+        echo
     fi
 done
 

@@ -7,3 +7,6 @@
 [submodule "scripts/webhook"]
 	path = scripts/webhook
 	url = https://gitlab.com/eathtespagheti/webhook.git
+[submodule "dotfiles/.config/vim/pack/themes/opt/onedark.vim"]
+	path = dotfiles/.config/vim/pack/themes/opt/onedark.vim
+	url = https://github.com/joshdick/onedark.vim.git

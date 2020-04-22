@@ -1,3 +1,4 @@
+" XDG_PATHS Parameters
 set undodir=$XDG_DATA_HOME/vim/undo
 set directory=$XDG_DATA_HOME/vim/swap
 set backupdir=$XDG_DATA_HOME/vim/backup
@@ -5,7 +6,38 @@ set viewdir=$XDG_DATA_HOME/vim/view
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 set packpath=$XDG_CONFIG_HOME/vim
-set number
+
+" A Good vimrc https://dougblack.io/words/a-good-vimrc.html
+
+" Theme
 syntax on
 packadd! onedark.vim
 colorscheme onedark
+set number
+set cursorline
+set showcmd
+
+" Text insert
+set tabstop=4
+filetype indent on
+set expandtab
+set softtabstop=4
+set wildmenu            " zsh like menu for autocomplete
+
+" Vim parameters
+set lazyredraw
+set showmatch           " show matching brakets
+
+" Search parameters
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Folding
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+" space open/closes folds
+nnoremap <space> za
+set foldmethod=indent   " fold based on indent level

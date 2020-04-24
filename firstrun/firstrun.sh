@@ -1,12 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-source ".bash_things/functions/checkOS.sh"
+"$BASHTHINGS_FOLDER/functions/checkOS.sh"
 
-if [ "$machine" = "Linux" ]; then
-    ./.bash_things/firstrun/firstrun-arch.sh
-elif [ "$machine" = "Mac" ]; then
-    ./.bash_things/firstrun/firstrun-macos.sh
-else
-    echo "Unable to determine Operating System"
-    exit 1
-fi
+case $(uname -s) in
+    Linux*)     "$BASHTHINGS_FOLDER/firstrun/firstrun-arch.sh";;
+    Darwin*)    "$BASHTHINGS_FOLDER/firstrun/firstrun-macos.sh";;
+    *)          echo "Unable to determine Operating System" && exit 1
+esac

@@ -1,16 +1,19 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-echo "Clone bash things"
-git clone https://gitlab.com/eathtespagheti/bash-things.git .bash_things
-echo
-echo "Clone trueline"
-git clone https://github.com/petobens/trueline.git .bash_things/modules/trueline
-echo
-echo "Clone webhook"
-git clone https://gitlab.com/eathtespagheti/webhook.git .bash_things/scripts/webhook
-echo
-echo "Clone pure"
-git clone https://github.com/sindresorhus/pure.git .bash_things/modules/pure
+# If $XDG_CONFIG_HOME it's not set
+[ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
+# If $XDG_CONFIG_HOME doesnìt exist
+[ ! -d "$XDG_CONFIG_HOME" ] && mkdir -p "$XDG_CONFIG_HOME"
+# If BASHTHINGS_FOLDER it's not set
+[ -z "$BASHTHINGS_FOLDER" ] && export BASHTHINGS_FOLDER="$XDG_CONFIG_HOME"/bash_things
+
+# If bash things folder doesn't exist
+[ ! -d "$BASHTHINGS_FOLDER" ] && {
+    echo "Clone bash things"
+    git clone https://gitlab.com/eathtespagheti/bash-things.git "$BASHTHINGS_FOLDER"
+    echo
+}
+"$BASHTHINGS_FOLDER/scripts/bash-things-update.sh"
 echo
 echo "Execute firstrun script"
-./.bash_things/firstrun/firstrun.sh
+"$BASHTHINGS_FOLDER/firstrun/firstrun.sh"

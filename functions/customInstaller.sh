@@ -1,9 +1,22 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-function customInstaller() { # Install a package, input args are "command to install" "package name" "commando to autoconfirm"
-    bgecho '--- Installing '$2' ---'
-    $1 $2 $3
-    echo 'OK'
-}
+packagesList=""
+# If package isn't installed
+if [ -n "$PACKAGE_CHECK" ]; then
+    for package in "$@"; do
+        $PACKAGE_CHECK "$package" || packagesList="$packagesList $package"
+    done
+else
+    for package in "$@"; do
+        packagesList="$packagesList $package"
+    done
+fi
 
-export -f customInstaller >/dev/null
+if [ -n "$packagesList" ]; then
+    bgecho "--- Installing $packagesList ---"
+    # shellcheck disable=SC2086
+    $PACKAGE_INSTALL $packagesList $AUTOYES
+else
+    bgecho "All packages are already installed"
+fi
+echo

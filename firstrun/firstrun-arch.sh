@@ -19,8 +19,7 @@ ALLTRUE="false"
 
 # Package update and upgrade
 gecho 'Updating and upgrading packages'
-# TODO: UNCOMMENT THIS LINE
-# sudo pacman -Syu $AUTOYES
+sudo pacman -Syu $AUTOYES
 
 # If yay it's not installed
 [ ! "$(command -v yay)" ] && {
@@ -59,10 +58,10 @@ if [ "$ALLTRUE" = "true" ]; then
 
   # Case insensitive autocomplete
   "$bashthingsFirstrun/case-insensitive-autocomplete.sh"
-  # Improved Graphic Drivers
-  customInstaller vulkan-radeon lib32-vulkan-radeon lib32-vulkan-icd-loader mesa
-  # Dev-Tools
-  "$bashthingsFirstrunSpecific/dev-tools.sh"
+  # Improved Graphic Drivers + DXVK
+  customInstaller amdvlk lib32-amdvlk lib32-vulkan-icd-loader lib32-vulkan-radeon mesa vulkan-radeon
+  # Essentials custom apps and utilities
+  customInstaller albert bash-completion brave-bin c-lolcat gst-libav highlight htop nano nvm screen-sleep telegram-desktop transmission-gtk vim visual-studio-code-insiders x264 x265
   # Broadcom WiFi
   "$bashthingsFirstrunSpecific/broadcom.sh"
   # BMC43142 Bluetooth fix
@@ -71,12 +70,8 @@ if [ "$ALLTRUE" = "true" ]; then
   "$bashthingsFirstrunSpecific/docker.sh"
   # docker-machine
   "$bashthingsFirstrunSpecific/docker-machine.sh"
-  # NVM
-  "$bashthingsFirstrunSpecific/nvm.sh"
   # GIT superpush
   "$bashthingsFirstrun/git.sh"
-  # screen-sleep
-  "$bashthingsFirstrunSpecific/screen-sleep.sh"
   # lolcat
   "$bashthingsFirstrunSpecific/lolcat.sh"
 else
@@ -114,16 +109,16 @@ else
     echo
   else
     # TODO: Script for enabling 32bit packages in pacman
-    customInstaller vulkan-radeon lib32-vulkan-radeon lib32-vulkan-icd-loader mesa
+    customInstaller amdvlk lib32-amdvlk lib32-vulkan-icd-loader lib32-vulkan-radeon mesa vulkan-radeon
   fi
 
-  # Dev-Tools
-  echo "Install Dev-Tools? [Y/n] "
+  # Custom default apps
+  echo "Install essentials custom apps and utilities? [Y/n] "
   read -r REPLY
   if [ "$REPLY" = "N" ] || [ "$REPLY" = "n" ]; then
     echo
   else
-    "$bashthingsFirstrunSpecific/dev-tools.sh"
+    customInstaller albert bash-completion brave-bin c-lolcat gst-libav highlight htop nano nvm screen-sleep telegram-desktop transmission-gtk vim visual-studio-code-insiders x264 x265
   fi
 
   # Broadcom WiFi
@@ -162,15 +157,6 @@ else
     "$bashthingsFirstrunSpecific/docker-machine.sh"
   fi
 
-  # NVM
-  echo "Install NVM? [Y/n] "
-  read -r REPLY
-  if [ "$REPLY" = "N" ] || [ "$REPLY" = "n" ]; then
-    echo
-  else
-    "$bashthingsFirstrunSpecific/nvm.sh"
-  fi
-
   # GIT superpush
   echo "Enable GIT superpush? [Y/n] "
   read -r REPLY
@@ -179,18 +165,6 @@ else
   else
     "$bashthingsFirstrun/git.sh"
   fi
-
-  # screen-sleep
-  echo "Install screen-sleep? [Y/n] "
-  read -r REPLY
-  if [ "$REPLY" = "N" ] || [ "$REPLY" = "n" ]; then
-    echo
-  else
-    "$bashthingsFirstrunSpecific/screen-sleep.sh"
-  fi
-
-  # lolcat
-  "$bashthingsFirstrunSpecific/lolcat.sh"
 fi
 
 # echo Done

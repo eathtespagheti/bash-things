@@ -56,6 +56,7 @@ if [ "$ALLTRUE" = "true" ]; then
     } >>"$HOME/.bashrc"
   }
 
+  # TODO: replace /bin/sh with dash
   # Case insensitive autocomplete
   "$bashthingsFirstrun/case-insensitive-autocomplete.sh"
   # Improved Graphic Drivers + DXVK

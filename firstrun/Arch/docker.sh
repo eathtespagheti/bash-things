@@ -1,18 +1,17 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 echo
 bgecho '--- DOCKER INSTALL ---'
 
-gecho 'Installing Docker CE'
-$PACKAGE_INSTALL docker $AUTOYES
+customInstaller docker
 
 echo
 bgecho 'Enabling Docker as a non root user'
 gecho 'Adding docker group'
 sudo groupadd docker
 echo 'OK'
-gecho "Adding ${USER} to the docker group"
-sudo usermod -aG docker $USER
+gecho "Adding $USER to the docker group"
+sudo usermod -aG docker "$USER"
 echo 'OK'
 
 echo
@@ -21,5 +20,4 @@ sudo systemctl enable docker
 echo 'OK'
 
 echo
-gecho 'Installing docker-compose'
-$PACKAGE_INSTALL docker-compose $AUTOYES
+customInstaller docker-compose

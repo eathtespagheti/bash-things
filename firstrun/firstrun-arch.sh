@@ -57,6 +57,9 @@ grep -q "^set completion-ignore-case On" "$INPUTRC" || {
   export PROMPT_MESSAGE="Enable case insensitive autocomplete?"
   installerPrompt "$bashthingsFirstrun/case-insensitive-autocomplete.sh"
 }
+# Broadcom WiFi
+export PROMPT_MESSAGE="Enable pacman customizations?"
+installerPrompt "$bashthingsFirstrunSpecific/pacman-customization.sh"
 # Improved Graphic Drivers
 export PROMPT_MESSAGE="Enable Improved Graphic Drivers?"
 # TODO: Script for enabling 32bit packages in pacman

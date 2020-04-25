@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# TODO: fix this scripts checks
+
 echo
 bgecho '--- DOCKER INSTALL ---'
 

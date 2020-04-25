@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: fix this scripts syntax and checks
+
 bgecho '--- INSTALL DOCKER-MACHINE ---'
 gecho 'Installing docker-machine'
 $PACKAGE_INSTALL docker-machine $AUTOYES

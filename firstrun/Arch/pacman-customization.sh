@@ -14,8 +14,7 @@ addParameter() {
     }
 }
 
-# PACMAN_CONF_FILE="/etc/pacman.conf"
-PACMAN_CONF_FILE="$HOME/test.conf"
+PACMAN_CONF_FILE="/etc/pacman.conf"
 
 [ ! -f "$PACMAN_CONF_FILE" ] && exit 1 && recho "Conf file for pacman not found" && bashthingsLogger "Conf file for pacman not found"
 

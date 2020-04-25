@@ -7,9 +7,11 @@
     if [ "$REPLY" = "N" ] || [ "$REPLY" = "n" ]; then
         echo
     else
+        bashthingsLogger "Executing $*"
         "$@"
     fi
     exit
 }
 
+bashthingsLogger "Executing $*"
 "$@"

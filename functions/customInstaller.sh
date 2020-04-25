@@ -14,6 +14,7 @@ fi
 
 if [ -n "$packagesList" ]; then
     bgecho "--- Installing $packagesList ---"
+    bashthingsLogger "--- Installing $packagesList ---"
     # shellcheck disable=SC2086
     $PACKAGE_INSTALL $packagesList $AUTOYES
 else

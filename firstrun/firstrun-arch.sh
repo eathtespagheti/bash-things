@@ -14,22 +14,26 @@ export PACKAGE_CHECK="pacman -Q"
 export PACKAGE_INSTALL="pacman -S"
 export AUTOYES="--noconfirm"
 [ "$1" = "--alltrue" ] && export ALLTRUE="true"
+bashthingsLogger "Installing bashthings with $DISTRO script"
 
 # Package update and upgrade
 gecho 'Updating and upgrading packages'
+bashthingsLogger 'Updating and upgrading packages'
 sudo pacman -Syu $AUTOYES
 
 # If yay it's not installed
 [ ! "$(command -v yay)" ] && {
   gecho 'Install yay'
+  bashthingsLogger 'Install yay'
   git clone https://aur.archlinux.org/yay.git
   cd yay || {
     echo "Error! yay folder not found! Exiting..."
+    bashthingsLogger "Error! yay folder not found! Exiting..."
     exit 1
   }
   makepkg -si $AUTOYES
   cd ..
-  rm -rf yay
+  rm -rf yay && bashthingsLogger "Revmovung yay source folder"
 }
 # Update autoyes value
 export PACKAGE_CHECK="yay -Q"
@@ -39,6 +43,7 @@ export AUTOYES="$AUTOYES --sudoloop"
 # Copy dotfiles
 echo
 gecho "Copy dotfiles"
+bashthingsLogger "Copy dotfiles"
 copyDotfiles --replace-backups
 echo
 

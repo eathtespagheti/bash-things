@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 bgecho 'Enable bash_things in .bashrc'
+bashthingsLogger 'Enable bash_things in .bashrc'
 {
     echo
     echo "# Customization"

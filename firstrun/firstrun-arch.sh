@@ -44,6 +44,8 @@ gecho "Copy dotfiles"
 copyDotfiles --replace-backups
 echo
 
+# ! THIS CHECK IT'S NOT WORKING
+# TODO: fix this shit 
 if [ "$ALLTRUE" = "true" ]; then
   # Enable bash_things
   # If the bashthings file isn't sourced

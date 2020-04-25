@@ -16,4 +16,5 @@
 "$BASHTHINGS_FOLDER/scripts/bash-things-update.sh"
 echo
 echo "Execute firstrun script"
+echo
 "$BASHTHINGS_FOLDER/firstrun/firstrun.sh"

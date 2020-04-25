@@ -7,6 +7,7 @@
 # If BASHTHINGS_FOLDER it's not set
 [ -z "$BASHTHINGS_FOLDER" ] && export BASHTHINGS_FOLDER="$XDG_CONFIG_HOME"/bash_things
 export LOGFILE="$HOME/bashthings-install.log"
+[ -f "$LOGFILE" ] && rm "$LOGFILE" # Delete logfile if exist
 
 # If bash things folder doesn't exist
 [ ! -d "$BASHTHINGS_FOLDER" ] && {

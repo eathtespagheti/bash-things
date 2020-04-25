@@ -17,4 +17,4 @@
 echo
 echo "Execute firstrun script"
 echo
-"$BASHTHINGS_FOLDER/firstrun/firstrun.sh"
+"$BASHTHINGS_FOLDER/firstrun/firstrun.sh" "$@"

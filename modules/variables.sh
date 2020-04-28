@@ -1,10 +1,11 @@
 #!/usr/bin/env sh
 # shellcheck disable=SC1090
 
-export BASHTHINGS_FUNCTIONS=$BASHTHINGS_FOLDER/functions
-export BASHTHINGS_SCRIPTS=$BASHTHINGS_FOLDER/scripts
-export BASHTHINGS_MODULES=$BASHTHINGS_FOLDER/modules
-export BASHTHINGS_BIN=$BASHTHINGS_SCRIPTS/bin
+export BASHTHINGS_FUNCTIONS="$BASHTHINGS_FOLDER/functions"
+export BASHTHINGS_SCRIPTS="$BASHTHINGS_FOLDER/scripts"
+export BASHTHINGS_MODULES="$BASHTHINGS_FOLDER/modules"
+export BASHTHINGS_BIN="$BASHTHINGS_SCRIPTS/bin"
+export PROJECTS_FOLDER="$HOME/Projects"
 JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 [ -n "$JAVA_HOME" ] && export JAVA_HOME
 

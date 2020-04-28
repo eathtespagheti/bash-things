@@ -4,9 +4,13 @@
 alias yy="yay -Syu --noconfirm --sudoloop"
 alias suspend="systemctl suspend"
 
-# Software I use
-[ "$(command -v code)" ] && vscode='code'
-[ "$(command -v code-insiders)" ] && vscode='code-insiders'
+# Editor selection
+if [ "$(command -v /usr/bin/code)" ]; then
+    vscode='/usr/bin/code'
+elif [ "$(command -v code-insiders)" ]; then
+    vscode='code-insiders'
+fi
+[ -n "$vscode" ] && alias vscode='$vscode'
 [ -n "$vscode" ] && alias sucode='$vscode --user-data-dir $XDG_CONFIG_HOME/vscode-root'
 [ -n "$EDITOR" ] && alias edit='$EDITOR'
 [ -n "$EDITOR_CONSOLE" ] && alias cedit='$EDITOR_CONSOLE'

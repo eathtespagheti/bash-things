@@ -5,11 +5,11 @@ alias yy="yay -Syu --noconfirm --sudoloop"
 alias suspend="systemctl suspend"
 
 # Software I use
-[ "$(command -v code)" ] && code='code'
-[ "$(command -v code-insiders)" ] && code='code-insiders'
-[ -n "$code" ] && alias sucode='$code --user-data-dir $XDG_CONFIG_HOME/vscode-root'
-[ -n "$EDITOR" ] && alias edit='$EDITOR' && alias suedit='sudo $EDITOR'
-[ -n "$EDITOR_CONSOLE" ] && alias editc='$EDITOR_CONSOLE' && alias sueditc='sudo $EDITOR_CONSOLE'
+[ "$(command -v code)" ] && vscode='code'
+[ "$(command -v code-insiders)" ] && vscode='code-insiders'
+[ -n "$vscode" ] && alias sucode='$vscode --user-data-dir $XDG_CONFIG_HOME/vscode-root'
+[ -n "$EDITOR" ] && alias edit='$EDITOR'
+[ -n "$EDITOR_CONSOLE" ] && alias cedit='$EDITOR_CONSOLE'
 
 # Wrappers
 alias cps="rsync -ah --progress"

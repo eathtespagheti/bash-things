@@ -19,9 +19,18 @@ if [ "$(command -v code-insiders)" ]; then
     EDITOR_GUI=code-insiders
 elif [ "$(command -v code)" ]; then
     EDITOR_GUI=code
+elif [ "$(command -v gedit)" ]; then
+    EDITOR_GUI=gedit
+else
+    EDITOR_GUI="$EDITOR_CONSOLE"
 fi
 
-[ -n "$EDITOR_GUI" ] && EDITOR=$EDITOR_GUI || EDITOR=$EDITOR_CONSOLE
+# If I'm running a GUI session
+if [ -n "$DISPLAY" ]; then
+    EDITOR=$EDITOR_GUI
+else
+    EDITOR=$EDITOR_CONSOLE
+fi
 export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 
 # ls theme

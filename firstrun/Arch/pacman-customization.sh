@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# TODO: Fix this
+
 addParameter() {
     # If $1 configuration it's not present
     [ -n "$(sed -n "^$1" "$PACMAN_CONF_FILE")" ] || {

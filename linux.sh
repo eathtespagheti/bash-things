@@ -8,7 +8,7 @@
 . "$BASHTHINGS_MODULES/bash.bash"
 
 # loadkeys
-[ "$(command -v loadkeys)" ] && loadkeys it
+# [ "$(command -v loadkeys)" ] && loadkeys it
 
 # completions
 . "$BASHTHINGS_SCRIPTS/load_completions.sh"

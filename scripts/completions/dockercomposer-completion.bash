@@ -55,8 +55,8 @@ _complete_specific_path() {
 # If default dir doesn't exist
 [ -z "$DOCKERCOMPOSER_FOLDER" ] && DOCKERCOMPOSER_FOLDER="$XDG_CONFIG_HOME/dockercomposer"
 
-_code_completions() {
+_dockercomposer_completions() {
     _complete_specific_path "$DOCKERCOMPOSER_FOLDER"
 }
 
-complete -o nospace -F _code_completions dockercomposer # Run command for autocomplete
+complete -o nospace -F _dockercomposer_completions dockercomposer # Run command for autocomplete

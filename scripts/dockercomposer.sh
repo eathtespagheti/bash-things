@@ -1,21 +1,25 @@
 #!/usr/bin/env sh
 
-# Check command
-[ -z "$1" ] && echo "Missing docker-compose command" && exit 1
-command=$1 && shift
-
 # Check dockercomposer folder path
 [ -z "$DOCKERCOMPOSER_FOLDER" ] && DOCKERCOMPOSER_FOLDER="$XDG_CONFIG_HOME/dockercomposer"
-
 # Check if $DOCKERCOMPOSER_FOLDER exist
 [ ! -d "$DOCKERCOMPOSER_FOLDER" ] && echo "$DOCKERCOMPOSER_FOLDER folder doesn't exist!" && exit 2
 
-# Check DOCKERCOMPOSER_FILE parameter
-[ -z "$1" ] || [ "$(echo "$1" | awk '{ string=substr($0, 1, 1); print string; }')" = "-" ] && DOCKERCOMPOSER_FILE="$DOCKERCOMPOSER_FOLDER/docker-compose.yaml"
-[ -z "$DOCKERCOMPOSER_FILE" ] && DOCKERCOMPOSER_FILE="$DOCKERCOMPOSER_FOLDER/$1" && shift
+# Parse input parameters
+for parameter in "$@"; do
+    if [ -f "$DOCKERCOMPOSER_FOLDER/$parameter" ]; then
+        DOCKER_COMPOSE_FILE="$DOCKERCOMPOSER_FOLDER/$parameter $DOCKER_COMPOSE_FILE"
+    elif [ "$(echo "$parameter" | awk '{ string=substr($0, 1, 1); print string; }')" = "-" ]; then
+        OTHER_ARGS="$parameter$ARGS "
+    else
+        DOCKER_COMMAND="$parameter$DOCKER_COMMAND "
+    fi
+done
 
-# Check if DOCKERCOMPOSER_FILE exist
-[ ! -f "$DOCKERCOMPOSER_FILE" ] && echo "$DOCKERCOMPOSER_FILE file doesn't exist!" && exit 3
+# Check command
+[ -z "$DOCKER_COMMAND" ] && echo "Missing docker-compose command!" && exit 1
 
 # Run docker-compose command
-docker-compose -f "$DOCKERCOMPOSER_FILE" "$command" "$@"
+for file in $DOCKER_COMPOSE_FILE; do
+    eval docker-compose -f "$file" "$DOCKER_COMMAND" "$OTHER_ARGS"
+done

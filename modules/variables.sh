@@ -34,6 +34,9 @@ else
 fi
 export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 
+# Qt theme
+[ "$(command -v qt5ct)" ] && export QT_QPA_PLATFORMTHEME="qt5ct"
+
 # ls theme
 export LS_THEME=snazzy
 

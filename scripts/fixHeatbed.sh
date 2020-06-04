@@ -11,5 +11,5 @@ for parameter in "$@"; do
 
     temperatureChangeLayer=$((numberOfLayers / 10))
 
-    tr <"$parameter" '\n' '\r' | sed "s|;LAYER:$temperatureChangeLayer\rM140 S[0-9]*|;LAYER:$temperatureChangeLayer\r|;s|;LAYER:$temperatureChangeLayer|;LAYER:$temperatureChangeLayer\rM140 S$fixTemp|" | tr '\r' '\n' >"tmp$parameter" && mv "tmp$parameter" "$parameter"
+    fixed="$(tr <"$parameter" '\n' '\r' | sed "s|;LAYER:$temperatureChangeLayer\rM140 S[0-9]*|;LAYER:$temperatureChangeLayer\r|;s|;LAYER:$temperatureChangeLayer|;LAYER:$temperatureChangeLayer\rM140 S$fixTemp|" | tr '\r' '\n')" && echo "$fixed" >"$parameter"
 done

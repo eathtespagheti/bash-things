@@ -10,6 +10,11 @@ for parameter in "$@"; do
     fixTemp=$((originalTemperature - fixDiffTemp))
 
     temperatureChangeLayer=$((numberOfLayers / 10))
+    zeroTemperatureLayer=$((temperatureChangeLayer * 9))
 
-    fixed="$(tr <"$parameter" '\n' '\r' | sed "s|;LAYER:$temperatureChangeLayer\rM140 S[0-9]*|;LAYER:$temperatureChangeLayer\r|;s|;LAYER:$temperatureChangeLayer|;LAYER:$temperatureChangeLayer\rM140 S$fixTemp|" | tr '\r' '\n')" && echo "$fixed" >"$parameter"
+    fixed="$(tr <"$parameter" '\n' '\r' | sed "\
+    s|;LAYER:$temperatureChangeLayer\rM140 S[0-9]*|;LAYER:$temperatureChangeLayer\r|;\
+    s|;LAYER:$zeroTemperatureLayer\rM140 S[0-9]*|;LAYER:$zeroTemperatureLayer\r|;\
+    s|;LAYER:$temperatureChangeLayer|;LAYER:$temperatureChangeLayer\rM140 S$fixTemp|;\
+    s|;LAYER:$zeroTemperatureLayer|;LAYER:$zeroTemperatureLayer\rM140 S0|" | tr '\r' '\n')" && echo "$fixed" >"$parameter"
 done

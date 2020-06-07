@@ -69,6 +69,8 @@ editDetailsExtension="out.pp3"
 [ -z "$EXIF_COPYRIGHT" ] && EXIF_COPYRIGHT="0x8298 0 Copyright $(date +%Y) $FULL_NAME, all rights reserved."
 [ -z "$EXIF_CONTACT" ] && EXIF_CONTACT="0x9286 EXIF sussarellu.fabio@gmail.com"
 [ -n "$EXIF_OUTPUT_FOLDER" ] && [ ! -d "$EXIF_OUTPUT_FOLDER" ] && mkdir -p "$EXIF_OUTPUT_FOLDER"
+PROFILES_FOLDER="$EXIF_OUTPUT_FOLDER/profiles"
+[ ! -d "$PROFILES_FOLDER" ] && mkdir -p "$PROFILES_FOLDER"
 
 # Parse input parameters
 for parameter in "$@"; do
@@ -105,7 +107,7 @@ for picture in $inputs; do
             addExifTag "$picture" "$valueString"
         done
         # If output folder exist and picture it's still in the original location
-        [ -n "$EXIF_OUTPUT_FOLDER" ] && [ -f "$picture" ] && echo "Deleting processed picture $picture" && rm "$picture" && [ -f "$picture.$editDetailsExtension" ] && echo "Moving editor info file $picture.$editDetailsExtension" && mv "$picture.$editDetailsExtension" "$EXIF_OUTPUT_FOLDER/."
+        [ -n "$EXIF_OUTPUT_FOLDER" ] && [ -f "$picture" ] && echo "Deleting processed picture $picture" && rm "$picture" && [ -f "$picture.$editDetailsExtension" ] && echo "Moving editor info file in $PROFILES_FOLDER/$picture.$editDetailsExtension" && mv "$picture.$editDetailsExtension" "$PROFILES_FOLDER/."
         echo
     fi
 done

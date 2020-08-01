@@ -9,8 +9,8 @@ for parameter in "$@"; do
     originalTemperature="${originalTemperature#M140 S}"
     fixTemp=$((originalTemperature - fixDiffTemp))
 
-    temperatureChangeLayer=$((numberOfLayers / 10))
-    zeroTemperatureLayer=$((temperatureChangeLayer * 9))
+    temperatureChangeLayer=$(((numberOfLayers / 10) * 2))
+    zeroTemperatureLayer=$((temperatureChangeLayer * 4))
 
     fixed="$(tr <"$parameter" '\n' '\r' | sed "\
     s|;LAYER:$temperatureChangeLayer\rM140 S[0-9]*|;LAYER:$temperatureChangeLayer\r|;\

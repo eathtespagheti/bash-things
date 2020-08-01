@@ -57,3 +57,8 @@ export PATH="$PATH":"$BASHTHINGS_BIN"
 
 # add local user bin to path
 export PATH="$PATH":"$HOME"/.local/bin
+
+# Add texlive paths
+export PATH="$PATH":/opt/texlive/2020/bin/x86_64-linux
+export MANPATH="$MANPATH":/opt/texlive/2020/texmf-dist/doc/man
+export INFOPATH="$INFOPATH":/opt/texlive/2020/texmf-dist/doc/info

@@ -5,3 +5,5 @@
 [user]
 	name = Fabio Sussarellu
 	email = sussarellu.fabio@gmail.com
+[pull]
+	rebase = false

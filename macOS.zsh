@@ -10,7 +10,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # pure loading
-source $BASHTHINGS_MODULES/pure.sh
+source $BASHTHINGS_MODULES/pure.zsh
 prompt pure
 
 # initialize completions

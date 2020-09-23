@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 # shellcheck disable=SC1090,SC2155
 
+# ls theme
+[ -n "$LS_THEME" ] && load_themes
+
 # load XDG paths
 . "$BASHTHINGS_MODULES/XDG_PATHS.sh"
 

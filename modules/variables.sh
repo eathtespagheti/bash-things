@@ -20,7 +20,8 @@ export BASHTHINGS_BIN="$BASHTHINGS_SCRIPTS/bin"
 export PROJECTS_FOLDER="$HOME/Projects"
 
 # Coding
-JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+# shellcheck disable=SC2039
+[ "$OSTYPE" = "linux-gnu" ] && JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 [ -n "$JAVA_HOME" ] && export JAVA_HOME
 # Select the right console editor
 if [ "$(command -v vim)" ]; then

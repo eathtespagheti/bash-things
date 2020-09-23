@@ -19,7 +19,8 @@ fi
 alias cps="rsync -ah --progress"
 [ "$(command -v lolcat)" ] && alias cat='lolcat -l' && alias ocat='cat'
 alias ccat='highlight --out-format=ansi'
-alias ls='ls --color=auto'
+# shellcheck disable=SC2039
+[ "$OSTYPE" = "linux-gnu" ] && alias ls='ls --color=auto'
 
 # Bash things specifics
 alias editBashThings='$EDITOR $BASHTHINGS_FOLDER'

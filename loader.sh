@@ -16,9 +16,6 @@
 # custom alias
 . "$BASHTHINGS_MODULES"/alias.sh
 
-# ls theme
-[ -n "$LS_THEME" ] && load_themes
-
 # Check OS
 . "$BASHTHINGS_FUNCTIONS"/checkOS.sh
 # shellcheck disable=SC2154,SC2039

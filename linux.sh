@@ -20,7 +20,7 @@
 . "$BASHTHINGS_FUNCTIONS/easymount.bash"
 
 # BigChameleon specific configuration
-[ "$(uname -n)" = "BigChameleon" ] && . "$BASHTHINGS_MODULES/bigChameleon.sh"
+# [ "$(uname -n)" = "BigChameleon" ] && . "$BASHTHINGS_MODULES/bigChameleon.sh"
 
 # trueline settings
 . "$BASHTHINGS_MODULES/trueline-settings.bash"

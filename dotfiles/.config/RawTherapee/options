@@ -12,7 +12,7 @@ LanguageAutoDetect=true
 Theme=RawTherapee-GTK3-20_
 Version=5.8
 DarkFramesPath=
-FlatFieldsPath=/home/fabio/Pictures/DCIM/RAW/Flat Fields
+FlatFieldsPath=/home/fabio/Pictures/DCIM/camera-models/Flat Fields
 Verbose=false
 
 [External Editor]
@@ -221,7 +221,7 @@ CRI=0
 DenoiseLabgamma=2
 CBDLlevel0=0
 CBDLlevel123=30
-ClutsDirectory=/home/fabio/Pictures/HaldCLUT
+ClutsDirectory=/home/fabio/Pictures/DCIM/camera-models/HaldCLUT
 
 [ICC Profile Creator]
 PimariesPreset=sRGB

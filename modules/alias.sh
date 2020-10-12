@@ -16,7 +16,7 @@ fi
 [ -n "$EDITOR_CONSOLE" ] && alias cedit='$EDITOR_CONSOLE'
 
 # Wrappers
-alias cps="rsync -ah --progress"
+alias cps="rsync --archive --human-readable --progress --stats"
 [ "$(command -v lolcat)" ] && alias cat='lolcat -l' && alias ocat='cat'
 alias ccat='highlight --out-format=ansi'
 # shellcheck disable=SC2039

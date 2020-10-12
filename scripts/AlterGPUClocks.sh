@@ -11,6 +11,8 @@ while [ "$i" -ne 10 ] && [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_
     i=$((i + 1))
 done
 
+[ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && exit 1
+
 device_path="/sys/class/drm/$GPU/device"
 pp_od_clk_voltage_path="$device_path/pp_od_clk_voltage"
 
@@ -35,7 +37,7 @@ echo "s 7 1366 1020" >"$pp_od_clk_voltage_path"
 echo "m 2 2000 900" >"$pp_od_clk_voltage_path"
 
 # Set Max Power to 170W
-echo 170000000 >"$powercap_path"
+[ -d "$device_path/hwmon/$HWMON" ] && echo 170000000 >"$powercap_path"
 
 # Apply
 echo "c" >"$pp_od_clk_voltage_path"

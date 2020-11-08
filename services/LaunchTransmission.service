@@ -1,0 +1,9 @@
+[Unit]
+Description=Start Transmission minimized
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/transmission-gtk -m
+
+[Install]
+WantedBy=graphical.target

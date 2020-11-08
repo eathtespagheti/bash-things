@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2045
 
-_addService_completions() {
+_linkService_completions() {
     # No other args
     if [ "${#COMP_WORDS[@]}" -gt "2" ]; then
         return
@@ -19,4 +19,4 @@ _addService_completions() {
     mapfile -t COMPREPLY < <(compgen -W "$files" -- "${COMP_WORDS[1]}")
 }
 
-complete -F _addService_completions addService
+complete -F _linkService_completions linkService

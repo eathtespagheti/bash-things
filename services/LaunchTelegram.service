@@ -1,0 +1,9 @@
+[Unit]
+Description=Start Telegram minimized
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/telegram-desktop -startintray
+
+[Install]
+WantedBy=graphical.target

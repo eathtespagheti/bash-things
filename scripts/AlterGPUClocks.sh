@@ -29,9 +29,9 @@ powercap_path="$device_path/hwmon/$HWMON/power1_cap"
 # GPU P-States
 echo "s 3 1145 1000" >"$pp_od_clk_voltage_path"
 echo "s 4 1215 1000" >"$pp_od_clk_voltage_path"
-echo "s 5 1257 1010" >"$pp_od_clk_voltage_path"
-echo "s 6 1300 1015" >"$pp_od_clk_voltage_path"
-echo "s 7 1366 1020" >"$pp_od_clk_voltage_path"
+echo "s 5 1257 1015" >"$pp_od_clk_voltage_path"
+echo "s 6 1300 1020" >"$pp_od_clk_voltage_path"
+echo "s 7 1366 1025" >"$pp_od_clk_voltage_path"
 
 # VRAM P-States
 echo "m 2 2000 900" >"$pp_od_clk_voltage_path"

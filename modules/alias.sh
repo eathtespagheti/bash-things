@@ -17,7 +17,6 @@ fi
 
 # Wrappers
 alias cps="rsync --archive --human-readable --progress --stats"
-[ "$(command -v lolcat)" ] && alias cat='lolcat -l' && alias ocat='cat'
 alias ccat='highlight --out-format=ansi'
 # shellcheck disable=SC2039
 [ "$OSTYPE" = "linux-gnu" ] && alias ls='ls --color=auto'

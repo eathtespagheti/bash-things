@@ -31,7 +31,10 @@
     export AMDGPU_POWERCAP="$device_path/hwmon/$HWMON/power1_cap"
 }
 
+[ "$1" = "auto" ] && echo "2" >"$AMDGPU_HWMON/pwm1_enable" && exit
+
 [ "$(cat $AMDGPU_HWMON/pwm1_enable)" != "1" ] && echo "1" >"$AMDGPU_HWMON/pwm1_enable"
+
 
 fanSpeed="$(echo "$1 * 2.55" | bc -l)"
 echo "${fanSpeed%.*}" >"$AMDGPU_HWMON/pwm1"

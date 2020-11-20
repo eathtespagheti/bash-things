@@ -65,5 +65,6 @@ export PATH="$PATH":/opt/texlive/2020/bin/x86_64-linux
 export MANPATH="$MANPATH":/opt/texlive/2020/texmf-dist/doc/man
 export INFOPATH="$INFOPATH":/opt/texlive/2020/texmf-dist/doc/info
 
-# MangoHud in games
+# Games stuff
 export MANGOHUD=1
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1

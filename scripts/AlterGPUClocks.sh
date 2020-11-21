@@ -35,11 +35,11 @@
 echo "s 3 1145 1000" >"$AMDGPU_PP_OD_CLK"
 echo "s 4 1215 1000" >"$AMDGPU_PP_OD_CLK"
 echo "s 5 1257 1015" >"$AMDGPU_PP_OD_CLK"
-echo "s 6 1300 1020" >"$AMDGPU_PP_OD_CLK"
-echo "s 7 1366 1025" >"$AMDGPU_PP_OD_CLK"
+echo "s 6 1366 1025" >"$AMDGPU_PP_OD_CLK"
+echo "s 7 1400 1030" >"$AMDGPU_PP_OD_CLK"
 
 # VRAM P-States
-echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
+echo "m 2 2000 910" >"$AMDGPU_PP_OD_CLK"
 
 # Set Max Power to 170W
 [ -d "$AMDGPU_HWMON" ] && echo 170000000 >"$AMDGPU_POWERCAP"

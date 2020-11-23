@@ -19,6 +19,9 @@
 # load easymount
 . "$BASHTHINGS_FUNCTIONS/easymount.bash"
 
+# load amdgpu variables
+. "$BASHTHINGS_FUNCTIONS/amdgpuPaths.sh"
+
 # BigChameleon specific configuration
 # [ "$(uname -n)" = "BigChameleon" ] && . "$BASHTHINGS_MODULES/bigChameleon.sh"
 

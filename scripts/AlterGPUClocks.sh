@@ -31,6 +31,25 @@
     export AMDGPU_POWERCAP="$device_path/hwmon/$HWMON/power1_cap"
 }
 
+# Stock values for Sapphire Pulse RX 580 are
+# OD_SCLK:
+# 0:        300MHz        750mV
+# 1:        600MHz        769mV
+# 2:        900MHz        887mV
+# 3:       1145MHz       1093mV
+# 4:       1215MHz       1175mV
+# 5:       1257MHz       1150mV
+# 6:       1300MHz       1150mV
+# 7:       1366MHz       1150mV
+# OD_MCLK:
+# 0:        300MHz        750mV
+# 1:       1000MHz        825mV
+# 2:       2000MHz        975mV
+# OD_RANGE:
+# SCLK:     300MHz       2000MHz
+# MCLK:     300MHz       2250MHz
+# VDDC:     750mV        1200mV
+
 # GPU P-States
 echo "s 3 1145 1000" >"$AMDGPU_PP_OD_CLK"
 echo "s 4 1215 1000" >"$AMDGPU_PP_OD_CLK"
@@ -39,7 +58,7 @@ echo "s 6 1366 1025" >"$AMDGPU_PP_OD_CLK"
 echo "s 7 1400 1030" >"$AMDGPU_PP_OD_CLK"
 
 # VRAM P-States
-echo "m 2 2000 910" >"$AMDGPU_PP_OD_CLK"
+echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
 
 # Set Max Power to 170W
 [ -d "$AMDGPU_HWMON" ] && echo 170000000 >"$AMDGPU_POWERCAP"

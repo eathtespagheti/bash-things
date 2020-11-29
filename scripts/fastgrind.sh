@@ -8,6 +8,6 @@ valgrind --leak-check=full \
     --track-origins=yes \
     --verbose \
     --log-file="$FILENAME".log \
-    ./"$FILENAME" "$@" &&
+    "$FILENAME" "$@" &&
     echo &&
     tail -7 "$FILENAME".log

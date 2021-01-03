@@ -31,3 +31,5 @@
 
 # set default make jobs
 export MAKEFLAGS="${MAKEFLAGS} -j$(lscpu -b -p=CPU | grep -v '^#' | sort -u | wc -l)"
+
+"$BASHTHINGS_MODULES/autoexec.sh"

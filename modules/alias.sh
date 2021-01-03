@@ -3,6 +3,7 @@
 # System management
 alias yy="yay -Syu --noconfirm --sudoloop"
 alias suspend="systemctl suspend"
+alias please="sudo"
 
 # Editor selection
 if [ "$(command -v /usr/bin/code)" ]; then

@@ -20,6 +20,7 @@ printHelp() {
     printf "%s:\n\t%s\n" "-pt, --private-token <token>" "Set PRIVATE_TOKEN"
     printf "%s:\n\t%s\n" "-cf, --config-file <path/to/config/file>" "Use a different config file"
     printf "%s:\n\t%s\n" "-pf, --projects-file <path/to/projects/file>" "Use a different projects file"
+    printf "%s:\n\t%s\n" "-gcf, --clone-folder <path/to/clone/folder>" "Clone git projects in the specified folder"
     exit 0
 }
 
@@ -84,6 +85,18 @@ parseArgs() {
             PROJECTS_FILE="$1"
             toShift="true"
             [ -n "$VERBOSE" ] && echo "Use $PROJECTS_FILE as projects file"
+            ;;
+        -gcf)
+            shift
+            PROJECTS_FOLDER="$1"
+            toShift="true"
+            [ -n "$VERBOSE" ] && echo "Use $PROJECTS_FOLDER as destination for cloned projects"
+            ;;
+        --clone-folder)
+            shift
+            PROJECTS_FOLDER="$1"
+            toShift="true"
+            [ -n "$VERBOSE" ] && echo "Use $PROJECTS_FOLDER as destination for cloned projects"
             ;;
         -h)
             printHelp

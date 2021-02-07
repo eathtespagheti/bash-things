@@ -5,6 +5,17 @@ CONFIG_FILE_NAME="gitlabManager.config"
 DATA_FOLDER_NAME="gitlabManager"
 API_ROOT="https://gitlab.com/api/v4"
 
+checkDependencies() {
+    command -v curl >/dev/null 2>&1 || {
+        echo "curl not installed"
+        exit 3
+    }
+    command -v jq >/dev/null 2>&1 || {
+        echo "jq not installed"
+        exit 3
+    }
+}
+
 initPaths() {
     [ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
     CONFIG_FILE="$XDG_CONFIG_HOME/$CONFIG_FILE_NAME"
@@ -51,6 +62,7 @@ listProjects() {
 }
 
 initPaths
+checkDependencies
 
 [ ! -f "$CONFIG_FILE" ] && {
     echo "Config file doesn't exist"

@@ -30,6 +30,14 @@ if [ "$(command -v vim)" ]; then
 elif [ "$(command -v nano)" ]; then
     EDITOR_CONSOLE=nano
 fi
+# Select right compiler
+if [ "$(command -v tcc)" ]; then
+    export C_COMPILER=tcc
+elif [ "$(command -v clang)" ]; then
+    export C_COMPILER=clang
+elif [ "$(command -v gcc)" ]; then
+    export C_COMPILER=gcc
+fi
 # Select the right GUI editor
 if [ "$(command -v code-insiders)" ]; then
     EDITOR_GUI=code-insiders

@@ -50,18 +50,34 @@
 # MCLK:     300MHz       2250MHz
 # VDDC:     750mV        1200mV
 
-# GPU P-States
-echo "s 3 1145 1000" >"$AMDGPU_PP_OD_CLK"
-echo "s 4 1215 1000" >"$AMDGPU_PP_OD_CLK"
-echo "s 5 1257 1015" >"$AMDGPU_PP_OD_CLK"
-echo "s 6 1366 1025" >"$AMDGPU_PP_OD_CLK"
-echo "s 7 1400 1030" >"$AMDGPU_PP_OD_CLK"
+# Overclock
+# echo "s 3 1145 1093" >"$AMDGPU_PP_OD_CLK"
+# echo "s 4 1215 1175" >"$AMDGPU_PP_OD_CLK"
+# echo "s 5 1257 1150" >"$AMDGPU_PP_OD_CLK"
+# echo "s 6 1366 1150" >"$AMDGPU_PP_OD_CLK"
+# echo "s 7 1400 1150" >"$AMDGPU_PP_OD_CLK"
+
+# Mining settings
+echo "s 3 1145 1093" >"$AMDGPU_PP_OD_CLK"
+echo "s 4 1215 1175" >"$AMDGPU_PP_OD_CLK"
+echo "s 5 1257 1000" >"$AMDGPU_PP_OD_CLK"
+echo "s 6 1300 1000" >"$AMDGPU_PP_OD_CLK"
+echo "s 7 1366 1000" >"$AMDGPU_PP_OD_CLK"
+
+# Undervolt gaming
+# echo "s 3 1145 1093" >"$AMDGPU_PP_OD_CLK"
+# echo "s 4 1215 1175" >"$AMDGPU_PP_OD_CLK"
+# echo "s 5 1257 1080" >"$AMDGPU_PP_OD_CLK"
+# echo "s 6 1300 1080" >"$AMDGPU_PP_OD_CLK"
+# echo "s 7 1366 1080" >"$AMDGPU_PP_OD_CLK"
 
 # VRAM P-States
-echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
+# echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
+# echo "m 2 2000 950" >"$AMDGPU_PP_OD_CLK"
+echo "m 2 2000 970" >"$AMDGPU_PP_OD_CLK"
 
-# Set Max Power to 170W
-[ -d "$AMDGPU_HWMON" ] && echo 170000000 >"$AMDGPU_POWERCAP"
+# Set Max Power to 140W
+[ -d "$AMDGPU_HWMON" ] && echo 140000000 >"$AMDGPU_POWERCAP"
 
 # Apply
 echo "c" >"$AMDGPU_PP_OD_CLK"

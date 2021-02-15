@@ -11,11 +11,13 @@
         GPU="$GPU_base$i"
         i=$((i + 1))
     done
-
+    
     [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && exit 1
 
     device_path="/sys/class/drm/$GPU/device"
     pp_od_clk_voltage_path="$device_path/pp_od_clk_voltage"
+    pp_power_profile_mode_path="$device_path/pp_power_profile_mode"
+    power_dpm_force_performance_level_path="$device_path/power_dpm_force_performance_level"
 
     # Find HWMON path
     HWMON_base="hwmon"
@@ -29,6 +31,8 @@
     export AMDGPU_HWMON="$device_path/hwmon/$HWMON"
     export AMDGPU_PP_OD_CLK="$pp_od_clk_voltage_path"
     export AMDGPU_POWERCAP="$device_path/hwmon/$HWMON/power1_cap"
+    export AMDGPU_POWER_PROFILE_MODE="$pp_power_profile_mode_path"
+    export AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL="$power_dpm_force_performance_level_path"
 }
 
 # Stock values for Sapphire Pulse RX 580 are
@@ -74,7 +78,14 @@ echo "s 7 1366 1000" >"$AMDGPU_PP_OD_CLK"
 # VRAM P-States
 # echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
 # echo "m 2 2000 950" >"$AMDGPU_PP_OD_CLK"
-echo "m 2 2000 970" >"$AMDGPU_PP_OD_CLK"
+echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
+
+# Set compute mode
+# echo "manual" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL"
+# echo "5" >"$AMDGPU_POWER_PROFILE_MODE"
+
+# Auto select power profile
+# echo "auto" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL"
 
 # Set Max Power to 140W
 [ -d "$AMDGPU_HWMON" ] && echo 140000000 >"$AMDGPU_POWERCAP"

@@ -54,19 +54,32 @@
 # MCLK:     300MHz       2250MHz
 # VDDC:     750mV        1200mV
 
+# Stock values for mining BIOS are
+# OD_SCLK:
+# 0:        300MHz        750mV
+# 1:        600MHz        769mV
+# 2:        900MHz        887mV
+# 3:       1100MHz        820mV
+# 4:       1100MHz        820mV
+# 5:       1100MHz        820mV
+# 6:       1125MHz        830mV
+# 7:       1150MHz        900mV
+# OD_MCLK:
+# 0:        300MHz        750mV
+# 1:       1000MHz        800mV
+# 2:       2230MHz        900mV
+# OD_RANGE:
+# SCLK:     300MHz       2000MHz
+# MCLK:     300MHz       2300MHz
+# VDDC:     750mV        1200mV
+
+
 # Overclock
 # echo "s 3 1145 1093" >"$AMDGPU_PP_OD_CLK"
 # echo "s 4 1215 1175" >"$AMDGPU_PP_OD_CLK"
 # echo "s 5 1257 1150" >"$AMDGPU_PP_OD_CLK"
 # echo "s 6 1366 1150" >"$AMDGPU_PP_OD_CLK"
 # echo "s 7 1400 1150" >"$AMDGPU_PP_OD_CLK"
-
-# Mining settings
-echo "s 3 1145 1093" >"$AMDGPU_PP_OD_CLK"
-echo "s 4 1215 1175" >"$AMDGPU_PP_OD_CLK"
-echo "s 5 1257 1000" >"$AMDGPU_PP_OD_CLK"
-echo "s 6 1300 1000" >"$AMDGPU_PP_OD_CLK"
-echo "s 7 1366 1000" >"$AMDGPU_PP_OD_CLK"
 
 # Undervolt gaming
 # echo "s 3 1145 1093" >"$AMDGPU_PP_OD_CLK"
@@ -77,18 +90,16 @@ echo "s 7 1366 1000" >"$AMDGPU_PP_OD_CLK"
 
 # VRAM P-States
 # echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
-# echo "m 2 2000 950" >"$AMDGPU_PP_OD_CLK"
-echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
 
-# Set compute mode
-# echo "manual" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL"
-# echo "5" >"$AMDGPU_POWER_PROFILE_MODE"
+# Set compute mode for mining
+echo "manual" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL"
+echo "5" >"$AMDGPU_POWER_PROFILE_MODE"
 
 # Auto select power profile
 # echo "auto" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL"
 
-# Set Max Power to 140W
-[ -d "$AMDGPU_HWMON" ] && echo 140000000 >"$AMDGPU_POWERCAP"
+# Set Max Power to 110W for mining
+[ -d "$AMDGPU_HWMON" ] && echo 110000000 >"$AMDGPU_POWERCAP"
 
 # Apply
 echo "c" >"$AMDGPU_PP_OD_CLK"

@@ -1,0 +1,13 @@
+[Unit]
+Description=ETH miner
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/ethminer -G -P stratum://0x8bDD239DA91445e4EE2d1e57274C6C8977bd6726.%l:@eu1.ethermine.org:4444 --api-port 5555 --farm-recheck 2000
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -15 $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

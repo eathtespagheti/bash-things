@@ -6,14 +6,14 @@ DATA_FOLDER_NAME="gitlabManager"
 PROJECTS_FILE_NAME="projects.json"
 API_ROOT="https://gitlab.com/api/v4"
 ACTION="help"
-REPO=""
+ARG=""
 
 printHelp() {
     printf "Actions:\n\n"
     printf "%s:\n\t%s\n" "clone, -c <repo-path>" "Clone repo"
-    printf "%s:\n\t%s\n" "list, -l" "List all repos"
+    printf "%s:\n\t%s\n" "list, -l [name, description, path, url]" "List all repos, optionally you can specify to list only a specific field for every project"
     printf "%s:\n\t%s\n" "update, -u" "Update projects list"
-    printf "%s:\n\t%s\n" "search, -s" "Search between projects"
+    printf "%s:\n\t%s\n" "search, -s <word>" "Search between projects, to search a phrase double quote it"
     printf "\nParameters:\n\n"
     printf "%s:\n\t%s\n" "-h, --help" "Print this message"
     printf "%s:\n\t%s\n" "-v, --verbose" "Enable verbose mode"
@@ -110,34 +110,38 @@ parseArgs() {
         -c)
             ACTION="clone"
             shift
-            REPO="$1"
+            ARG="$1"
             toShift="true"
             ;;
         clone)
             ACTION="clone"
             shift
-            REPO="$1"
+            ARG="$1"
             toShift="true"
             ;;
         -s)
             ACTION="search"
             shift
-            REPO="$1"
+            ARG="$1"
             toShift="true"
             ;;
         search)
             ACTION="search"
             shift
-            REPO="$1"
+            ARG="$1"
             toShift="true"
             ;;
         -l)
             ACTION="list"
             shift
+            ARG="$1"
+            toShift="true"
             ;;
         list)
             ACTION="list"
             shift
+            ARG="$1"
+            toShift="true"
             ;;
         -u)
             ACTION="update"
@@ -239,11 +243,31 @@ updateProjectsList() {
 }
 
 printProject() {
-    name=$(echo "$line" | cut -f 1)
-    description=$(echo "$line" | cut -f 2)
-    path=$(echo "$line" | cut -f 3)
-    url=$(echo "$line" | cut -f 4)
-    printf "Name: %s\nDescrption: %s\nPath: %s\nURL: %s\n\n" "$name" "$description" "$path" "$url"
+    [ -n "$2" ] && {
+        case "$2" in
+        name)
+            field=1
+            ;;
+        description)
+            field=2
+            ;;
+        path)
+            field=3
+            ;;
+        url)
+            field=4
+            ;;
+        esac
+    }
+    if [ -z "$field" ]; then
+        name=$(echo "$1" | cut -f 1)
+        description=$(echo "$1" | cut -f 2)
+        path=$(echo "$1" | cut -f 3)
+        url=$(echo "$1" | cut -f 4)
+        printf "Name: %s\nDescrption: %s\nPath: %s\nURL: %s\n\n" "$name" "$description" "$path" "$url"
+    else
+        echo "$1" | cut -f "$field"
+    fi
 }
 
 fromJsonToList() {
@@ -256,7 +280,7 @@ listProjects() {
 
     fromJsonToList |
         while IFS="" read -r line || [ -n "$line" ]; do
-            printProject "$line"
+            printProject "$line" "$1"
         done
 
 }
@@ -272,26 +296,26 @@ searchProject() {
 }
 
 cloneProject() {
-    URL=$(fromJsonToList | grep "$REPO" | cut -f 4)
+    URL=$(fromJsonToList | grep "$1" | cut -f 4)
     git -C "$PROJECTS_FOLDER" clone --recurse-submodules "$URL"
 }
 
 execAction() {
     case "$ACTION" in
     list)
-        listProjects
+        listProjects "$ARG"
         ;;
     help)
         printHelp
         ;;
     clone)
-        cloneProject
+        cloneProject "$ARG"
         ;;
     update)
         updateProjectsList
         ;;
     search)
-        searchProject "$REPO"
+        searchProject "$ARG"
         ;;
     *)
         listProjects

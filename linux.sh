@@ -20,7 +20,7 @@
 . "$BASHTHINGS_FUNCTIONS/easymount.bash"
 
 # load amdgpu variables
-. "$BASHTHINGS_FUNCTIONS/amdgpuPaths.sh"
+. "$BASHTHINGS_FUNCTIONS/amdgpuPaths.sh" || echo "Loading of amdgpu paths failed"
 
 # BigChameleon specific configuration
 # [ "$(uname -n)" = "BigChameleon" ] && . "$BASHTHINGS_MODULES/bigChameleon.sh"

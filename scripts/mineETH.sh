@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 
-sudo setGPUfanSpeed 30
+sudo AlterGPUClocks
+sudo setGPUfanSpeed 45
 sudo systemctl start ethermine
+watch sudo systemctl status ethermine.service

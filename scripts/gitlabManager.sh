@@ -13,6 +13,7 @@ printHelp() {
     printf "%s:\n\t%s\n" "clone, -c <repo-path>" "Clone repo"
     printf "%s:\n\t%s\n" "list, -l" "List all repos"
     printf "%s:\n\t%s\n" "update, -u" "Update projects list"
+    printf "%s:\n\t%s\n" "search, -s" "Search between projects"
     printf "\nParameters:\n\n"
     printf "%s:\n\t%s\n" "-h, --help" "Print this message"
     printf "%s:\n\t%s\n" "-v, --verbose" "Enable verbose mode"
@@ -114,6 +115,18 @@ parseArgs() {
             ;;
         clone)
             ACTION="clone"
+            shift
+            REPO="$1"
+            toShift="true"
+            ;;
+        -s)
+            ACTION="search"
+            shift
+            REPO="$1"
+            toShift="true"
+            ;;
+        search)
+            ACTION="search"
             shift
             REPO="$1"
             toShift="true"
@@ -248,6 +261,16 @@ listProjects() {
 
 }
 
+searchProject() {
+    [ -n "$VERBOSE" ] && echo "Checking if projects file exist"
+    [ ! -f "$PROJECTS_FILE" ] && updateProjectsList
+
+    fromJsonToList | grep "$1" |
+        while IFS="" read -r line || [ -n "$line" ]; do
+            printProject "$line"
+        done
+}
+
 cloneProject() {
     URL=$(fromJsonToList | grep "$REPO" | cut -f 4)
     git -C "$PROJECTS_FOLDER" clone --recurse-submodules "$URL"
@@ -266,6 +289,9 @@ execAction() {
         ;;
     update)
         updateProjectsList
+        ;;
+    search)
+        searchProject "$REPO"
         ;;
     *)
         listProjects

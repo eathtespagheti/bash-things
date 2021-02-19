@@ -95,7 +95,7 @@ echo "s 4 1100 980" >"$AMDGPU_PP_OD_CLK"
 echo "s 5 1100 980" >"$AMDGPU_PP_OD_CLK"
 echo "s 6 1125 990" >"$AMDGPU_PP_OD_CLK"
 echo "s 7 1150 1000" >"$AMDGPU_PP_OD_CLK"
-echo "m 2 2150 970" >"$AMDGPU_PP_OD_CLK"
+echo "m 2 2150 870" >"$AMDGPU_PP_OD_CLK"
 
 # VRAM P-States
 # echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"

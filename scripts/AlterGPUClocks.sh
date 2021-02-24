@@ -107,8 +107,8 @@ echo "5" >"$AMDGPU_POWER_PROFILE_MODE"
 # Auto select power profile
 # echo "auto" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL"
 
-# Set Max Power to 120W for mining
-[ -d "$AMDGPU_HWMON" ] && echo 120000000 >"$AMDGPU_POWERCAP"
+# Set Max Power to 125W for mining
+[ -d "$AMDGPU_HWMON" ] && echo 125000000 >"$AMDGPU_POWERCAP"
 
 # Apply
 echo "c" >"$AMDGPU_PP_OD_CLK"

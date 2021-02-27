@@ -1,39 +1,39 @@
 #!/usr/bin/env sh
 
-# [ -z "$AMDGPU_PP_OD_CLK" ] || [ -z "$AMDGPU_HWMON" ] || [ -z "$AMDGPU_POWERCAP" ] && {
-#     amd_vendor="0x1002"
+[ -z "$AMDGPU_PP_OD_CLK" ] || [ -z "$AMDGPU_HWMON" ] || [ -z "$AMDGPU_POWERCAP" ] && {
+    amd_vendor="0x1002"
 
-#     # Find AMD GPU
-#     GPU_base="card"
-#     GPU="card0"
-#     i=1
-#     while [ "$i" -ne 10 ] && [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ]; do
-#         GPU="$GPU_base$i"
-#         i=$((i + 1))
-#     done
+    # Find AMD GPU
+    GPU_base="card"
+    GPU="card0"
+    i=1
+    while [ "$i" -ne 10 ] && [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ]; do
+        GPU="$GPU_base$i"
+        i=$((i + 1))
+    done
 
-#     [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && exit 1
+    [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && exit 1
 
-#     device_path="/sys/class/drm/$GPU/device"
-#     pp_od_clk_voltage_path="$device_path/pp_od_clk_voltage"
-#     pp_power_profile_mode_path="$device_path/pp_power_profile_mode"
-#     power_dpm_force_performance_level_path="$device_path/power_dpm_force_performance_level"
+    device_path="/sys/class/drm/$GPU/device"
+    pp_od_clk_voltage_path="$device_path/pp_od_clk_voltage"
+    pp_power_profile_mode_path="$device_path/pp_power_profile_mode"
+    power_dpm_force_performance_level_path="$device_path/power_dpm_force_performance_level"
 
-#     # Find HWMON path
-#     HWMON_base="hwmon"
-#     HWMON="$HWMON_base"0
-#     i=1
-#     while [ "$i" -ne 10 ] && [ ! -d "$device_path/hwmon/$HWMON" ]; do
-#         HWMON="$HWMON_base$i"
-#         i=$((i + 1))
-#     done
+    # Find HWMON path
+    HWMON_base="hwmon"
+    HWMON="$HWMON_base"0
+    i=1
+    while [ "$i" -ne 10 ] && [ ! -d "$device_path/hwmon/$HWMON" ]; do
+        HWMON="$HWMON_base$i"
+        i=$((i + 1))
+    done
 
-#     export AMDGPU_HWMON="$device_path/hwmon/$HWMON"
-#     export AMDGPU_PP_OD_CLK="$pp_od_clk_voltage_path"
-#     export AMDGPU_POWERCAP="$device_path/hwmon/$HWMON/power1_cap"
-#     export AMDGPU_POWER_PROFILE_MODE="$pp_power_profile_mode_path"
-#     export AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL="$power_dpm_force_performance_level_path"
-# }
+    export AMDGPU_HWMON="$device_path/hwmon/$HWMON"
+    export AMDGPU_PP_OD_CLK="$pp_od_clk_voltage_path"
+    export AMDGPU_POWERCAP="$device_path/hwmon/$HWMON/power1_cap"
+    export AMDGPU_POWER_PROFILE_MODE="$pp_power_profile_mode_path"
+    export AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL="$power_dpm_force_performance_level_path"
+}
 
 CONFIG_FOLDER_NAME="amdgpuclocks"
 [ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
@@ -44,17 +44,11 @@ apply_oc() {
     power_cap="$(echo "$1" | grep "^[^smp] " | cut -d ' ' -f 2)"
     power_profile="$(echo "$1" | grep "^[^smc] " | cut -d ' ' -f 2)"
 
-    echo "$oc"
-    echo
-    echo "$power_cap"
-    echo
-    echo "$power_profile"
+    [ -n "$oc" ] && echo "$oc" >"$AMDGPU_PP_OD_CLK"
+    [ -n "$power_cap" ] && echo "$power_cap""000000" >"$AMDGPU_POWERCAP"
+    [ -n "$power_profile" ] && echo "manual" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL" && echo "$power_profile" >"$AMDGPU_POWER_PROFILE_MODE"
 
-    # [ -n "$oc" ] && echo "$oc" >"$AMDGPU_PP_OD_CLK"
-    # [ -n "$power_cap" ] && echo "$power_cap""000000" >"$AMDGPU_POWERCAP"
-    # [ -n "$power_profile" ] && echo "manual" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL" && echo "$power_profile" >"$AMDGPU_POWER_PROFILE_MODE"
-
-    # echo "c" >"$AMDGPU_PP_OD_CLK"
+    echo "c" >"$AMDGPU_PP_OD_CLK"
 }
 
 [ -n "$1" ] && [ -f "$CONFIG_FOLDER/$1" ] && fileContent="$(cat "$CONFIG_FOLDER/$1")"

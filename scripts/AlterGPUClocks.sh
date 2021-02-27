@@ -90,11 +90,11 @@
 # echo "m 2 2000 900" >"$AMDGPU_PP_OD_CLK"
 
 # Mining
-echo "s 3 1100 980" >"$AMDGPU_PP_OD_CLK"
-echo "s 4 1100 980" >"$AMDGPU_PP_OD_CLK"
-echo "s 5 1100 980" >"$AMDGPU_PP_OD_CLK"
-echo "s 6 1125 990" >"$AMDGPU_PP_OD_CLK"
-echo "s 7 1150 1000" >"$AMDGPU_PP_OD_CLK"
+echo "s 3 1100 880" >"$AMDGPU_PP_OD_CLK"
+echo "s 4 1100 880" >"$AMDGPU_PP_OD_CLK"
+echo "s 5 1100 880" >"$AMDGPU_PP_OD_CLK"
+echo "s 6 1125 890" >"$AMDGPU_PP_OD_CLK"
+echo "s 7 1150 900" >"$AMDGPU_PP_OD_CLK"
 echo "m 2 2150 870" >"$AMDGPU_PP_OD_CLK"
 
 # VRAM P-States
@@ -107,8 +107,8 @@ echo "5" >"$AMDGPU_POWER_PROFILE_MODE"
 # Auto select power profile
 # echo "auto" >"$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL"
 
-# Set Max Power to 125W for mining
-[ -d "$AMDGPU_HWMON" ] && echo 125000000 >"$AMDGPU_POWERCAP"
+# Set Max Power to 120W for mining
+[ -d "$AMDGPU_HWMON" ] && echo 120000000 >"$AMDGPU_POWERCAP"
 
 # Apply
 echo "c" >"$AMDGPU_PP_OD_CLK"

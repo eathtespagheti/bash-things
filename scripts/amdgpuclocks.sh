@@ -44,7 +44,11 @@ apply_oc() {
     power_cap="$(echo "$1" | grep "^[^smp] " | cut -d ' ' -f 2)"
     power_profile="$(echo "$1" | grep "^[^smc] " | cut -d ' ' -f 2)"
 
-    [ -n "$oc" ] && echo "$oc" | sudo tee "$AMDGPU_PP_OD_CLK" >/dev/null
+    [ -n "$oc" ] && {
+        echo "$oc" | while IFS= read -r line; do
+            echo "$line" | sudo tee "$AMDGPU_PP_OD_CLK" >/dev/null
+        done
+    }
     [ -n "$power_cap" ] && echo "$power_cap""000000" | sudo tee "$AMDGPU_POWERCAP" >/dev/null
     [ -n "$power_profile" ] && echo "manual" | sudo tee "$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL" && echo "$power_profile" >/dev/null | sudo tee "$AMDGPU_POWER_PROFILE_MODE" >/dev/null
 

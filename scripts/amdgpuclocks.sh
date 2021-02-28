@@ -28,11 +28,11 @@
         i=$((i + 1))
     done
 
-    export AMDGPU_HWMON="$device_path/hwmon/$HWMON"
-    export AMDGPU_PP_OD_CLK="$pp_od_clk_voltage_path"
-    export AMDGPU_POWERCAP="$device_path/hwmon/$HWMON/power1_cap"
-    export AMDGPU_POWER_PROFILE_MODE="$pp_power_profile_mode_path"
-    export AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL="$power_dpm_force_performance_level_path"
+    AMDGPU_HWMON="$device_path/hwmon/$HWMON"
+    AMDGPU_PP_OD_CLK="$pp_od_clk_voltage_path"
+    AMDGPU_POWERCAP="$device_path/hwmon/$HWMON/power1_cap"
+    AMDGPU_POWER_PROFILE_MODE="$pp_power_profile_mode_path"
+    AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL="$power_dpm_force_performance_level_path"
 }
 
 CONFIG_FOLDER_NAME="amdgpuclocks"
@@ -50,8 +50,8 @@ apply_oc() {
         done
     }
     [ -n "$power_cap" ] && echo "$power_cap""000000" | sudo tee "$AMDGPU_POWERCAP" >/dev/null
-    [ -n "$power_profile" ] && echo "manual" | sudo tee "$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL" && echo "$power_profile" >/dev/null | sudo tee "$AMDGPU_POWER_PROFILE_MODE" >/dev/null
-
+    [ -n "$power_profile" ] && echo "manual" | sudo tee "$AMDGPU_POWER_DPM_FORCE_PERFORMANCE_LEVEL" >/dev/null && echo "$power_profile" | sudo tee "$AMDGPU_POWER_PROFILE_MODE" >/dev/null
+ 
     echo "c" | sudo tee "$AMDGPU_PP_OD_CLK" >/dev/null
 }
 

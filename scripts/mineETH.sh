@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
-[ "$1" = "-s" ] && sudo amdvbflash -p 0 ~/stockBIOS.rom && reboot
-[ "$1" = "-m" ] && sudo amdvbflash -p 0 ~/miningBIOS.rom && reboot
-[ "$1" = "-p" ] && watch sudo systemctl status ethermine.service && exit
+[ "$1" = "-s" ] && amdvbflash -p 0 ~/stockBIOS.rom && reboot
+[ "$1" = "-m" ] && amdvbflash -p 0 ~/miningBIOS.rom && reboot
+[ "$1" = "-p" ] && watch systemctl status ethermine.service && exit
 
+shutDownRGB
 amdgpuclocks mining
-sudo setGPUfanSpeed 28
-sudo systemctl start ethermine
+setGPUfanSpeed 28
+systemctl start ethermine

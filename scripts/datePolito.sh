@@ -7,5 +7,6 @@ for file in "$@"; do
     day="$(echo "$date" | cut -c 1-2)"
     newdate="$year$month$day"
     newname="$(echo "$file" | sed "s/$date/$newdate/")"
-    echo "$newname"
+    echo "from $file to $newname"
+    mv "$file" "$newname"
 done

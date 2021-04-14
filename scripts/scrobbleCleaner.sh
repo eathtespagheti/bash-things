@@ -23,4 +23,4 @@ printf "" > "$toDelete"
 cut -d ',' -f 4 "$scrobbles" | sort | uniq > bands
 
 N=$((N - nScrobbles))
-echo "Process completed, $N scropbbles have been removed"
+echo "Process completed, $N scrobbles have been removed"

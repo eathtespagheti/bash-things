@@ -2,9 +2,9 @@
 
 [ "$1" = "-s" ] && amdvbflash -p 0 ~/stockBIOS.rom && reboot
 [ "$1" = "-m" ] && amdvbflash -p 0 ~/miningBIOS.rom && reboot
-[ "$1" = "-p" ] && watch systemctl status ethermine.service && exit
+[ "$1" = "-p" ] && docker logs eathtespaghetieu_ethminer_1 && exit
 
 shutDownRGB
 amdgpuclocks mining
 setGPUfanSpeed 28
-systemctl start ethermine
+docker start eathtespaghetieu_ethminer_1

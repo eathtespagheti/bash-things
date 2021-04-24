@@ -1,6 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 [ ! "$(command -v shnsplit)" ] && echo "shntool missing" && exit 3
+[ ! "$(command -v cuetag.sh)" ] && echo "cuetool missing" && exit 3
 
 for file in "$@"; do
     if [ -f "$file" ]; then
@@ -22,6 +23,7 @@ for file in "$@"; do
     [ ! -f "$flacFile" ] && echo "flac not found" && exit 1
     [ ! -f "$cueFile" ] && echo "cue not found" && exit 2
 
-    shnsplit -f "$cueFile" -t "%n - %t" -o flac "$flacFile"
+    [ ! -d "split" ]  && mkdir "split"
+    shnsplit -f "$cueFile" -t "%n - %t" -d "split" -o flac "$flacFile"
+    cuetag.sh "$cueFile" split/*
 done
-

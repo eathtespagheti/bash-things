@@ -1,0 +1,18 @@
+# Placing "ddcci_backlight" into /etc/modules-load.d
+# leads to hang on boot with external (HDMI) monitor
+# connected to the laptop, so we need to add the module later.
+
+# And ddcci_backlight can't detect monitor during gdm.service startup.
+
+[Unit]
+After=multi-user.target
+Before=gdm.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/modprobe ddcci_backlight
+ExecStop=/usr/bin/modprobe --remove ddcci_backlight
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

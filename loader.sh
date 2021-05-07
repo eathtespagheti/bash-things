@@ -19,10 +19,15 @@
 # Check OS
 . "$BASHTHINGS_FUNCTIONS"/checkOS.sh
 # shellcheck disable=SC2154,SC2039
-if [ "$OSTYPE" = "linux-gnu" ]; then
-    . "$BASHTHINGS_FOLDER"/linux.sh
-elif [ "$OSTYPE" = "darwin" ]; then
-    . "$BASHTHINGS_FOLDER"/macOS.zsh
-else
-    . "$BASHTHINGS_FOLDER"/basic.bash
-fi
+
+case "$OSTYPE" in
+    linux*)
+        . "$BASHTHINGS_FOLDER"/linux.sh
+    ;;
+    darwin)
+        . "$BASHTHINGS_FOLDER"/macOS.zsh
+    ;;
+    *)
+        . "$BASHTHINGS_FOLDER"/basic.bash
+    ;;
+esac

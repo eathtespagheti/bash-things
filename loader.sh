@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# shellcheck disable=SC1090
+# shellcheck disable=SC1091
 
 [ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME"/.config
 [ -z "$XDG_CONFIG_DIRS" ] && export XDG_CONFIG_DIRS="$XDG_CONFIG_HOME" || export XDG_CONFIG_DIRS=:"$XDG_CONFIG_HOME"
@@ -18,7 +18,7 @@
 
 # Check OS
 . "$BASHTHINGS_FUNCTIONS"/checkOS.sh
-# shellcheck disable=SC2154,SC2039
+# shellcheck disable=SC3028
 
 case "$OSTYPE" in
     linux*)

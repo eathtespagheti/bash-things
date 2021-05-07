@@ -22,9 +22,6 @@
 # load amdgpu variables
 . "$BASHTHINGS_FUNCTIONS/amdgpuPaths.sh" || echo "Loading of amdgpu paths failed"
 
-# BigChameleon specific configuration
-# [ "$(uname -n)" = "BigChameleon" ] && . "$BASHTHINGS_MODULES/bigChameleon.sh"
-
 # trueline settings
 . "$BASHTHINGS_MODULES/trueline-settings.bash"
 . "$BASHTHINGS_MODULES/trueline/trueline.sh"

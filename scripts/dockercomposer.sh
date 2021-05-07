@@ -3,7 +3,7 @@
 # Check dockercomposer folder path
 [ -z "$DOCKERCOMPOSER_FOLDER" ] && DOCKERCOMPOSER_FOLDER="$XDG_CONFIG_HOME/dockercomposer"
 # Check if $DOCKERCOMPOSER_FOLDER exist
-[ ! -d "$DOCKERCOMPOSER_FOLDER" ] && echo "$DOCKERCOMPOSER_FOLDER folder doesn't exist!" && exit 2
+[ ! -d "$DOCKERCOMPOSER_FOLDER" ] && echo "$DOCKERCOMPOSER_FOLDER folder doesn't exist!" && return 2
 
 # Parse input parameters
 for parameter in "$@"; do
@@ -17,7 +17,7 @@ for parameter in "$@"; do
 done
 
 # Check command
-[ -z "$DOCKER_COMMAND" ] && echo "Missing docker-compose command!" && exit 1
+[ -z "$DOCKER_COMMAND" ] && echo "Missing docker-compose command!" && return 1
 
 # Run docker-compose command
 for file in $DOCKER_COMPOSE_FILE; do

@@ -11,7 +11,7 @@ source="$COPYRAW_BASEDIR/$1/$COPYRAW_DCIM_FOLDER/"
 destination="$RAW_PICTURES_FOLDER/$1/"
 
 # Check if source DCIM folder exist
-[ ! -d "$source" ] && echo "Unable to find $source directory" && exit 1
+[ ! -d "$source" ] && echo "Unable to find $source directory" && return 1
 
 # Check if folder exist, if not create it
 [ ! -d "$destination" ] && mkdir -p "$destination"
@@ -27,7 +27,7 @@ done
 eval rsync -Pamruv --stats --human-readable "$includes" --include='*/' --exclude='*' "$source" "$destination"
 
 # If user asked for disable automount
-[ "$2" = "--keep-mount" ] && exit 0
+[ "$2" = "--keep-mount" ] && return 0
 
 # Umount the drive
 umount "$COPYRAW_BASEDIR/$1" && gecho "You can now disconnect the drive"

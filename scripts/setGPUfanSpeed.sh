@@ -10,7 +10,7 @@ while [ "$i" -ne 10 ] && [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_
     GPU="$GPU_base$i"
     i=$((i + 1))
 done
-[ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && exit 1
+[ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && return 1
 device_path="/sys/class/drm/$GPU/device"
 # Find HWMON path
 HWMON_base="hwmon"
@@ -25,7 +25,6 @@ AMDGPU_HWMON="$device_path/hwmon/$HWMON"
 [ "$1" = "auto" ] && echo "2" >"$AMDGPU_HWMON/pwm1_enable" && exit
 
 [ "$(cat $AMDGPU_HWMON/pwm1_enable)" != "1" ] && echo "1" >"$AMDGPU_HWMON/pwm1_enable"
-
 
 fanSpeed="$(echo "$1 * 2.55" | bc -l)"
 echo "${fanSpeed%.*}" >"$AMDGPU_HWMON/pwm1"

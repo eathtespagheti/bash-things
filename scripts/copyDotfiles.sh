@@ -47,11 +47,11 @@ for parameter in "$@"; do
     case "$parameter" in
     --help)
         echo "Run with -b to enable backups, add -r to replace already present backups, run with -d to delete all backups file in folder at the end, run with -h to show this message"
-        exit 0
+        return 0
         ;;
     -h)
         echo "Run with -b to enable backups, add -r to replace already present backups, run with -d to delete all backups file in folder at the end, run with -h to show this message"
-        exit 0
+        return 0
         ;;
     --delete-backups)
         delete="true"
@@ -83,4 +83,4 @@ for dotfile in $dotfiles; do
     ln -s "$dotfilesFolder"/"$dotfile" "$outputFolder"/"$dotfile"
 done
 
-[ "$delete" = "true" ] && echo && deleteBackups || exit 0
+[ "$delete" = "true" ] && echo && deleteBackups || return 0

@@ -29,7 +29,7 @@ done
 
 for service in $inputs; do
     # Check if service exist
-    [ ! -f "$BASHTHINGS_SERVICES/$service" ] && echo "Service $service not found" && exit 2
+    [ ! -f "$BASHTHINGS_SERVICES/$service" ] && echo "Service $service not found" && return 2
     # Check if link exist
     [ -f "$FOLDER/$service" ] && runWithOrWithoutSudo rm "$FOLDER/$service"
     # Make link

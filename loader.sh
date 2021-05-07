@@ -21,13 +21,13 @@
 # shellcheck disable=SC3028
 
 case "$OSTYPE" in
-    linux*)
-        . "$BASHTHINGS_FOLDER"/linux.sh
+linux*)
+    . "$BASHTHINGS_FOLDER"/linux.sh
     ;;
-    darwin)
-        . "$BASHTHINGS_FOLDER"/macOS.zsh
+darwin)
+    . "$BASHTHINGS_FOLDER"/macOS.zsh
     ;;
-    *)
-        . "$BASHTHINGS_FOLDER"/basic.bash
+*)
+    . "$BASHTHINGS_FOLDER"/basic.bash
     ;;
 esac

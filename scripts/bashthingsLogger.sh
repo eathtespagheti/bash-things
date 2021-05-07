@@ -16,7 +16,7 @@ for parameter in "$@"; do
 done
 
 # If no logfile it's specified
-[ -z "$LOGFILE" ] && exit 1
+[ -z "$LOGFILE" ] && return 1
 
 # If logfile doesn't exist
 [ -f "$LOGFILE" ] && {

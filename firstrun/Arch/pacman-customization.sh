@@ -18,7 +18,7 @@ addParameter() {
 
 PACMAN_CONF_FILE="/etc/pacman.conf"
 
-[ ! -f "$PACMAN_CONF_FILE" ] && exit 1 && recho "Conf file for pacman not found" && bashthingsLogger "Conf file for pacman not found"
+[ ! -f "$PACMAN_CONF_FILE" ] && return 1 && recho "Conf file for pacman not found" && bashthingsLogger "Conf file for pacman not found"
 
 addParameter "Color"
 addParameter "ILoveCandy"

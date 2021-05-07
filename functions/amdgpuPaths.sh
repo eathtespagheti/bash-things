@@ -11,7 +11,7 @@ while [ "$i" -ne 10 ] && [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_
     i=$((i + 1))
 done
 
-[ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && exit 1
+[ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && return 1
 
 device_path="/sys/class/drm/$GPU/device"
 pp_od_clk_voltage_path="$device_path/pp_od_clk_voltage"

@@ -29,7 +29,7 @@ sudo pacman -Syu $AUTOYES
   cd yay || {
     echo "Error! yay folder not found! Exiting..."
     bashthingsLogger "Error! yay folder not found! Exiting..."
-    exit 1
+    return 1
   }
   makepkg -si $AUTOYES
   cd ..

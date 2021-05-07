@@ -113,4 +113,4 @@ for picture in $inputs; do
 done
 
 # Quit
-exit 0
+return 0

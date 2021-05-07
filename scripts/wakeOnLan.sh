@@ -22,4 +22,4 @@ while [ "$count" -lt $pingTimes ] && [ "$loop" = "false" ]; do
     fi
 done
 echo "Start failed after $count attempts"
-exit 1
+return 1

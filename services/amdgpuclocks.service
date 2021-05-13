@@ -3,7 +3,6 @@ Description=Change AMDGPU device clocks and voltages
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/amdgpuclocks default.*
-
+ExecStart=/usr/bin/sh -c "amdgpuclocks /etc/amdgpuclocks/default.*"
 [Install]
 WantedBy=multi-user.target

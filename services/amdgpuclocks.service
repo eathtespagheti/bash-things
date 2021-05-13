@@ -1,0 +1,9 @@
+[Unit]
+Description=Change AMDGPU device clocks and voltages
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/amdgpuclocks default.*
+
+[Install]
+WantedBy=multi-user.target

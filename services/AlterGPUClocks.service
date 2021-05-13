@@ -1,9 +1,0 @@
-[Unit]
-Description=Increase GPU core and memory clocks
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/AlterGPUClocks.sh
-
-[Install]
-WantedBy=multi-user.target

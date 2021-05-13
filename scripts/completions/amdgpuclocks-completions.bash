@@ -23,12 +23,8 @@ function genericCompletion() {
 _amdgpuclocks_completions() {
     numberOfWords="${#COMP_WORDS[@]}"
     [ "$numberOfWords" -gt 2 ] && return
-
-    CONFIG_FOLDER_NAME="amdgpuclocks"
-    [ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
-    CONFIG_FOLDER="$XDG_CONFIG_HOME/$CONFIG_FOLDER_NAME"
-
-    genericCompletion "$(ls "$CONFIG_FOLDER")"
+    profiles="$(amdgpuclocks -l | tr '\n' ' ')"
+    genericCompletion "$profiles"
 }
 
 complete -F _amdgpuclocks_completions amdgpuclocks

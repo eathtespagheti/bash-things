@@ -32,6 +32,7 @@ AMDGPU_POWERCAP="$device_path/hwmon/$HWMON/power1_cap"
 CONFIG_FOLDER_NAME="amdgpuclocks"
 [ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME="$HOME/.config"
 CONFIG_FOLDER="$XDG_CONFIG_HOME/$CONFIG_FOLDER_NAME"
+GLOBAL_CONFIG_FOLDER="/etc/$CONFIG_FOLDER_NAME"
 
 apply_oc() {
     oc="$(echo "$1" | grep "^[^pc] ")"
@@ -49,6 +50,16 @@ apply_oc() {
     echo "c" | sudo tee "$pp_od_clk_voltage_path" >/dev/null
 }
 
-[ -n "$1" ] && [ -f "$CONFIG_FOLDER/$1" ] && fileContent="$(cat "$CONFIG_FOLDER/$1")"
-[ -z "$fileContent" ] && echo "Profile not found or empty"
+[ -n "$1" ] && {
+    [ "$1" = "-l" ] && {
+        [ -d "$CONFIG_FOLDER" ] && profiles="$(ls --format single-column "$CONFIG_FOLDER")"
+        [ -d "$GLOBAL_CONFIG_FOLDER" ] && profiles="$profiles $(ls --format single-column "$GLOBAL_CONFIG_FOLDER")"
+        echo "$profiles" | sort | uniq
+        exit
+    }
+    [ -f "$GLOBAL_CONFIG_FOLDER/$1" ] && file="$GLOBAL_CONFIG_FOLDER/$1"
+    [ -f "$CONFIG_FOLDER/$1" ] && file="$CONFIG_FOLDER/$1"
+    fileContent="$(cat "$file")"
+}
+[ -z "$fileContent" ] && echo "Profile not found or empty" && exit 1
 apply_oc "$fileContent"

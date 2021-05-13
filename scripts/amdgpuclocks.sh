@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
 apply_oc() {
-    oc="$(echo "$1" | grep "^[^pcd] ")"
-    power_cap="$(echo "$1" | grep "^[^smpd] " | cut -d ' ' -f 2)"
-    power_profile="$(echo "$1" | grep "^[^smcd] " | cut -d ' ' -f 2)"
+    oc="$(echo "$1" | grep "^[^fpcd] ")"
+    power_cap="$(echo "$1" | grep "^c " | cut -d ' ' -f 2)"
+    power_profile="$(echo "$1" | grep "^p " | cut -d ' ' -f 2)"
+    fan_speed="$(echo "$1" | grep "^f " | cut -d ' ' -f 2)"
 
     [ -n "$oc" ] && {
         echo "$oc" | while IFS= read -r line; do
@@ -12,6 +13,12 @@ apply_oc() {
     }
     [ -n "$power_cap" ] && echo "$power_cap""000000" | tee "$AMDGPU_POWERCAP" >/dev/null
     [ -n "$power_profile" ] && echo "manual" | tee "$power_dpm_force_performance_level_path" >/dev/null && echo "$power_profile" | tee "$pp_power_profile_mode_path" >/dev/null
+    [ -n "$fan_speed" ] && {
+        [ "$fan_speed" = "auto" ] && echo "2" | tee "$hwmon/pwm1_enable" >/dev/null && return
+        [ "$(cat $hwmon/pwm1_enable)" != "1" ] && echo "1" | tee "$hwmon/pwm1_enable" >/dev/null
+        fan_speed="$(echo "$fan_speed * 2.55" | bc -l)"
+        echo "${fan_speed%.*}" | tee "$hwmon/pwm1" >/dev/null
+    }
 
     echo "c" | tee "$pp_od_clk_voltage_path" >/dev/null
 }
@@ -25,7 +32,7 @@ findHWMON() {
 
 findGPU() {
     profileContent="$1"
-    device_id="$(echo "$1" | grep "^[d] " | cut -d ' ' -f 2)"
+    device_id="$(echo "$1" | grep "^d " | cut -d ' ' -f 2)"
     cardsList="$(for card in /sys/class/drm/card*; do echo "$card"; done | grep "^.*card[0-9]*$" | tr '\n' ' ')"
     for card in $cardsList; do
         device_path="$card/device"

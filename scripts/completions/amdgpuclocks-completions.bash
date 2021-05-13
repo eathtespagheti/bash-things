@@ -21,8 +21,6 @@ function genericCompletion() {
 }
 
 _amdgpuclocks_completions() {
-    numberOfWords="${#COMP_WORDS[@]}"
-    [ "$numberOfWords" -gt 2 ] && return
     profiles="$(amdgpuclocks -l | tr '\n' ' ')"
     genericCompletion "$profiles"
 }

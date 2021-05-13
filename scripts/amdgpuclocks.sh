@@ -45,17 +45,25 @@ CONFIG_FOLDER_NAME="amdgpuclocks"
 CONFIG_FOLDER="$XDG_CONFIG_HOME/$CONFIG_FOLDER_NAME"
 GLOBAL_CONFIG_FOLDER="/etc/$CONFIG_FOLDER_NAME"
 
-[ -n "$1" ] && {
-    [ "$1" = "-l" ] && {
-        [ -d "$CONFIG_FOLDER" ] && profiles="$(ls --format single-column "$CONFIG_FOLDER")"
-        [ -d "$GLOBAL_CONFIG_FOLDER" ] && profiles="$profiles $(ls --format single-column "$GLOBAL_CONFIG_FOLDER")"
-        echo "$profiles" | sort | uniq
-        exit
-    }
-    [ -f "$GLOBAL_CONFIG_FOLDER/$1" ] && file="$GLOBAL_CONFIG_FOLDER/$1"
-    [ -f "$CONFIG_FOLDER/$1" ] && file="$CONFIG_FOLDER/$1"
-    profileContent="$(cat "$file")"
-}
+for profile in "$@"; do
+    unset profileContent
+    unset file
 
-[ -z "$profileContent" ] && echo "Profile not found or empty" && exit 1
-findGPU "$profileContent"
+    [ -n "$profile" ] && {
+        [ "$profile" = "-l" ] && {
+            [ -d "$CONFIG_FOLDER" ] && profiles="$(ls --format single-column "$CONFIG_FOLDER")"
+            [ -d "$GLOBAL_CONFIG_FOLDER" ] && profiles="$profiles $(ls --format single-column "$GLOBAL_CONFIG_FOLDER")"
+            echo "$profiles" | sort | uniq
+            exit
+        }
+        [ -f "$GLOBAL_CONFIG_FOLDER/$profile" ] && file="$GLOBAL_CONFIG_FOLDER/$profile"
+        [ -f "$CONFIG_FOLDER/$profile" ] && file="$CONFIG_FOLDER/$profile"
+        [ -f "$file" ] && profileContent="$(cat "$file")"
+    }
+
+    if [ -z "$profileContent" ]; then
+        echo "Profile not found or empty"
+    else
+        findGPU "$profileContent"
+    fi
+done

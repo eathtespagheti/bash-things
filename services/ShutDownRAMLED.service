@@ -1,0 +1,8 @@
+[Unit]
+Description=Shutdown LED on RAM sticks
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c "openrgb -d 0 -m Off && openrgb -d 1 -m Off"
+[Install]
+WantedBy=multi-user.target

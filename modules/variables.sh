@@ -76,3 +76,6 @@ export INFOPATH="$INFOPATH":/opt/texlive/2020/texmf-dist/doc/info
 # Games stuff
 export MANGOHUD=1
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+
+# CopyRAW remote
+[ "$(uname -n)" = "AMD-Stark-Portable" ] && export RAW_PICTURES_FOLDER="bigchameleon:$HOME/Pictures/DCIM/RAW"

@@ -1,5 +1,6 @@
 [Unit]
 Description=Change AMDGPU device clocks and voltages
+After=docker.service
 
 [Service]
 Type=oneshot

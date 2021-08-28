@@ -1,30 +1,34 @@
 #!/usr/bin/env sh
 
 amd_vendor="0x1002"
+fanSpeed="$1"
 
-# Find AMD GPU
-GPU_base="card"
-GPU="card0"
-i=1
-while [ "$i" -ne 10 ] && [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ]; do
-    GPU="$GPU_base$i"
-    i=$((i + 1))
-done
-[ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && return 1
-device_path="/sys/class/drm/$GPU/device"
-# Find HWMON path
-HWMON_base="hwmon"
-HWMON="$HWMON_base"0
-i=1
-while [ "$i" -ne 10 ] && [ ! -d "$device_path/hwmon/$HWMON" ]; do
-    HWMON="$HWMON_base$i"
-    i=$((i + 1))
-done
-AMDGPU_HWMON="$device_path/hwmon/$HWMON"
+setSpeed() {
+    [ "$fanSpeed" = "auto" ] && echo "2" >"$hwmon/pwm1_enable" && exit 0
+    [ "$(cat $hwmon/pwm1_enable)" != "1" ] && echo "1" >"$hwmon/pwm1_enable"
+    fanSpeed="$(echo "$1 * 2.55" | bc -l)"
+    echo "${fanSpeed%.*}" >"$hwmon/pwm1"
+}
 
-[ "$1" = "auto" ] && echo "2" >"$AMDGPU_HWMON/pwm1_enable" && exit
+findHWMON() {
+    profileContent="$1"
+    for hwmon in $device_path/hwmon/hwmon*; do
+        setSpeed
+    done
+}
 
-[ "$(cat $AMDGPU_HWMON/pwm1_enable)" != "1" ] && echo "1" >"$AMDGPU_HWMON/pwm1_enable"
+findGPU() {
+    device_id="$(echo "$1" | grep "^d " | cut -d ' ' -f 2)"
+    cardsList="$(for card in /sys/class/drm/card*; do echo "$card"; done | grep "^.*card[0-9]*$" | tr '\n' ' ')"
+    for card in $cardsList; do
+        device_path="$card/device"
+        [ "$(cat $device_path/vendor)" = "$amd_vendor" ] && [ "$(cat $device_path/device)" = "$device_id" ] && {
+            pp_od_clk_voltage_path="$device_path/pp_od_clk_voltage"
+            pp_power_profile_mode_path="$device_path/pp_power_profile_mode"
+            power_dpm_force_performance_level_path="$device_path/power_dpm_force_performance_level"
+            findHWMON
+        }
+    done
+}
 
-fanSpeed="$(echo "$1 * 2.55" | bc -l)"
-echo "${fanSpeed%.*}" >"$AMDGPU_HWMON/pwm1"
+findGPU

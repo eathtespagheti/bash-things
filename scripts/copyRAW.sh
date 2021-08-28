@@ -13,9 +13,6 @@ destination="$RAW_PICTURES_FOLDER/$1/"
 # Check if source DCIM folder exist
 [ ! -d "$source" ] && echo "Unable to find $source directory" && return 1
 
-# Check if folder exist, if not create it
-[ ! -d "$destination" ] && mkdir -p "$destination"
-
 includes=""
 # Generate includes
 for extension in $COPYRAW_EXTENSIONS; do

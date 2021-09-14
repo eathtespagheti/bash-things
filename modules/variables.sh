@@ -48,12 +48,7 @@ elif [ "$(command -v gedit)" ]; then
 else
     EDITOR_GUI="$EDITOR_CONSOLE"
 fi
-# If I'm running a GUI session
-if [ -n "$DISPLAY" ]; then
-    EDITOR=$EDITOR_GUI
-else
-    EDITOR=$EDITOR_CONSOLE
-fi
+EDITOR=$EDITOR_CONSOLE
 export EDITOR && export EDITOR_CONSOLE && export EDITOR_GUI
 
 # Qt theme

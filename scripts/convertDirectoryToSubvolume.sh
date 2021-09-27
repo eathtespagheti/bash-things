@@ -9,7 +9,7 @@ tmpSubvolName="$dir.subvol"
 [ -f "$tmpSubvolName" ] || [ -d "$tmpSubvolName" ] && echo "$tmpSubvolName already exist" && exit 3
 
 btrfs subvolume create "$tmpSubvolName"
-cp -r --reflink=always "$dir"/* "$tmpSubvolName/."
+cp -rT --reflink=always "$dir" "$tmpSubvolName"
 
 tmpForDiff="$(mktemp)"
 find "$dir" -maxdepth 1 -printf "%f\n" | tail -n +2 >"$tmpForDiff"

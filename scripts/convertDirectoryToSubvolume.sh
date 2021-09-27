@@ -13,7 +13,7 @@ cp -r --reflink=always "$dir"/* "$tmpSubvolName/."
 
 tmpForDiff="$(mktemp)"
 find "$dir" -maxdepth 1 -printf "%f\n" | tail -n +2 >"$tmpForDiff"
-diffOut="$(find "$tmpSubvolName" -maxdepth 1 ! -name ".subvol" -printf "%f\n" | tail -n +2 | diff "$tmpForDiff" -)"
+diffOut="$(find "$tmpSubvolName" -maxdepth 1 -printf "%f\n" | tail -n +2 | diff "$tmpForDiff" -)"
 rm "$tmpForDiff"
 
 [ -n "$diffOut" ] && echo "Diff not empty:" && echo "$diffOut" && exit 4

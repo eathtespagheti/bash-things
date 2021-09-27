@@ -4,6 +4,8 @@
 alias yy="yay -Syu --noconfirm --sudoloop"
 alias suspend="systemctl suspend"
 alias please="sudo !!"
+alias deduplicate="duperemove -drhv --hashfile=.hash"
+alias cp="cp --reflink=auto"
 
 # Editor selection
 if [ "$(command -v /usr/bin/code)" ]; then

@@ -529,3 +529,4 @@ _complete_alias() {
 #complete -F _complete_alias myalias3
 
 complete -F _complete_alias please
+complete -F _complete_alias cps

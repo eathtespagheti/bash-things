@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # Change color based on machine name
-[ "$(uname -n)" = "BigChameleon" ] && bgColor="light_blue" || bgColor="orange"
+bgColor="orange"
+[ "$(uname -n)" = "BigChameleon" ] && bgColor="light_blue"
+[ "$(uname -n)" = "8boi" ] && bgColor="green"
 
 # shellcheck disable=SC2034
 declare -a TRUELINE_SEGMENTS=(

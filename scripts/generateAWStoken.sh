@@ -13,7 +13,7 @@ loadVariables
 [ -z "$AWS_MFA_ARN" ] && printf "AWS MFA ARN not provided, write it in \$AWS_MFA_ARN or set it with:\naws configure set aws_mfa_arn <yourawsmfaarn> --profile %s\n" "$BASE_PROFILE" && exit 2
 
 printf "Insert OTP code: "
-read -r tokenCodeds
+read -r tokenCode
 
 tokenResponse="$(aws sts get-session-token --serial-number "$AWS_MFA_ARN" --token-code "$tokenCode" --profile "$BASE_PROFILE" --output yaml)" && {
     accessKeyId="$(echo "$tokenResponse" | grep AccessKeyId: | cut -d ' ' -f 4)"

@@ -19,6 +19,7 @@ export BASHTHINGS_SERVICES="$BASHTHINGS_FOLDER/services"
 export BASHTHINGS_MODULES="$BASHTHINGS_FOLDER/modules"
 export BASHTHINGS_BIN="$BASHTHINGS_SCRIPTS/bin"
 export PROJECTS_FOLDER="$HOME/Projects"
+export TMPDIR="/tmp"
 
 # Coding
 # shellcheck disable=SC2039

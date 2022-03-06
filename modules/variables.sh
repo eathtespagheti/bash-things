@@ -21,6 +21,9 @@ export BASHTHINGS_BIN="$BASHTHINGS_SCRIPTS/bin"
 export PROJECTS_FOLDER="$HOME/Projects"
 export TMPDIR="/tmp"
 
+# Whalebrew
+export WHALEBREW_CONFIG_DIR="$XDG_CONFIG_HOME/.whalebrew"
+
 # Coding
 # shellcheck disable=SC2039
 [ "$OSTYPE" = "linux-gnu" ] && JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")

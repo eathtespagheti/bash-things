@@ -2,7 +2,7 @@
 TabbedEditor=false
 StoreLastProfile=true
 StartupDirectory=last
-StartupPath=/home/fabio/Pictures/DCIM/RAW/SONY/100MSDCF
+StartupPath=/home/fabio/Pictures/DCIM
 DateFormat=%y-%m-%d
 AdjusterMinDelay=100
 AdjusterMaxDelay=200
@@ -52,7 +52,7 @@ menuGroupFileOperations=true
 menuGroupProfileOperations=true
 menuGroupExtProg=true
 MaxRecentFolders=15
-RecentFolders=/home/fabio/Pictures/DCIM/RAW/SONY/100MSDCF;/home/fabio/Pictures/DCIM/RAW/SONY;/home/fabio/Pictures/DCIM/RAW;/home/fabio;sftp://bigchameleon/home/fabio/Dischi/Beta/fabio/Pictures/DCIM/RAW/SONY;/home/fabio/Pictures;/home/fabio/Pictures/Timelapse;/home/fabio/Pictures/DCIM/RAW/NIKON/104D5600;/home/fabio/Pictures/DCIM/RAW/Flat Fields;/home/fabio/Pictures/Exported;/home/fabio/Pictures/DCIM/RAW/Nikon/104D5600;/home/fabio/Pictures/DCIM/RAW/Sony/100MSDCF;/home/fabio/Pictures/DCIM/RAW/Sony;/home/fabio/Pictures/DCIM/RAW/OnePlus 6T;/home/fabio/Pictures/Nikon/104D5600;
+RecentFolders=/home/fabio/Pictures/DCIM;/home/fabio/Pictures;/home/fabio/Pictures/DCIM/RAW/SONY/100MSDCF;/home/fabio/Pictures/DCIM/RAW/SONY;/home/fabio/Pictures/DCIM/RAW;/home/fabio;sftp://bigchameleon/home/fabio/Dischi/Beta/fabio/Pictures/DCIM/RAW/SONY;/home/fabio/Pictures/Timelapse;/home/fabio/Pictures/DCIM/RAW/NIKON/104D5600;/home/fabio/Pictures/DCIM/RAW/Flat Fields;/home/fabio/Pictures/Exported;/home/fabio/Pictures/DCIM/RAW/Nikon/104D5600;/home/fabio/Pictures/DCIM/RAW/Sony/100MSDCF;/home/fabio/Pictures/DCIM/RAW/Sony;/home/fabio/Pictures/DCIM/RAW/OnePlus 6T;
 
 [Clipping Indication]
 HighlightThreshold=253
@@ -97,7 +97,7 @@ AutoSuffix=true
 ForceFormatOpts=true
 SaveMethodNum=0
 UsePathTemplate=false
-LastSaveAsPath=/home/fabio/Pictures/photoprism-download-20210701-153822-3awkbzhz
+LastSaveAsPath=/home/fabio/Pictures
 OverwriteOutputFile=false
 
 [Profiles]
@@ -115,10 +115,10 @@ CustomProfileBuilderKeys=0
 
 [GUI]
 Favorites=
-WindowWidth=2560
-WindowHeight=1080
-WindowX=0
-WindowY=0
+WindowWidth=1720
+WindowHeight=1376
+WindowX=33
+WindowY=29
 WindowMonitor=0
 MeowMonitor=-1
 MeowFullScreen=false

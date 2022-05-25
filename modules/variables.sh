@@ -26,7 +26,7 @@ export WHALEBREW_CONFIG_DIR="$XDG_CONFIG_HOME/.whalebrew"
 
 # Coding
 # shellcheck disable=SC2039
-[ "$OSTYPE" = "linux-gnu" ] && JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+JAVA_HOME="/usr/lib/jvm/default"
 [ -n "$JAVA_HOME" ] && export JAVA_HOME
 # Select the right console editor
 if [ "$(command -v vim)" ]; then

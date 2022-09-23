@@ -64,12 +64,12 @@ aws_switch_root() {
 }
 
 
-[ "$1" = "help" ] && printf "Usage:\n. %s <account_id>\n\naccount_id could also be \"production\" or \"staging\"\nIf account_id it's \"root\" or missing role will be unset to the default one from aws configuration\n" "$0" && return 1
-[ "$1" = "list-config" ] && list_configuration && return 0
-[ "$1" = "list" ] && list_available_profiles && return 0
-[ "$1" = "completions" ] && completion_targets && return 0
+[ "$1" = "help" ] && printf "Usage:\n. %s <account_id>\n\naccount_id could also be \"production\" or \"staging\"\nIf account_id it's \"root\" or missing role will be unset to the default one from aws configuration\n" "$0" && exit 1
+[ "$1" = "list-config" ] && list_configuration && exit 0
+[ "$1" = "list" ] && list_available_profiles && exit 0
+[ "$1" = "completions" ] && completion_targets && exit 0
 # If the first argument is root or empty
-[ "$1" = "root" ] && aws_switch_root && return 0
-[ -z "$1" ] && aws_switch_root && return 0
+[ "$1" = "root" ] && aws_switch_root && exit 0
+[ -z "$1" ] && aws_switch_root && exit 0
 # If the first argument is everything else
 aws_switch_env "$(get_role_id "$1")"

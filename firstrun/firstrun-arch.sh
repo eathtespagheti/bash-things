@@ -12,7 +12,7 @@ bashthingsFirstrun="$BASHTHINGS_FOLDER/firstrun"
 bashthingsFirstrunSpecific="$bashthingsFirstrun/$DISTRO"
 export PACKAGE_CHECK="pacman -Q"
 export PACKAGE_INSTALL="pacman -S"
-export AUTOYES="--noconfirm"
+export AUTOYES="--noconfirm --needed"
 [ "$1" = "--alltrue" ] && export ALLTRUE="true"
 bashthingsLogger "Installing bashthings with $DISTRO script"
 
@@ -33,7 +33,7 @@ sudo pacman -Syu $AUTOYES
   }
   makepkg -si $AUTOYES
   cd ..
-  rm -rf yay && bashthingsLogger "Revmovung yay source folder"
+  rm -rf yay && bashthingsLogger "Removing yay source folder"
 }
 # Update autoyes value
 export PACKAGE_CHECK="yay -Q"
@@ -66,7 +66,7 @@ export PROMPT_MESSAGE="Enable Improved Graphic Drivers?"
 installerPrompt customInstaller amdvlk lib32-amdvlk lib32-vulkan-icd-loader lib32-vulkan-radeon mesa vulkan-radeon
 # Custom default apps
 export PROMPT_MESSAGE="Install essentials custom apps and utilities?"
-installerPrompt customInstaller albert bash-completion brave-bin c-lolcat gst-libav highlight htop nano nvm screen-sleep telegram-desktop transmission-gtk vim visual-studio-code-insiders x264 x265
+installerPrompt customInstaller bash-completion gst-libav highlight htop vim x264 x265
 # Broadcom WiFi
 export PROMPT_MESSAGE="Install Broadcom WiFi Drivers?"
 installerPrompt "$bashthingsFirstrunSpecific/broadcom.sh"

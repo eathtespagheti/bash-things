@@ -1,5 +1,6 @@
 *.db
 *.db-*
+*.lock
 *.edit
 *.backup
 *.defaults

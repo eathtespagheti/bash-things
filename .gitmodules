@@ -10,3 +10,6 @@
 [submodule "dotfiles/.config/dockercomposer"]
 	path = dotfiles/.config/dockercomposer
 	url = git@gitlab.com:eathtespagheti/.dockerfiles.git
+[submodule "dotfiles/.config/darktable/lua"]
+	path = dotfiles/.config/darktable/lua
+	url = https://github.com/darktable-org/lua-scripts.git

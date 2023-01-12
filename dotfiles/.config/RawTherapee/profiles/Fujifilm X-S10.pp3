@@ -1,6 +1,6 @@
 [Version]
-AppVersion=5.8
-Version=346
+AppVersion=5.9
+Version=349
 
 [General]
 Rank=-1
@@ -12,10 +12,10 @@ Auto=false
 Clip=0.02
 Compensation=0
 Brightness=0
-Contrast=0
-Saturation=0
+Contrast=15
+Saturation=5
 Black=0
-HighlightCompr=100
+HighlightCompr=0
 HighlightComprThreshold=0
 ShadowCompr=50
 HistogramMatching=false
@@ -29,6 +29,7 @@ Curve2=0;
 [HLRecovery]
 Enabled=true
 Method=Color
+Hlbl=0
 
 [Retinex]
 Enabled=false
@@ -46,6 +47,7 @@ Vart=200
 Limd=8
 highl=4
 skal=3
+complexMethod=normal
 RetinexMethod=high
 mapMethod=none
 viewMethod=none
@@ -64,9 +66,9 @@ TransmissionCurve=1;0;0.5;0.34999999999999998;0.34999999999999998;0.599999999999
 GainTransmissionCurve=1;0;0.10000000000000001;0.34999999999999998;0;0.25;0.25;0.34999999999999998;0.34999999999999998;0.69999999999999996;0.25;0.34999999999999998;0.34999999999999998;1;0.10000000000000001;0;0;
 
 [Local Contrast]
-Enabled=true
+Enabled=false
 Radius=80
-Amount=0.10000000000000001
+Amount=0.20000000000000001
 Darkness=1
 Lightness=1
 
@@ -163,8 +165,8 @@ Uniformity=5
 [White Balance]
 Enabled=true
 Setting=Camera
-Temperature=5027
-Green=1.085
+Temperature=3088
+Green=0.622
 Equal=1
 TemperatureBias=0
 
@@ -175,10 +177,14 @@ AutoDegree=true
 Degreeout=90
 AutoDegreeout=true
 Surround=Average
+complex=normal
+ModelCat=16
+CatCat=clas
 Surrsrc=Average
 AdaptLum=16
 Badpixsl=0
 Model=RawT
+Illum=i50
 Algorithm=JC
 J-Light=0
 Q-Bright=0
@@ -196,12 +202,14 @@ Autoybscen=true
 SurrSource=false
 Gamut=true
 Tempout=5000
+Autotempout=true
 Greenout=1
 Tempsc=5000
 Greensc=1
 Ybout=18
 Datacie=false
 Tonecie=false
+Presetcat02=false
 CurveMode=Lightness
 CurveMode2=Lightness
 CurveMode3=Chroma
@@ -210,7 +218,7 @@ Curve2=0;
 Curve3=0;
 
 [Impulse Denoising]
-Enabled=true
+Enabled=false
 Threshold=50
 
 [Defringing]
@@ -224,7 +232,7 @@ Enabled=false
 Strength=50
 ShowDepthMap=false
 Depth=25
-Luminance=false
+Saturation=50
 
 [Directional Pyramid Denoising]
 Enabled=true
@@ -275,8 +283,8 @@ Lab=false
 Enabled=false
 X=0
 Y=0
-W=4592
-H=3064
+W=6238
+H=4162
 FixedRatio=true
 Ratio=As Image
 Orientation=As Image
@@ -308,8 +316,23 @@ LFCameraModel=
 LFLens=
 
 [Perspective]
+Method=simple
 Horizontal=0
 Vertical=0
+CameraCropFactor=1.5
+CameraFocalLength=50
+CameraPitch=0
+CameraRoll=0
+CameraShiftHorizontal=0
+CameraShiftVertical=0
+CameraYaw=0
+ProjectionShiftHorizontal=0
+ProjectionPitch=0
+ProjectionRotate=0
+ProjectionShiftVertical=0
+ProjectionYaw=0
+ControlLineValues=
+ControlLineTypes=
 
 [Gradient]
 Enabled=false
@@ -318,6 +341,10 @@ Feather=25
 Strength=0.59999999999999998
 CenterX=0
 CenterY=0
+
+[Locallab]
+Enabled=false
+Selspot=0
 
 [PCVignette]
 Enabled=false
@@ -338,20 +365,22 @@ CenterY=0
 
 [Resize]
 Enabled=false
-Scale=0.20000000000000001
+Scale=0.14000000000000001
 AppliesTo=Cropped area
 Method=Lanczos
 DataSpecified=3
 Width=900
 Height=900
+LongEdge=900
+ShortEdge=900
 AllowUpscaling=false
 
 [PostDemosaicSharpening]
 Enabled=true
-Contrast=9
+Contrast=20
 AutoContrast=true
 AutoRadius=true
-DeconvRadius=0.82999999999999996
+DeconvRadius=0.48999999999999999
 DeconvRadiusOffset=0
 DeconvIterCheck=true
 DeconvIterations=20
@@ -374,7 +403,7 @@ DeconvDamping=0
 DeconvIterations=100
 
 [Color Management]
-InputProfile=(camera)
+InputProfile=(cameraICC)
 ToneCurve=false
 ApplyLookTable=true
 ApplyBaselineExposureOffset=true
@@ -382,9 +411,28 @@ ApplyHueSatMap=true
 DCPIlluminant=0
 WorkingProfile=ProPhoto
 WorkingTRC=none
+Will=D50
+Wprim=def
 WorkingTRCGamma=2.3999999999999999
 WorkingTRCSlope=12.92
+Redx=0.73470000000000002
+Redy=0.26529999999999998
+Grex=0.15959999999999999
+Grey=0.84040000000000004
+Blux=0.036600000000000001
+Bluy=0.0001
+LabGridcieALow=0.51763000000000003
+LabGridcieBLow=-0.33582000000000001
+LabGridcieAHigh=-0.75163000000000002
+LabGridcieBHigh=-0.81799999999999995
+LabGridcieGx=-0.69164000000000003
+LabGridcieGy=-0.70909
+LabGridcieWx=-0.18964
+LabGridcieWy=-0.16636000000000001
+Preser=0
+Fbw=false
 OutputProfile=RTv4_sRGB
+aIntent=Relative
 OutputProfileIntent=Relative
 OutputBPC=true
 
@@ -392,9 +440,19 @@ OutputBPC=true
 Enabled=false
 Strength=100
 Balance=0
+Sigmafin=1
+Sigmaton=1
+Sigmacol=1
+Sigmadir=1
+Rangeab=20
+Protab=0
 Iter=0
 MaxLev=7
 TilesMethod=full
+complexMethod=normal
+mixMethod=mix7
+sliMethod=sli
+quaMethod=cons
 DaubMethod=4_
 ChoiceLevMethod=all
 BackMethod=grey
@@ -406,13 +464,34 @@ CBgreenlow=0
 CBbluehigh=0
 CBbluemed=0
 CBbluelow=0
+Ballum=7
+Sigm=1
+Levden=0
+Thrden=0
+Limden=0
+Balchrom=0
+Chromfine=0
+Chromcoarse=0
+MergeL=20
+MergeC=20
+Softrad=0
+Softradend=0
+Strend=50
+Detend=0
+Thrend=0
 Expcontrast=false
 Expchroma=false
 Expedge=false
+expbl=false
 Expresid=false
 Expfinal=false
 Exptoning=false
 Expnoise=false
+Expclari=false
+LabGridALow=0
+LabGridBLow=0
+LabGridAHigh=0
+LabGridBHigh=0
 Contrast1=0
 Contrast2=0
 Contrast3=0
@@ -440,16 +519,19 @@ Level0noise=0;0;
 Level1noise=0;0;
 Level2noise=0;0;
 Level3noise=0;0;
+Leveldenoise=0;0;
+Levelsigm=1;1;
 ThresholdHighlight=5
-ThresholdShadow=4
+ThresholdShadow=6
 Edgedetect=90
 Edgedetectthr=20
 EdgedetectthrHi=0
 Edgesensi=60
 Edgeampli=10
 ThresholdChroma=5
-CHromaMethod=without
+CHromaMethod=link
 Medgreinf=less
+Ushamethod=clari
 CHSLromaMethod=SL
 EDMethod=CU
 NPMethod=none
@@ -457,13 +539,18 @@ BAMethod=none
 TMMethod=cont
 ChromaLink=0
 ContrastCurve=1;0;0.25;0.34999999999999998;0.34999999999999998;0.5;0.75;0.34999999999999998;0.34999999999999998;0.90000000000000002;0;0.34999999999999998;0.34999999999999998;
+blcurve=1;0;0;0;0.34999999999999998;0.5;0;0.34999999999999998;0.34999999999999998;1;0;0.34999999999999998;0.34999999999999998;
 Pastlev=0;2;30;20;
 Satlev=30;45;130;100;
 OpacityCurveRG=1;0;0.5;0.34999999999999998;0.34999999999999998;1;0.5;0.34999999999999998;0.34999999999999998;
 OpacityCurveBY=1;0;0.5;0.34999999999999998;0.34999999999999998;1;0.5;0.34999999999999998;0.34999999999999998;
+wavdenoise=1;0;1;0.34999999999999998;0.34999999999999998;0.5;1;0.34999999999999998;0.34999999999999998;1;1;0.34999999999999998;0.34999999999999998;
+wavdenoiseh=1;0;1;0.34999999999999998;0.34999999999999998;0.5;1;0.34999999999999998;0.34999999999999998;1;1;0.34999999999999998;0.34999999999999998;
 OpacityCurveW=1;0;0.34999999999999998;0.34999999999999998;0;0.34999999999999998;0.75;0.34999999999999998;0.34999999999999998;0.59999999999999998;0.75;0.34999999999999998;0.34999999999999998;1;0.34999999999999998;0;0;
 OpacityCurveWL=1;0;0.5;0.34999999999999998;0.34999999999999998;1;0.5;0.34999999999999998;0.34999999999999998;
 HHcurve=0;
+Wavguidcurve=0;
+Wavhuecurve=0;
 CHcurve=0;
 WavclCurve=0;
 Median=false
@@ -472,22 +559,38 @@ Linkedg=true
 CBenab=false
 Lipst=false
 Skinprotect=0
+chrwav=0
+bluwav=1
 Hueskin=-5;25;170;120;
 Edgrad=15
+Edgeffect=1
 Edgval=0
 ThrEdg=10
 AvoidColorShift=false
+Showmask=false
+Oldsh=true
 TMr=false
+Sigma=1
+Offset=1
+Lowthr=40
 ResidualcontShadow=0
 ResidualcontHighlight=0
 ThresholdResidShadow=35
 ThresholdResidHighLight=65
+Residualradius=40
 Residualchroma=0
+Residualblur=0
+Residualblurc=0
 ResidualTM=0
+ResidualEDGS=1.3999999999999999
+ResidualSCALE=1
 Residualgamma=1
 HueRangeResidual=0
 HueRange=-260;-250;-130;-140;
 Contrast=0
+
+[Spot removal]
+Enabled=false
 
 [Directional Pyramid Equalizer]
 Enabled=false
@@ -612,6 +715,7 @@ PixelShiftSigma=1
 PixelShiftShowMotion=false
 PixelShiftShowMotionMaskOnly=false
 pixelShiftHoleFill=true
+pixelShiftAverage=false
 pixelShiftMedian=false
 pixelShiftGreen=true
 pixelShiftBlur=true
@@ -640,3 +744,10 @@ Enabled=false
 RedRatio=1.3600000000000001
 GreenExponent=1.5
 BlueRatio=0.85999999999999999
+ColorSpace=0
+RefInput=0;0;0;
+RefOutput=2739.948486328125;2740.07568359375;2739.714111328125;
+BackCompat=1
+
+[RAW Preprocess WB]
+Mode=1

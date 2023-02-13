@@ -2,7 +2,7 @@
 TabbedEditor=false
 StoreLastProfile=true
 StartupDirectory=last
-StartupPath=/home/fabio/Pictures/DCIM/RAW/FUJI/164_FUJI
+StartupPath=/home/fabio/Pictures/DCIM/RAW/FUJI
 DateFormat=%y-%m-%d
 AdjusterMinDelay=100
 AdjusterMaxDelay=200
@@ -62,7 +62,7 @@ menuGroupFileOperations=true
 menuGroupProfileOperations=true
 menuGroupExtProg=true
 MaxRecentFolders=15
-RecentFolders=/home/fabio/Pictures/DCIM/RAW/FUJI/164_FUJI;/home/fabio/Pictures/DCIM/RAW/FUJI/163_FUJI;/home/fabio/Pictures/DCIM/RAW/FUJI;/home/fabio/Pictures;/home/fabio/Pictures/DCIM/RAW/SONY/106D5600;/home/fabio/Pictures/Padru 2022/106D5600;/home/fabio/Pictures/Padru 2022/100MSDCF;/home/fabio/Pictures/DCIM;/home/fabio/Pictures/DCIM/RAW/SONY/100MSDCF;/home/fabio/Pictures/DCIM/RAW/SONY;/home/fabio/Pictures/DCIM/RAW;/home/fabio;sftp://bigchameleon/home/fabio/Dischi/Beta/fabio/Pictures/DCIM/RAW/SONY;/home/fabio/Pictures/Timelapse;/home/fabio/Pictures/DCIM/RAW/NIKON/104D5600;
+RecentFolders=/home/fabio/Pictures/DCIM/RAW/FUJI;/home/fabio/Pictures/DCIM/RAW/FUJI/163_FUJI;/home/fabio/Pictures/DCIM/RAW/FUJI/164_FUJI;/home/fabio/Pictures;/home/fabio/Pictures/DCIM/RAW/SONY/106D5600;/home/fabio/Pictures/Padru 2022/106D5600;/home/fabio/Pictures/Padru 2022/100MSDCF;/home/fabio/Pictures/DCIM;/home/fabio/Pictures/DCIM/RAW/SONY/100MSDCF;/home/fabio/Pictures/DCIM/RAW/SONY;/home/fabio/Pictures/DCIM/RAW;/home/fabio;sftp://bigchameleon/home/fabio/Dischi/Beta/fabio/Pictures/DCIM/RAW/SONY;/home/fabio/Pictures/Timelapse;/home/fabio/Pictures/DCIM/RAW/NIKON/104D5600;
 
 [Clipping Indication]
 HighlightThreshold=253
@@ -146,7 +146,7 @@ PreferencesWidth=964
 PreferencesHeight=764
 SaveAsDialogWidth=1002
 SaveAsDialogHeight=779
-ToolPanelWidth=521
+ToolPanelWidth=515
 BrowserToolPanelWidth=587
 BrowserToolPanelHeight=527
 BrowserToolPanelOpened=true

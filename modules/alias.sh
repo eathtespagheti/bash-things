@@ -4,7 +4,7 @@
 alias yy="yay -Syu --noconfirm --sudoloop"
 alias suspend="systemctl suspend"
 alias please="sudo !!"
-alias deduplicate="duperemove -drhv --hashfile=.hash"
+alias deduplicate="duperemove -drhv --hashfile=.hash --exclude .snapshots*"
 alias cp="cp --reflink=auto"
 
 # Editor selection

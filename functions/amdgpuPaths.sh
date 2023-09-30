@@ -1,19 +1,16 @@
 #!/usr/bin/env sh
 
 amd_vendor="0x1002"
+cards_path="/sys/class/drm"
 
 # Find AMD GPU
-GPU_base="card"
-GPU="card0"
-i=1
-while [ "$i" -ne 10 ] && [ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ]; do
-    GPU="$GPU_base$i"
-    i=$((i + 1))
+for card in "$cards_path/card"[0-9]; do
+    [ ! "$(cat "$card/device/vendor")" = "$amd_vendor" ] && break
 done
 
-[ ! "$(cat /sys/class/drm/$GPU/device/vendor)" = "$amd_vendor" ] && return 1
+[ ! "$(cat "$card/device/vendor")" = "$amd_vendor" ] && return 1
 
-device_path="/sys/class/drm/$GPU/device"
+device_path="$card/device"
 pp_od_clk_voltage_path="$device_path/pp_od_clk_voltage"
 
 # Find HWMON path

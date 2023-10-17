@@ -20,7 +20,7 @@
 . "$BASHTHINGS_FUNCTIONS/easymount.bash"
 
 # load amdgpu variables
-. "$BASHTHINGS_FUNCTIONS/amdgpuPaths.sh" || echo "Loading of amdgpu paths failed"
+#. "$BASHTHINGS_FUNCTIONS/amdgpuPaths.sh" || echo "Loading of amdgpu paths failed"
 
 # trueline settings
 . "$BASHTHINGS_MODULES/trueline-settings.bash"

@@ -11,13 +11,13 @@ Just run one of these two commands from your home directory, the first one use *
 *curl*
 
 ``` bash
-curl -o install.sh https://gitlab.com/eathtespagheti/bash-things/raw/master/install.sh && chmod +x install.sh && ./install.sh && rm install.sh
+curl -o install.sh https://gitlab.com/eathtespagheti/bash-things/raw/main/install.sh && chmod +x install.sh && ./install.sh && rm install.sh
 ```
 
 *wget*
 
 ``` bash
-wget -q https://gitlab.com/eathtespagheti/bash-things/raw/master/install.sh && chmod +x install.sh && ./install.sh && rm install.sh
+wget -q https://gitlab.com/eathtespagheti/bash-things/raw/main/install.sh && chmod +x install.sh && ./install.sh && rm install.sh
 ```
 
 ## Updating

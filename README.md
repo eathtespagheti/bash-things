@@ -2,6 +2,8 @@
 
 A collection of .bashrc setups and bash functions/scripts I often use for configuring and managing my machines (for both Arch Linux and macOS)
 
+![bash-things prompt, fastfetch output and aliases](screenshot.png)
+
 ## Installing
 
 Just run one of these two commands from your home directory, the first one use **curl** and the othe **wget**. The script will automatically find your Operating System and install the right things.
